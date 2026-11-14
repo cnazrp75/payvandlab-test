@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جهت «سرمه‌ای و چوب» — آزمایشگاه تشخیص طبی و تخصصی پیوند</title>
+<meta name="description" content="جهت بصری سرمه‌ای و چوب برای صفحه اصلی آزمایشگاه تشخیص طبی و تخصصی پیوند: رنگ‌های ورودی آزمایشگاه، عکس در طاق و دکمه فیروزه‌ای جواب آزمایش.">
+<link rel="stylesheet" href="media/ad-base.css">
+<style>
+:root {
+  --navy: #003C7E; --deep: #002A5C; --cyan: #00C0F3; --on-cyan: #00224A; --wood: #A47A50; --wood-light: #E2C29C; --soft: #C9D8EA; --paper: #FFFFFF; --ink: #10233F; --muted: #3D5170;
+  --ground: var(--paper); --font-body: "IBM Plex Sans Arabic", "Vazirmatn", sans-serif;
+  --focus: #FFFFFF; --focus-halo: rgba(0, 192, 243, .7);
+  --chip: rgba(0, 60, 126, .08); --card: #fff; --line: rgba(0, 60, 126, .12);
+  --slats: repeating-linear-gradient(90deg, #9C7A57 0 21px, #6E5439 21px 23px, #A5835F 23px 45px, #6E5439 45px 47px, #957352 47px 69px, #6E5439 69px 71px);
+  --slat-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .06' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .13 0 0 0 0 .06 0 0 0 .32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --slat-shade: var(--slat-grain), radial-gradient(ellipse 60% 45% at 50% 40%, rgba(255, 232, 196, .22), rgba(255, 232, 196, 0) 70%), linear-gradient(90deg, rgba(0, 26, 58, .34), rgba(0, 26, 58, 0) 26%, rgba(0, 26, 58, 0) 74%, rgba(0, 26, 58, .34)), linear-gradient(180deg, rgba(255, 236, 205, .16), rgba(255, 236, 205, 0) 45%, rgba(0, 26, 58, .22));
+}
+.hero { min-height: 100svh; display: grid; grid-template-rows: auto 1fr; background: radial-gradient(ellipse 80% 60% at 88% 10%, rgba(0, 192, 243, .2), rgba(0, 192, 243, 0) 62%), var(--navy); color: #fff; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 62px; padding-inline: 16px 10px; background: var(--paper); color: var(--ink); }
+.brand img { height: 40px; width: auto; }
+.nav, .top-tel { display: none; }
+.menu-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 0; border-radius: 8px; background: var(--navy); color: #fff; font-weight: 600; font-size: 15px; cursor: pointer; }
+.menu-btn svg { width: 22px; height: 22px; }
+.menu-btn:focus-visible, .top a:focus-visible { outline-color: var(--navy); }
+
+.body { display: grid; grid-template-areas: "title" "actions" "photo"; grid-template-rows: auto auto 1fr; padding: 14px 0 0; }
+.intro { grid-area: title; padding: 0 20px; }
+.title { display: grid; }
+.title .t1 { font-size: 15px; font-weight: 600; color: #DCE6F2; line-height: 1.6; }
+.title .t2 { font-size: 36px; font-weight: 700; line-height: 1.2; }
+.sub { display: none; }
+.photo { grid-area: photo; padding: 0 20px; margin-top: 20px; position: relative; display: flex; flex-direction: column; }
+.sl--fade { flex: 1; display: flex; flex-direction: column; gap: 0; height: auto; position: relative; isolation: isolate; }
+.sl--fade::before { content: ""; position: absolute; z-index: -1; left: -20px; right: -20px; top: 0; bottom: 0; background: var(--slat-shade), var(--slats); }
+.sl--fade .sl-bar { display: contents; }
+.sl--fade .sl-controls { order: 3; align-self: center; padding: 0 6px; margin-bottom: 16px; border-radius: 999px; background: var(--deep); box-shadow: 0 8px 18px -8px rgba(0, 10, 30, .7), inset 0 0 0 1px rgba(226, 194, 156, .25); }
+.sl--fade .sl-stage { order: 1; position: relative; inset: auto; flex: 1 1 auto; height: auto; min-height: clamp(180px, 30svh, 380px); max-height: 440px; margin: 16px 14px 0; border-radius: 999px 999px 0 0; overflow: hidden; box-shadow: 0 0 0 3px #F1E1C6, 0 26px 44px -20px rgba(0, 10, 30, .85); }
+.sl--fade .sl-bar .sl-caption { order: 2; align-self: center; margin: 12px 0 8px; }
+.sl--fade .sl-img { filter: saturate(1.04) contrast(1.04) sepia(.06); }
+.sl--fade .sl-shade { position: absolute; inset: auto 0 0 0; height: 34%; background: linear-gradient(180deg, rgba(0, 42, 92, 0), rgba(0, 42, 92, .55)); pointer-events: none; }
+.sl--fade .sl-bar .sl-caption { white-space: nowrap; min-height: 40px; padding: 0 16px; border-radius: 999px; background: var(--deep); box-shadow: 0 8px 18px -8px rgba(0, 10, 30, .7), inset 0 0 0 1px rgba(226, 194, 156, .25); }
+.sl--fade .sl-caption { font-size: 14px; font-weight: 600; color: var(--wood-light); gap: 8px; min-height: 44px; --dot: rgba(255, 255, 255, .4); --dot-track: rgba(255, 255, 255, .28); --dot-on: var(--cyan); }
+.sl--fade .sl-count { color: var(--soft); font-weight: 400; }
+.sl--fade .sl-controls { display: flex; color: #fff; }
+.sl--fade .sl-btn { font-size: 13px; font-weight: 600; padding: 0 7px; border-radius: 8px; }
+.sl--fade .sl-btn:hover { background: rgba(255, 255, 255, .08); }
+
+
+.actions { grid-area: actions; position: relative; z-index: 2; display: grid; gap: 10px; padding: 0 20px; margin-top: 14px; }
+.results { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; min-height: 78px; padding: 12px 16px; border-radius: 14px; background: linear-gradient(180deg, #4CD2F6, #14BAEC); color: var(--on-cyan); text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 20px 34px -16px rgba(0, 10, 30, .7); }
+.results:hover { background: linear-gradient(180deg, #66D9F8, #2FC3EF); }
+.results:focus-visible { outline-color: #fff; }
+.results .ic { width: 46px; height: 46px; padding: 10px; border-radius: 12px; background: var(--deep); color: var(--cyan); }
+.results .lbl { display: grid; }
+.results .lbl b { font-size: 24px; font-weight: 700; line-height: 1.3; }
+.results .lbl span { font-size: 13px; font-weight: 600; color: #00315F; line-height: 1.5; }
+.results .go { width: 22px; height: 22px; }
+.book { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 18px; border: 0; border-radius: 14px; background: var(--wood-light); color: #2B1D0E; font-size: 17px; font-weight: 700; cursor: pointer; box-shadow: 0 14px 26px -18px rgba(0, 10, 30, .8); }
+.book:hover { background: #EBD0AE; }
+.book svg { width: 21px; height: 21px; }
+.tel { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 16px; border-radius: 999px; border: 1.5px solid rgba(201, 216, 234, .4); color: #DCE6F2; text-decoration: none; font-size: 15px; justify-self: start; }
+.tel svg { width: 19px; height: 19px; color: var(--cyan); }
+.tel b { color: #fff; font-weight: 600; font-size: 16px; }
+.hours { display: none; }
+
+@media (min-width: 1024px) {
+  .top { height: 80px; padding-inline: 40px; gap: 24px; }
+  .brand img { height: 50px; }
+  .nav { display: flex; gap: 2px; }
+  .nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; color: var(--ink); text-decoration: none; border-radius: 8px; position: relative; white-space: nowrap; }
+  .nav a:hover { background: #EEF3F9; }
+  .nav a[aria-current] { font-weight: 700; color: var(--navy); }
+  .nav a[aria-current]::after { content: ""; position: absolute; inset-inline: 10px; bottom: 4px; height: 3px; border-radius: 3px; background: var(--wood); }
+  .top-tel { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 8px; background: var(--navy); color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; white-space: nowrap; }
+  .top-tel svg { width: 19px; height: 19px; color: var(--cyan); }
+  .menu-btn { display: none; }
+  .body { grid-template-areas: ". photo" "title photo" "actions photo" ". photo"; grid-template-columns: 1fr minmax(480px, 48%); grid-template-rows: 1fr auto auto 1fr; padding: 0; }
+  .intro { padding: 32px 72px 0 32px; align-self: end; }
+  .title .t1 { font-size: 22px; }
+  .title .t2 { font-size: 76px; line-height: 1.15; }
+  .sub { display: block; font-size: 17px; font-weight: 500; color: #DCE6F2; margin-top: 6px; }
+  .actions { margin-top: 0; padding: 26px 72px 32px 32px; align-self: start; align-content: start; gap: 14px; max-width: 560px; }
+  .results { min-height: 100px; padding: 16px 24px; gap: 18px; border-radius: 18px; box-shadow: 0 24px 44px -20px rgba(0, 10, 30, .8); }
+  .results .lbl b { font-size: 31px; }
+  .results .lbl span { font-size: 15px; }
+  .results .ic { width: 56px; height: 56px; padding: 13px; border-radius: 14px; }
+  .book { min-height: 58px; font-size: 18px; border-radius: 16px; }
+  .tel { display: none; }
+  .hours { display: grid; grid-template-columns: auto 1fr; justify-content: start; gap: 2px 28px; margin-top: 14px; padding: 16px 20px; border-radius: 14px; background: var(--deep); font-size: 15px; color: #DCE6F2; box-shadow: inset 0 0 0 1px rgba(201, 216, 234, .12); }
+  .hours dt { color: var(--wood-light); font-weight: 600; grid-column: 1 / -1; margin-bottom: 2px; }
+  .hours dd b { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .hours dd { line-height: 1.8; }
+  .photo { padding: 0; margin: 0; display: grid; place-items: center; background: var(--slat-shade), var(--slats); }
+  .sl--fade { position: relative; width: min(400px, 74%); flex-direction: column; gap: 26px; align-items: center; }
+  .sl--fade::before { display: none; }
+  .sl--fade .sl-bar { display: flex; order: 3; }
+  .sl--fade .sl-stage { flex: none; min-height: 0; max-height: none; width: 100%; margin: 0; height: min(520px, calc(100svh - 260px)); box-shadow: 0 0 0 4px #F1E1C6, 0 40px 70px -30px rgba(0, 10, 30, .9); }
+  .sl--fade .sl-bar .sl-caption { order: 0; margin: 0; background: none; box-shadow: none; padding: 0; min-height: 44px; }
+  .sl--fade .sl-controls { order: 0; align-self: auto; padding: 0; margin: 0; border-radius: 0; background: none; box-shadow: none; }
+  .sl--fade .sl-controls { margin-inline-start: 0; }
+  .sl--fade .sl-bar { width: max-content; margin: 0; padding: 2px 6px 2px 4px; padding-inline-start: 18px; border-radius: 14px; background: var(--deep); box-shadow: 0 12px 24px -10px rgba(0, 10, 30, .7); }
+  .sl--fade .sl-btn { font-size: 14px; padding: 0 10px; }
+}
+
+.spec { --spec-ground: #F2F5F9; }
+.spec h2 { font-size: 36px; font-weight: 700; color: var(--navy); }
+.spec .lead { font-size: 18px; line-height: 1.9; }
+.arch { aspect-ratio: 3 / 4; border-radius: 999px 999px 0 0; overflow: hidden; box-shadow: 0 0 0 3px #F1E1C6, 0 22px 36px -18px rgba(0, 10, 30, .8); position: relative; margin: 10px 10px 0; }
+.arch img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) contrast(1.04); }
+.arch::after { content: ""; position: absolute; inset: auto 0 0 0; height: 34%; background: linear-gradient(180deg, rgba(0, 42, 92, 0), rgba(0, 42, 92, .55)); }
+.archbox { background: var(--navy); padding: 18px 18px 0; border-radius: 16px; overflow: hidden; }
+.archbox .slat { height: 22px; margin: 0 -18px; background: var(--slats); }
+.img-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 260px)); }
+</style>
+</head>
+<body>
+<div class="hero" id="hero">
+  <header class="top">
+    <a class="brand" href="#hero"><img src="media/payvand-logo.png" width="217" height="63" alt="آزمایشگاه تشخیص طبی و تخصصی پیوند"></a>
+    <nav class="nav" aria-label="منوی اصلی">
+      <a href="#hero" aria-current="page">صفحه اصلی</a>
+      <a href="#hero">آزمایش‌های فعال</a>
+      <a href="#hero">بخش‌ها</a>
+      <a href="#hero">جوابدهی</a>
+      <a href="#hero">خدمات</a>
+      <a href="#hero">درباره آزمایشگاه</a>
+      <a href="#hero">ارتباط با ما</a>
+      <a href="#hero">اخبار</a>
+    </nav>
+    <a class="top-tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="visually-hidden">تلفن</span><span class="ltr">021-71400004</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>منو</button>
+  </header>
+  <main class="body">
+    <div class="intro">
+      <h1 class="title"><span class="t1">آزمایشگاه تشخیص طبی و تخصصی</span><span class="t2">پیوند</span></h1>
+      <p class="sub">پاتولوژی، ژنتیک پزشکی و مولکولی</p>
+    </div>
+    <div class="actions">
+      <a class="results" href="http://178.252.146.82:8082/Login">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+        <span class="lbl"><b>جواب آزمایش</b><span>دریافت اینترنتی جواب آزمایش مراجعین</span></span>
+        <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      </a>
+      <button class="book" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 14h2M13 14h2M9 17h2"/></svg>نوبت‌دهی آنلاین</button>
+      <a class="tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>تلفن <b class="ltr">021-71400004</b></a>
+      <dl class="hours"><div><dt>ساعات کاری</dt><dd>شنبه تا چهارشنبه: <span class="nw"><b class="ltr">06:30</b> الی <b class="ltr">19:00</b></span></dd><dd>پنج‌شنبه: <span class="nw"><b class="ltr">06:30</b> الی <b class="ltr">18:00</b></span></dd></div><div class="addr"><dt>نشانی</dt><dd>تهران، خیابان شریعتی، خیابان ظفر، پلاک <b class="ltr">174</b></dd></div></dl>
+    </div>
+    <div class="photo"><div id="slider" style="display:contents"></div></div>
+  </main>
+</div>
+
+<section class="spec" aria-labelledby="spec-title">
+  <div class="spec-inner">
+    <div>
+      <h2 id="spec-title">جهت ۳ — سرمه‌ای و چوب</h2>
+      <ul class="feel" aria-label="حس"><li>محکم</li><li>روشن و صریح</li><li>مطمئن</li><li>گرم</li></ul>
+      <p class="lead" style="margin-top:18px">رنگ‌های ورودی خود آزمایشگاه: دیوار چوبی، نشان فلزی و پرچم سرمه‌ای و فیروزه‌ای. سرمه‌ای لوگو کل صفحه اول را پر می‌کند، عکس در یک طاق بلند روی پنل چوبی می‌نشیند و دکمه فیروزه‌ای «جواب آزمایش» روشن‌ترین چیز صفحه است.</p>
+    </div>
+    <div>
+      <h3>رنگ‌ها و جای پررنگ هر کدام</h3>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#fff">سرمه‌ای لوگو</div><div class="swatch-body"><code>#003C7E · #002A5C</code><span>زمینه کل صفحه اول و پلاک کنترل‌ها. سفید روی آن ۱۰٫۷۸ به ۱ و روی سرمه‌ای تیره ۱۴٫۱۳ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#00C0F3;color:#00224A">فیروزه‌ای لوگو</div><div class="swatch-body"><code>#00C0F3 · متن #00224A</code><span>فقط دکمه جواب آزمایش، نقطه زمان اسلایدر و آیکون تلفن. دکمه با شیب ملایم #4CD2F6 تا #14BAEC؛ متن #00224A روی آن ۶٫۹۸ تا ۸٫۹۳ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--slats);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)">چوب ورودی</div><div class="swatch-body"><code>#9C7A57 · #6E5439</code><span>پنل چوبی پشت عکس و زیرخط منو، از دیوار ورودی (عکس ۵)، کمی کم‌اشباع و با لبه‌های تیره‌تر تا طاق جلو بیاید. فقط سطح و گرافیک؛ روی سرمه‌ای ۲٫۷۴ به ۱ و متن نمی‌شود.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#002A5C;color:#E2C29C">چوب روشن</div><div class="swatch-body"><code>#E2C29C</code><span>دکمه نوبت‌دهی، زیرنویس عکس و عنوان ساعات کاری. روی سرمه‌ای ۶٫۳۸ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#C9D8EA">آبی مه</div><div class="swatch-body"><code>#C9D8EA</code><span>متن دوم روی سرمه‌ای. ۷٫۴۴ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;color:#003C7E;border-bottom:1px solid #E3EAF0">سفید</div><div class="swatch-body"><code>#FFFFFF</code><span>سربرگ با لوگو؛ لوگوی سرمه‌ای همیشه روی سفید می‌نشیند. سرمه‌ای روی آن ۱۰٫۷۸ به ۱.</span></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>حروف</h3>
+      <div class="type-grid">
+        <div class="type-card"><div class="sample" style="font-weight:700;font-size:44px;color:#003C7E">جواب آزمایش</div><dl><dt>قلم</dt><dd>آی‌بی‌ام پلکس سنس عربی (IBM Plex Sans Arabic)، یک خانواده؛ ۷۰۰ عنوان، ۶۰۰ دکمه، ۴۰۰ متن</dd><dt>مجوز</dt><dd>SIL Open Font License 1.1، استفاده روی وب آزاد؛ نام «Plex» نام محفوظ قلم است</dd></dl></div>
+        <div class="type-card"><div class="sample" style="font-size:18px;line-height:1.9">شنبه تا چهارشنبه: <span class="ltr">06:30</span> الی <span class="ltr">19:00</span> — تلفن <span class="ltr">021-71400004</span></div><dl><dt>چرا</dt><dd>دقیق و نهادی، با فرم‌های باز و شفاف؛ حس یک مرکز تخصصی و مطمئن را می‌دهد و در اندازه ریز روی سرمه‌ای خوانا می‌ماند.</dd><dt>ارقام</dt><dd>همه‌جا لاتین، مثل شماره روی کیوسک و تابلوهای خود آزمایشگاه</dd></dl></div>
+      </div>
+    </div>
+    <div>
+      <h3>عکس‌ها</h3>
+      <dl class="treat">
+        <dt>برش</dt><dd>در دسکتاپ عکس عمودی تقریباً کامل در یک طاق بلند دیده می‌شود؛ در گوشی طاق پهن‌تر است و نقطه کانونی هر عکس ثابت می‌ماند.</dd>
+        <dt>رنگ</dt><dd>کمی پرکنتراست‌تر و کمی گرم‌تر (کنتراست ۱٫۰۴، اشباع ۱٫۰۴، گرمای ۶٪) تا کنار سرمه‌ای و چوب، خاکستری سرد نماند.</dd>
+        <dt>پوشش</dt><dd>یک‌سوم پایین عکس به سرمه‌ای تیره محو می‌شود (۰ تا ۵۵٪) تا پایه طاق آرام روی چوب بنشیند. زیرنویس و کنترل‌ها بیرون از عکس هستند و هیچ متنی روی عکس نیست.</dd>
+        <dt>قاب</dt><dd>طاق با بالای کاملاً گرد و یک لبه کرم نازک دور آن، مثل لبه قاب روی دیوار چوبی، با سایه‌ای بلند؛ پنل چوب بافت ریز، نوری نرم پشت طاق و لبه‌های تیره‌تر دارد. فیروزه‌ای فقط برای دکمه جواب می‌ماند.</dd>
+        <dt>حرکت</dt><dd>عکس بعدی با محو شدن در عکس قبلی می‌آید (۰٫۹ ثانیه)، نقطه عکس فعلی پهن می‌شود و با گذر زمان پر می‌شود، هر ۶ ثانیه؛ با توقف، فوکوس یا نشانگر روی اسلایدر و کاهش حرکت، می‌ایستد.</dd>
+      </dl>
+      <div class="img-grid" style="margin-top:22px">
+        <figure><div class="archbox"><div class="arch"><img src="media/photos/lab-5.jpg" alt="" style="object-position:62% 38%"></div><div class="slat"></div></div><figcaption>ورودی آزمایشگاه</figcaption></figure>
+        <figure><div class="archbox"><div class="arch"><img src="media/photos/lab-6.jpg" alt="" style="object-position:50% 50%"></div><div class="slat"></div></div><figcaption>کیوسک نوبت</figcaption></figure>
+        <figure><div class="archbox"><div class="arch"><img src="media/photos/lab-7.jpg" alt="" style="object-position:50% 62%"></div><div class="slat"></div></div><figcaption>سالن انتظار</figcaption></figure>
+      </div>
+    </div>
+    <nav class="links" aria-label="جهت‌ها">
+      <a href="art-direction.html">مودبورد</a>
+      <a href="direction-roshana.html">۱ روشنا</a>
+      <a href="direction-qab.html">۲ قاب</a>
+      <a href="direction-sarmei.html" aria-current="page">۳ سرمه‌ای و چوب</a>
+    </nav>
+  </div>
+</section>
+
+<section class="review" aria-labelledby="review-title">
+  <div class="review-inner">
+    <h2 id="review-title">پنل بازبینی</h2>
+    <p>حالت‌ها برای بازبینی؛ جزو طرح نیست.</p>
+    <div class="row"><b>عکس اول اسلایدر</b><a href="?slide=1">1 سالن انتظار</a><a href="?slide=2">2 ورودی</a><a href="?slide=3">3 جوابدهی</a><a href="?slide=4">4 پذیرش 2</a><a href="?slide=5">5 کیوسک</a><a href="?slide=6">6 تابلوها</a></div>
+    <div class="row"><b>حرکت</b><a href="?">پخش خودکار</a><a href="?paused=1">متوقف</a><a href="?rm=1">کاهش حرکت</a></div>
+  </div>
+</section>
+
+<script src="media/vendor/react-framer-motion.js"></script>
+<script src="media/hero-slider.js"></script>
+<script>PayvandSlider.mount(document.getElementById("slider"), { variant: "fade", digits: "latin" });</script>
+</body>
+</html>

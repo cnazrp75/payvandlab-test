@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جهت «قاب» — آزمایشگاه تشخیص طبی و تخصصی پیوند</title>
+<meta name="description" content="جهت بصری قاب برای صفحه اصلی آزمایشگاه تشخیص طبی و تخصصی پیوند: عکس‌های آزمایشگاه مثل تابلوهای سالن انتظار روی دیوار قاب شده‌اند.">
+<link rel="stylesheet" href="media/ad-base.css">
+<style>
+:root {
+  --wall: #F2EDE4; --dado: #D3DAD6; --seam: #BFC8C3; --mat: #FBFBF8; --bronze: #4B4433;
+  --navy: #003C7E; --cyan: #00C0F3; --poppy: #B04A30; --ink: #1E2A2E; --muted: #4F5B58;
+  --ground: var(--wall); --font-body: "Vazirmatn", sans-serif; --font-head: "Noto Naskh Arabic", "Vazirmatn", serif;
+  --focus: var(--navy); --focus-halo: rgba(0, 192, 243, .45);
+  --chip: var(--mat); --card: var(--mat); --line: rgba(75, 68, 51, .16);
+}
+.hero { min-height: 100svh; display: grid; grid-template-rows: auto 1fr; background: radial-gradient(ellipse 60% 55% at 32% 46%, rgba(255, 251, 243, .95), rgba(255, 251, 243, 0) 72%), linear-gradient(180deg, #F6F2EA 0%, #EFE8DC 78%, #E9E1D3 100%); position: relative; overflow: hidden; isolation: isolate; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .5; mix-blend-mode: multiply; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .5 0 0 0 0 .42 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding-inline: 16px 10px; }
+.brand { display: inline-flex; padding: 6px 10px; margin-inline-start: -10px; background: var(--mat); border-radius: 4px; box-shadow: 0 1px 0 rgba(75, 68, 51, .12); }
+.brand img { height: 36px; width: auto; }
+.nav, .top-tel { display: none; }
+.menu-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 1.5px solid rgba(75, 68, 51, .35); border-radius: 4px; background: transparent; color: var(--ink); font-weight: 500; font-size: 15px; cursor: pointer; }
+.menu-btn svg { width: 22px; height: 22px; }
+
+.body { position: relative; display: grid; grid-template-areas: "title" "actions" "wall" "contact"; align-content: start; padding-bottom: 12px; }
+.intro { grid-area: title; padding: 6px 20px 0; }
+.title { font-family: var(--font-head); color: var(--ink); display: grid; }
+.title .t1 { font-size: 16px; font-weight: 600; line-height: 1.6; }
+.title .t2 { font-size: 40px; font-weight: 700; line-height: 1.15; color: var(--navy); }
+.sub { display: none; }
+.actions { grid-area: actions; display: grid; gap: 10px; padding: 12px 20px 4px; }
+.results { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; min-height: 78px; padding: 12px 18px; border-radius: 12px; background: var(--navy); color: #fff; text-decoration: none; box-shadow: 0 16px 28px -16px rgba(0, 40, 90, .65); }
+.results:hover { background: #00316A; }
+.results .ic { width: 28px; height: 28px; color: var(--cyan); }
+.results .lbl { display: grid; }
+.results .lbl b { font-size: 23px; font-weight: 700; line-height: 1.35; }
+.results .lbl span { font-size: 13px; color: #D5E3F2; line-height: 1.5; }
+.results .go { width: 22px; height: 22px; color: var(--cyan); }
+.row2 { display: grid; grid-template-columns: 1fr; gap: 6px; }
+.book { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 18px; border: 0; border-radius: 12px; background: var(--poppy); color: #fff; font-size: 17px; font-weight: 700; cursor: pointer; box-shadow: 0 12px 22px -16px rgba(30, 50, 25, .7); }
+.book:hover { background: #973E27; }
+.book svg { width: 21px; height: 21px; }
+.contact { grid-area: contact; padding: 0 20px; }
+.tel { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 16px; border-radius: 999px; background: var(--mat); box-shadow: 0 1px 2px rgba(30, 28, 20, .12); color: var(--muted); text-decoration: none; font-size: 15px; justify-self: start; }
+.tel svg { width: 19px; height: 19px; color: var(--bronze); }
+.tel b { color: var(--ink); font-weight: 700; font-size: 16px; }
+.hours { display: none; }
+
+.wallwrap { grid-area: wall; position: relative; }
+.sl--wall { --fw: clamp(176px, 27svh, 240px); --wall-gap: 22px; --wall-anchor: center; display: grid; gap: 4px; }
+.sl-wall { position: relative; overflow: hidden; padding-top: 34px; padding-bottom: 18px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 36px, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(90deg, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
+.sl-rail { position: absolute; inset-inline: 0; top: 6px; height: 2px; background: linear-gradient(90deg, rgba(75, 68, 51, 0), rgba(75, 68, 51, .45) 12%, rgba(75, 68, 51, .45) 88%, rgba(75, 68, 51, 0)); }
+.sl-strip { display: flex; gap: var(--wall-gap); align-items: flex-start; width: max-content; }
+.sl-frame { position: relative; width: var(--fw); flex: none; padding: calc(var(--fw) * .024); background: var(--bronze); border-radius: 2px; transform-origin: 50% -28px; box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset, 0 22px 30px -18px rgba(30, 28, 20, .55), 0 3px 6px rgba(30, 28, 20, .18); cursor: pointer; }
+.sl-frame.is-current { cursor: default; }
+.sl-wire { position: absolute; left: 0; width: 100%; top: -28px; height: 28px; overflow: visible; }
+.sl-wire path { stroke: rgba(75, 68, 51, .6); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.sl-mat { background: var(--mat); padding: calc(var(--fw) * .05); box-shadow: inset 0 0 0 1px rgba(75, 68, 51, .12); }
+.sl-mat img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: saturate(.92) brightness(1.04) contrast(.98); box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); }
+.sl--wall .sl-bar { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.sl--wall .sl-caption { font-family: var(--font-head); font-size: 17px; font-weight: 600; color: var(--ink); gap: 10px; min-height: 30px; }
+.sl--wall .sl-count { font-family: var(--font-body); font-size: 13px; color: var(--muted); }
+.sl--wall .sl-count .sl-roll { color: var(--poppy); font-weight: 700; }
+.sl--wall .sl-controls { display: flex; gap: 2px; color: var(--ink); }
+.sl--wall .sl-btn { font-size: 14px; font-weight: 500; border-radius: 4px; }
+.sl--wall .sl-btn:hover { background: rgba(251, 251, 248, .8); }
+.sl--wall .sl-caption { --dot: rgba(75, 68, 51, .3); --dot-track: rgba(75, 68, 51, .22); --dot-on: var(--poppy); }
+
+@media (max-width: 1023px) and (min-height: 820px) {
+  .sl--wall { --fw: clamp(176px, 32svh, 280px); }
+}
+@media (min-width: 1024px) {
+  .top { height: 84px; padding-inline: 40px; gap: 24px; }
+  .brand { padding: 8px 14px; margin-inline-start: 0; }
+  .brand img { height: 46px; }
+  .nav { display: flex; gap: 2px; }
+  .nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; color: var(--ink); text-decoration: none; border-radius: 4px; position: relative; white-space: nowrap; }
+  .nav a:hover { background: rgba(251, 251, 248, .8); }
+  .nav a[aria-current] { font-weight: 700; color: var(--navy); }
+  .nav a[aria-current]::after { content: ""; position: absolute; inset-inline: 10px; bottom: 5px; height: 2px; background: var(--navy); }
+  .top-tel { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1.5px solid rgba(75, 68, 51, .35); border-radius: 4px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 16px; white-space: nowrap; }
+  .top-tel svg { width: 19px; height: 19px; color: var(--bronze); }
+  .menu-btn { display: none; }
+  .body { grid-template-areas: "title wall" "actions wall" "contact wall"; grid-template-columns: minmax(420px, 38%) 1fr; grid-template-rows: 1fr auto 1fr; align-content: stretch; padding-bottom: 0; }
+  .intro { padding: 48px 56px 0 24px; align-self: end; }
+  .title .t1 { font-size: 24px; }
+  .title .t2 { font-size: 78px; line-height: 1.12; margin-top: 4px; }
+  .sub { display: block; font-size: 17px; color: var(--muted); margin-top: 8px; }
+  .actions { padding: 26px 56px 0 24px; align-content: start; gap: 14px; max-width: 520px; }
+  .results { min-height: 98px; padding: 16px 24px; gap: 18px; border-radius: 14px; box-shadow: 0 22px 40px -22px rgba(0, 40, 90, .7); }
+  .results .lbl b { font-size: 30px; }
+  .results .lbl span { font-size: 15px; }
+  .results .ic { width: 32px; height: 32px; }
+  .book { min-height: 58px; font-size: 18px; }
+  .tel { display: none; }
+  .hours { display: grid; grid-template-columns: 1fr 1.15fr; gap: 18px; margin-top: 14px; padding: 16px 20px; background: var(--mat); border-radius: 2px; box-shadow: 0 1px 2px rgba(30, 28, 20, .12); }
+  .hours dt { font-family: var(--font-head); font-weight: 700; font-size: 17px; color: var(--ink); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .hours dt::before { content: ""; width: 8px; height: 8px; background: var(--poppy); }
+  .hours dd { font-size: 15px; color: var(--muted); line-height: 1.8; }
+  .hours dd a { display: inline-flex; align-items: center; min-height: 44px; margin-block: -8px; color: var(--ink); font-weight: 700; text-decoration: none; }
+  .wallwrap { align-self: stretch; display: grid; align-content: center; }
+  .sl--wall { --fw: clamp(300px, calc(100svh - 440px), 460px); --wall-gap: 60vw; --wall-anchor: center; }
+  .sl-wall { padding-top: 46px; }
+  .sl-rail { top: 14px; }
+  .sl-wall { -webkit-mask-image: none; mask-image: none; }
+  .sl--wall .sl-bar { width: calc(var(--fw) * .84); margin-inline: auto; align-items: stretch; background: var(--mat); padding: 8px 10px 4px 6px; border-radius: 2px; box-shadow: 0 1px 2px rgba(30, 28, 20, .12); }
+  .sl--wall .sl-caption { justify-content: space-between; padding-inline: 8px 4px; font-size: 19px; }
+  .sl--wall .sl-controls { justify-content: space-between; border-top: 1px solid rgba(75, 68, 51, .12); }
+  .dado { position: absolute; z-index: 0; inset-inline: 0; bottom: 0; height: 17%; background: repeating-linear-gradient(90deg, var(--dado) 0 179px, var(--seam) 179px 180px); border-top: 6px solid #C9D0CC; pointer-events: none; }
+  .body > * { position: relative; z-index: 1; }
+}
+.dado { display: none !important; }
+
+.spec { --spec-ground: #EEF2F0; }
+.spec h2 { font-family: var(--font-head); font-size: 40px; color: var(--navy); }
+.spec h3 { font-family: var(--font-head); font-size: 22px; }
+.spec .lead { font-size: 18px; line-height: 1.95; }
+.feel li { border: 1px solid rgba(75, 68, 51, .2); border-radius: 2px; }
+.swatch, .type-card { border-radius: 2px; }
+.framed { background: var(--bronze); padding: 8px; border-radius: 2px; box-shadow: 0 18px 26px -18px rgba(30, 28, 20, .6); }
+.framed > div { background: var(--mat); padding: 16px; }
+.framed img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: saturate(.92) brightness(1.04) contrast(.98); }
+.img-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 260px)); }
+</style>
+</head>
+<body>
+<div class="hero" id="hero">
+  <header class="top">
+    <a class="brand" href="#hero"><img src="media/payvand-logo.png" width="217" height="63" alt="آزمایشگاه تشخیص طبی و تخصصی پیوند"></a>
+    <nav class="nav" aria-label="منوی اصلی">
+      <a href="#hero" aria-current="page">صفحه اصلی</a>
+      <a href="#hero">آزمایش‌های فعال</a>
+      <a href="#hero">بخش‌ها</a>
+      <a href="#hero">جوابدهی</a>
+      <a href="#hero">خدمات</a>
+      <a href="#hero">درباره آزمایشگاه</a>
+      <a href="#hero">ارتباط با ما</a>
+      <a href="#hero">اخبار</a>
+    </nav>
+    <a class="top-tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="visually-hidden">تلفن</span><span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>منو</button>
+  </header>
+  <main class="body">
+    <div class="intro">
+      <h1 class="title"><span class="t1">آزمایشگاه تشخیص طبی و تخصصی</span><span class="t2">پیوند</span></h1>
+      <p class="sub">پاتولوژی، ژنتیک پزشکی و مولکولی</p>
+    </div>
+    <div class="actions">
+      <a class="results" href="http://178.252.146.82:8082/Login">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+        <span class="lbl"><b>جواب آزمایش</b><span>دریافت اینترنتی جواب آزمایش مراجعین</span></span>
+        <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      </a>
+      <div class="row2">
+        <button class="book" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 14h2M13 14h2M9 17h2"/></svg>نوبت‌دهی آنلاین</button>
+      </div>
+      <dl class="hours"><div><dt>ساعات کاری</dt><dd>شنبه تا چهارشنبه: <span class="nw">۰۶:۳۰ الی ۱۹:۰۰</span></dd><dd>پنج‌شنبه: <span class="nw">۰۶:۳۰ الی ۱۸:۰۰</span></dd></div><div><dt>نشانی و تلفن</dt><dd>تهران، خیابان شریعتی، خیابان ظفر، پلاک ۱۷۴</dd><dd><a href="tel:+982171400004" class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</a></dd></div></dl>
+    </div>
+    <div class="wallwrap" id="slider"></div>
+    <div class="contact"><a class="tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>تلفن <b class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</b></a></div>
+  </main>
+  <div class="dado" aria-hidden="true"></div>
+</div>
+
+<section class="spec" aria-labelledby="spec-title">
+  <div class="spec-inner">
+    <div>
+      <h2 id="spec-title">جهت ۲ — قاب</h2>
+      <ul class="feel" aria-label="حس"><li>آرام</li><li>فرهیخته</li><li>با حوصله</li><li>صمیمی</li></ul>
+      <p class="lead" style="margin-top:18px">خود آزمایشگاه در سالن انتظارش تابلوهای قاب‌شده گل و ظروف آزمایشگاهی آویخته است. این جهت همان را ادامه می‌دهد: عکس‌های آزمایشگاه مثل تابلو با پاسپارتو و قاب برنزی از ریل دیوار آویزان‌اند، روی دیواری روشن و گرم، و نام «پیوند» با قلم نسخ نوشته شده است.</p>
+    </div>
+    <div>
+      <h3>رنگ‌ها و جای پررنگ هر کدام</h3>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#fff">سرمه‌ای لوگو</div><div class="swatch-body"><code>#003C7E</code><span>دکمه جواب آزمایش و نام «پیوند». سفید روی آن ۱۰٫۷۸ و خود سرمه‌ای روی دیوار ۹٫۰۳ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#00C0F3;color:#003C7E">فیروزه‌ای لوگو</div><div class="swatch-body"><code>#00C0F3</code><span>آیکون‌های دکمه جواب روی سرمه‌ای (۵٫۰۵ به ۱) و هاله فوکوس. هرگز متن روی روشن.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F2EDE4;color:#1E2A2E">دیوار گچی</div><div class="swatch-body"><code>#F2EDE4 · #E9E1D3</code><span>زمینه کل صفحه: دیوار روشن و گرم با بافت گچی ریز و نوری نرم پشت قاب. جوهر روی آن ۱۲٫۶۳ و متن کم‌رنگ ۶٫۰۶ به ۱ (در تیره‌ترین پایین ۵٫۴۵).</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#4B4433;color:#FBFBF8">قاب برنزی</div><div class="swatch-body"><code>#4B4433 روی #FBFBF8</code><span>قاب عکس‌ها، سیم آویز و آیکون تلفن؛ از قاب تابلوهای سالن. پاسپارتو #FBFBF8.</span></div></div>
+                <div class="swatch"><div class="swatch-color" style="background:#B04A30;color:#fff">شقایق</div><div class="swatch-body"><code>#B04A30</code><span>از شقایق‌های تابلوها؛ دکمه پر نوبت‌دهی (سفید روی آن ۵٫۴۳ به ۱)، نقطه زمان اسلایدر و نشانه برچسب‌ها. روی پاسپارتو ۵٫۲۴ به ۱.</span></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>حروف</h3>
+      <div class="type-grid">
+        <div class="type-card"><div class="sample" style="font-family:var(--font-head);font-weight:700;font-size:52px;color:#003C7E">پیوند</div><dl><dt>عنوان</dt><dd>نوتو نسخ عربی (Noto Naskh Arabic)، ۶۰۰ و ۷۰۰؛ نام آزمایشگاه، عنوان‌ها و زیرنویس تابلوها</dd><dt>مجوز</dt><dd>SIL Open Font License 1.1، استفاده روی وب آزاد</dd></dl></div>
+        <div class="type-card"><div class="sample" style="font-size:22px;font-weight:700">جواب آزمایش <span style="font-weight:400;font-size:17px">دریافت اینترنتی جواب آزمایش مراجعین</span></div><dl><dt>متن و دکمه</dt><dd>وزیرمتن (Vazirmatn)، ۴۰۰، ۵۰۰ و ۷۰۰</dd><dt>مجوز</dt><dd>SIL Open Font License 1.1</dd><dt>چرا</dt><dd>نسخ حس کتاب و خوشنویسی و دقت دارد و با تابلوهای سالن هم‌خانواده است؛ دکمه‌ها با وزیرمتن ساده و بی‌ابهام می‌مانند.</dd><dt>ارقام</dt><dd>همه‌جا فارسی</dd></dl></div>
+      </div>
+    </div>
+    <div>
+      <h3>عکس‌ها</h3>
+      <dl class="treat">
+        <dt>برش</dt><dd>عکس‌ها عمودی می‌مانند (۴ به ۵) و تقریباً کامل دیده می‌شوند، همان‌طور که گرفته شده‌اند؛ برای وب هیچ نوار افقی‌ای از آن‌ها بریده نمی‌شود.</dd>
+        <dt>رنگ</dt><dd>کمی کم‌اشباع‌تر و روشن‌تر (اشباع ۰٫۹۲، روشنایی ۱٫۰۴) تا مثل چاپ روی کاغذ مات کنار پاسپارتو بنشینند.</dd>
+        <dt>پوشش</dt><dd>هیچ. متن هرگز روی عکس نیست؛ زیرنویس مثل برچسب موزه زیر قاب، روی کاغذ سفید است.</dd>
+        <dt>قاب</dt><dd>پاسپارتوی سفید ۷٪، قاب برنزی ۴٪، سیم آویز تا ریل دیوار و سایه بلند و نرم روی دیوار.</dd>
+        <dt>حرکت</dt><dd>عکس‌ها در طول دیوار حرکت می‌کنند (یک ردیف قاب که با فنر جابه‌جا می‌شود، سختی ۱۱۰، میرایی ۲۱)؛ در دسکتاپ یک قاب بزرگ وسط دیوار است و دیوار زیر آن جابه‌جا می‌شود؛ در گوشی قاب فعلی کامل است، قاب‌های کناری ۸۰٪ از دو لبه پیدا هستند و روی هر کدام می‌شود زد تا جلو بیاید. نقطه عکس فعلی پهن می‌شود و با گذر زمان پر می‌شود. هر ۶ ثانیه، با توقف و کاهش حرکت.</dd>
+      </dl>
+      <div class="img-grid" style="margin-top:22px">
+        <figure><div class="framed"><div><img src="media/photos/lab-3.jpg" alt="" style="object-position:50% 40%"></div></div><figcaption>تابلوهای سالن انتظار</figcaption></figure>
+        <figure><div class="framed"><div><img src="media/photos/lab-5.jpg" alt="" style="object-position:62% 38%"></div></div><figcaption>ورودی آزمایشگاه</figcaption></figure>
+        <figure><div class="framed"><div><img src="media/photos/lab-1-crop.jpg" alt="" style="object-position:50% 55%"></div></div><figcaption>میز جوابدهی، بدون چهره</figcaption></figure>
+      </div>
+    </div>
+    <nav class="links" aria-label="جهت‌ها">
+      <a href="art-direction.html">مودبورد</a>
+      <a href="direction-roshana.html">۱ روشنا</a>
+      <a href="direction-qab.html" aria-current="page">۲ قاب</a>
+      <a href="direction-sarmei.html">۳ سرمه‌ای و چوب</a>
+    </nav>
+  </div>
+</section>
+
+<section class="review" aria-labelledby="review-title">
+  <div class="review-inner">
+    <h2 id="review-title">پنل بازبینی</h2>
+    <p>حالت‌ها برای بازبینی؛ جزو طرح نیست.</p>
+    <div class="row"><b>عکس اول اسلایدر</b><a href="?slide=1">۱ سالن انتظار</a><a href="?slide=2">۲ ورودی</a><a href="?slide=3">۳ جوابدهی</a><a href="?slide=4">۴ پذیرش ۲</a><a href="?slide=5">۵ کیوسک</a><a href="?slide=6">۶ تابلوها</a></div>
+    <div class="row"><b>حرکت</b><a href="?">پخش خودکار</a><a href="?paused=1">متوقف</a><a href="?rm=1">کاهش حرکت</a></div>
+  </div>
+</section>
+
+<script src="media/vendor/react-framer-motion.js"></script>
+<script src="media/hero-slider.js"></script>
+<script>PayvandSlider.mount(document.getElementById("slider"), { variant: "wall", digits: "fa" });</script>
+</body>
+</html>

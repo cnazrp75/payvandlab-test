@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جهت «روشنا» — آزمایشگاه تشخیص طبی و تخصصی پیوند</title>
+<meta name="description" content="جهت بصری روشنا برای صفحه اصلی آزمایشگاه تشخیص طبی و تخصصی پیوند: عکس واقعی و پرنور، برگه سفید با لبه منحنی و دکمه جواب آزمایش.">
+<link rel="stylesheet" href="media/ad-base.css">
+<style>
+:root {
+  --navy: #003C7E; --cyan: #00C0F3; --ink: #13243A; --muted: #4A5B6E;
+  --wall: #DCEBF3; --wall-soft: #EEF5F9; --leaf: #1F5B43; --leaf-pale: #E2EFE6; --paper: #FFFFFF;
+  --ground: var(--paper); --font-body: "Estedad", "Vazirmatn", sans-serif;
+  --focus: var(--navy); --focus-halo: rgba(0, 192, 243, .5);
+  --spec-ground: var(--wall-soft); --chip: #fff; --card: #fff; --line: rgba(0, 60, 126, .1);
+}
+.hero { min-height: 100svh; display: grid; grid-template-rows: auto 1fr; background: var(--paper); }
+.top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding-inline: 16px 10px; background: var(--paper); }
+.brand img { height: 40px; width: auto; }
+.nav { display: none; }
+.top-tel { display: none; }
+.menu-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 0; border-radius: 12px; background: var(--wall-soft); color: var(--navy); font-weight: 600; font-size: 15px; cursor: pointer; }
+.menu-btn svg { width: 22px; height: 22px; }
+
+.body { position: relative; display: grid; grid-template-rows: clamp(250px, 44svh, 420px) auto; }
+.stage { position: relative; }
+.stage .sl-img { filter: saturate(1.14) brightness(1.04) contrast(1.03) sepia(.07); }
+.stage .sl-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255, 196, 140, .26), rgba(255, 196, 140, 0) 60%), linear-gradient(0deg, rgba(255, 190, 130, .22), rgba(255, 190, 130, 0) 40%); mix-blend-mode: soft-light; pointer-events: none; }
+.sl--fade .sl-bar { position: absolute; z-index: 2; left: 12px; right: 12px; bottom: 58px; display: flex; align-items: center; justify-content: space-between; gap: 6px; padding-inline: 14px 2px; background: rgba(0, 48, 102, .92); color: #fff; border-radius: 14px; box-shadow: 0 10px 26px -10px rgba(0, 20, 50, .55), inset 0 0 0 1px rgba(255, 255, 255, .14); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); --dot: rgba(255, 255, 255, .42); --dot-track: rgba(255, 255, 255, .3); --dot-on: var(--cyan); }
+.sl--fade .sl-caption { min-width: 0; min-height: 44px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.sl--fade .sl-dots { display: none; }
+.sl--fade .sl-btn:hover { background: rgba(255, 255, 255, .1); border-radius: 10px; }
+.sl-count { color: #D3E4F6; font-weight: 500; }
+.sl--fade .sl-controls { display: flex; padding: 0 2px; }
+.sl--fade .sl-btn { font-size: 13px; font-weight: 600; padding: 0 8px; }
+.sl--fade .sl-btn span { line-height: 1; }
+.sl-progress { --progress-track: rgba(0, 60, 126, .12); }
+
+.sheet { position: relative; z-index: 2; background: var(--paper); padding: 2px 20px 18px; display: grid; gap: 10px; align-content: start; }
+.sheet-main { display: grid; gap: 10px; }
+.curve { position: absolute; left: 0; right: 0; bottom: 100%; height: 52px; width: 100%; display: block; }
+.curve .fill { fill: var(--paper); stroke: none; }
+.curve .edge { fill: none; stroke: var(--cyan); stroke-width: 3; vector-effect: non-scaling-stroke; }
+.title { display: grid; gap: 2px; color: var(--navy); }
+.title .t1 { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.title .t2 { font-size: 30px; font-weight: 850; line-height: 1.15; letter-spacing: -.01em; }
+.sub { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.actions { display: grid; gap: 10px; margin-top: 4px; }
+.results { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; min-height: 80px; padding: 12px 14px 12px 10px; border-radius: 20px; background: var(--navy); color: #fff; text-decoration: none; box-shadow: 0 14px 30px -12px rgba(0, 60, 126, .55); }
+.results:hover { background: #00326B; }
+.results .ic { width: 46px; height: 46px; border-radius: 14px; background: rgba(0, 192, 243, .18); display: grid; place-items: center; color: #7FE0FA; }
+.results .ic svg { width: 26px; height: 26px; }
+.results .lbl { display: grid; gap: 2px; }
+.results .lbl b { font-size: 23px; font-weight: 800; line-height: 1.25; }
+.results .lbl span { font-size: 13px; color: #D3E4F6; line-height: 1.5; letter-spacing: -.01em; }
+.results .go { width: 20px; height: 20px; color: #7FE0FA; }
+.book { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 18px; border: 0; border-radius: 16px; background: var(--leaf); color: #fff; font-size: 17px; font-weight: 700; cursor: pointer; box-shadow: 0 8px 18px -12px rgba(31, 91, 67, .5); }
+.book:hover { background: #174A36; }
+.book svg { width: 22px; height: 22px; }
+.tel { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 16px; border-radius: 999px; background: var(--wall-soft); color: var(--navy); text-decoration: none; font-size: 15px; font-weight: 600; justify-self: start; }
+.tel svg { width: 19px; height: 19px; color: var(--navy); }
+.tel b { color: var(--ink); font-weight: 700; font-size: 16px; }
+.hours, .facts { display: none; }
+
+@media (max-width: 1023px) and (min-height: 820px) {
+  .hours { display: grid; grid-template-columns: auto 1fr; gap: 0 12px; padding-top: 12px; border-top: 1px solid rgba(0, 60, 126, .12); font-size: 14px; color: var(--muted); }
+  .hours dt { font-weight: 700; color: var(--ink); grid-row: span 2; }
+}
+@media (min-width: 1024px) {
+  .top { height: 80px; padding-inline: 40px; gap: 24px; box-shadow: 0 1px 0 rgba(0, 60, 126, .08); }
+  .brand img { height: 50px; }
+  .nav { display: flex; gap: 2px; }
+  .nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border-radius: 10px; position: relative; white-space: nowrap; }
+  .nav a:hover { background: var(--wall-soft); }
+  .nav a[aria-current] { color: var(--navy); font-weight: 700; }
+  .nav a[aria-current]::after { content: ""; position: absolute; inset-inline: 10px; bottom: 4px; height: 3px; border-radius: 3px; background: var(--cyan); }
+  .top-tel { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 12px; background: var(--wall-soft); color: var(--navy); text-decoration: none; font-weight: 700; font-size: 16px; white-space: nowrap; }
+  .top-tel svg { width: 19px; height: 19px; }
+  .menu-btn { display: none; }
+  .body { grid-template-rows: none; grid-template-columns: minmax(470px, 43%) 1fr; }
+  .stage { grid-column: 2; grid-row: 1; }
+  .sheet { grid-column: 1; grid-row: 1; padding: 32px 64px 32px 24px; align-content: center; gap: 22px; background: #F6EFE3; }
+  .curve .fill { fill: #F6EFE3; }
+  .sheet-main { gap: 16px; }
+  .facts { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px 20px; padding: 18px 20px; max-width: 470px; background: #fff; border-radius: 20px; box-shadow: 0 1px 0 rgba(0, 60, 126, .06), 0 14px 30px -20px rgba(0, 60, 126, .35); }
+  .facts div { display: grid; gap: 4px; align-content: start; }
+  .facts div:last-child { grid-column: 1 / -1; padding-top: 14px; border-top: 1px solid rgba(0, 60, 126, .08); }
+  .facts dt { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--leaf); }
+  .facts dt svg { width: 16px; height: 16px; flex: none; }
+  .facts a { display: inline-flex; align-items: center; min-height: 44px; margin-block: -12px; }
+  .facts dd { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.7; }
+  .facts a { text-decoration: none; color: var(--navy); }
+  .curve { left: auto; right: 100%; top: 0; bottom: 0; height: 100%; width: 96px; }
+  .title .t1 { font-size: 20px; }
+  .title .t2 { font-size: 56px; }
+  .sub { font-size: 17px; }
+  .actions { gap: 14px; margin-top: 14px; max-width: 470px; }
+  .results { min-height: 100px; padding: 16px 24px 16px 18px; border-radius: 24px; gap: 18px; }
+  .results .ic { width: 60px; height: 60px; border-radius: 18px; }
+  .results .ic svg { width: 30px; height: 30px; }
+  .results .lbl b { font-size: 30px; }
+  .results .lbl span { font-size: 15px; }
+  .book { min-height: 60px; font-size: 18px; justify-self: stretch; }
+  .tel { display: none; }
+  .sl--fade .sl-bar { left: 28px; right: auto; bottom: 28px; gap: 14px; padding-inline: 18px 4px; }
+  .sl--fade .sl-dots { display: inline-flex; }
+  .results .go { width: 24px; height: 24px; }
+  .hours { display: none; }
+  .sl--fade .sl-caption { font-size: 15px; min-height: 48px; }
+  .sl--fade .sl-btn { font-size: 14px; padding: 0 12px; min-height: 48px; }
+}
+@media (min-width: 1360px) {
+  .sheet { padding-inline: 88px 32px; }
+  .title .t2 { font-size: 64px; }
+}
+
+.spec .lead { font-size: 19px; line-height: 1.9; max-width: 62ch; }
+.spec h2 { color: var(--navy); font-size: 34px; font-weight: 850; }
+.thumb { aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; position: relative; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.1) brightness(1.03) contrast(1.02); }
+.thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255, 210, 160, .16), rgba(255, 210, 160, 0) 55%); mix-blend-mode: soft-light; }
+.thumb.curved::before { content: ""; position: absolute; z-index: 1; left: -10%; right: -10%; bottom: -46px; height: 80px; background: #fff; border-radius: 50% 50% 0 0 / 100% 100% 0 0; box-shadow: 0 -3px 0 var(--cyan); }
+</style>
+</head>
+<body>
+<div class="hero" id="hero">
+  <header class="top">
+    <a class="brand" href="#hero"><img src="media/payvand-logo.png" width="217" height="63" alt="آزمایشگاه تشخیص طبی و تخصصی پیوند"></a>
+    <nav class="nav" aria-label="منوی اصلی">
+      <a href="#hero" aria-current="page">صفحه اصلی</a>
+      <a href="#hero">آزمایش‌های فعال</a>
+      <a href="#hero">بخش‌ها</a>
+      <a href="#hero">جوابدهی</a>
+      <a href="#hero">خدمات</a>
+      <a href="#hero">درباره آزمایشگاه</a>
+      <a href="#hero">ارتباط با ما</a>
+      <a href="#hero">اخبار</a>
+    </nav>
+    <a class="top-tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="visually-hidden">تلفن</span><span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>منو</button>
+  </header>
+  <main class="body">
+    <div class="stage" id="slider"></div>
+    <div class="sheet">
+      <svg class="curve curve-m" viewBox="0 0 100 52" preserveAspectRatio="none" aria-hidden="true"><path class="fill" d="M0 52 L0 46 C 30 46 58 4 100 2 L100 52 Z"/><path class="edge" d="M0 46 C 30 46 58 4 100 2"/></svg>
+      <div class="sheet-main">
+      <h1 class="title"><span class="t1">آزمایشگاه تشخیص طبی و تخصصی</span><span class="t2">پیوند</span></h1>
+      <p class="sub">پاتولوژی، ژنتیک پزشکی و مولکولی</p>
+      <div class="actions">
+        <a class="results" href="http://178.252.146.82:8082/Login">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+          <span class="lbl"><b>جواب آزمایش</b><span>دریافت اینترنتی جواب آزمایش مراجعین</span></span>
+          <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        </a>
+        <button class="book" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 14h2M13 14h2M9 17h2"/></svg>نوبت‌دهی آنلاین</button>
+        <a class="tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>تلفن <b class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</b></a>
+      </div>
+      <dl class="hours"><dt>ساعات کاری</dt><dd>شنبه تا چهارشنبه: <span class="nw">۰۶:۳۰ الی ۱۹:۰۰</span></dd><dd>پنج‌شنبه: <span class="nw">۰۶:۳۰ الی ۱۸:۰۰</span></dd></dl>
+      </div>
+      <dl class="facts">
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>ساعات کاری</dt><dd>شنبه تا چهارشنبه: <span class="nw">۰۶:۳۰ الی ۱۹:۰۰</span><br>پنج‌شنبه: <span class="nw">۰۶:۳۰ الی ۱۸:۰۰</span></dd></div>
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>تلفن</dt><dd><a href="tel:+982171400004" class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</a></dd></div>
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>نشانی</dt><dd>تهران، خیابان شریعتی، خیابان ظفر، پلاک ۱۷۴</dd></div>
+      </dl>
+    </div>
+  </main>
+</div>
+
+<section class="spec" aria-labelledby="spec-title">
+  <div class="spec-inner">
+    <div>
+      <h2 id="spec-title">جهت ۱ — روشنا</h2>
+      <ul class="feel" aria-label="حس"><li>روشن</li><li>باز</li><li>خوش‌آمد</li><li>واقعی</li></ul>
+      <p class="lead" style="margin-top:18px">صفحه مثل لحظه ورود به آزمایشگاه است: عکس واقعی و پرنور تا لبه صفحه، و یک برگه سفید با لبه منحنی که دکمه «جواب آزمایش» روی آن نشسته است. منحنی از قطره نشان پیوند آمده و خط فیروزه‌ای لبه‌اش همان فیروزه‌ای لوگو است.</p>
+    </div>
+    <div>
+      <h3>رنگ‌ها و جای پررنگ هر کدام</h3>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#fff">سرمه‌ای لوگو</div><div class="swatch-body"><code>#003C7E</code><span>دکمه جواب آزمایش، نام آزمایشگاه، نشانگر منو. سفید روی آن ۱۰٫۷۸ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#00C0F3;color:#003C7E">فیروزه‌ای لوگو</div><div class="swatch-body"><code>#00C0F3</code><span>خط لبه منحنی، نوار زمان اسلایدر، هاله فوکوس، زیرخط منو. فقط گرافیک؛ روی سفید ۲٫۱۴ به ۱ است و متن نمی‌شود.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;color:#13243A;border-bottom:1px solid #E3EAF0">سفید روز</div><div class="swatch-body"><code>#FFFFFF</code><span>سربرگ، برگه در گوشی و کارت ساعات و نشانی.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F6EFE3;color:#13243A">کاغذ گرم</div><div class="swatch-body"><code>#F6EFE3</code><span>برگه دسکتاپ تا لبه منحنی. جوهر روی آن ۱۳٫۷، سرمه‌ای ۹٫۴۳ و متن کم‌رنگ ۶٫۱ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#DCEBF3;color:#003C7E">آبی دیوار</div><div class="swatch-body"><code>#DCEBF3</code><span>از دیوارهای آبی خود آزمایشگاه؛ زمینه بخش‌های پایین صفحه. سرمه‌ای روی آن ۸٫۸۴ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#1F5B43;color:#fff">سبز گلدان</div><div class="swatch-body"><code>#1F5B43 · متن سفید</code><span>از گیاهان پذیرش و ورودی؛ دکمه پر نوبت‌دهی و عنوان‌های کارت ساعات و نشانی. سفید روی آن ۷٫۹۷ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#13243A;color:#fff">جوهر</div><div class="swatch-body"><code>#13243A · #4A5B6E</code><span>متن اصلی ۱۵٫۶۶ به ۱ و متن کم‌رنگ ۶٫۹۷ به ۱ روی سفید.</span></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>حروف</h3>
+      <div class="type-grid">
+        <div class="type-card"><div class="sample" style="font-weight:850;font-size:40px;color:#003C7E">جواب آزمایش</div><dl><dt>قلم</dt><dd>استعداد (Estedad)، یک خانواده برای همه چیز</dd><dt>وزن‌ها</dt><dd>۸۵۰ عنوان، ۷۰۰ دکمه، ۴۰۰ و ۵۰۰ متن</dd><dt>مجوز</dt><dd>SIL Open Font License 1.1، استفاده روی وب آزاد</dd></dl></div>
+        <div class="type-card"><div class="sample" style="font-size:18px;line-height:1.9">آزمایشگاه تشخیص طبی و تخصصی پیوند، پاتولوژی، ژنتیک پزشکی و مولکولی. ارقام فارسی: <span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></div><dl><dt>چرا</dt><dd>هندسی و گشاده، با پایانه‌های نرم؛ در اندازه درشت گرم و دوستانه و در اندازه ریز خوانا. از وزیرمتنِ همه‌جایی جداست.</dd><dt>ارقام</dt><dd>همه‌جا فارسی</dd></dl></div>
+      </div>
+    </div>
+    <div>
+      <h3>عکس‌ها</h3>
+      <dl class="treat">
+        <dt>برش</dt><dd>عکس‌های عمودی به نوار افقی بریده می‌شوند و نقطه کانونی هر عکس ثابت است (سالن انتظار در ۴۰٪ ارتفاع تا تابلوهای گل دیده شوند، ورودی روی نشان پیوند). در گوشی عکس ۴۴٪ ارتفاع صفحه را می‌گیرد.</dd>
+        <dt>رنگ</dt><dd>کمی پرنورتر و گرم‌تر از اصل (اشباع ۱٫۱، روشنایی ۱٫۰۳) و یک لایه نور گرم نرم در بالای عکس، تا خاکستری سرد عکس‌ها حس آفتاب صبح بگیرد.</dd>
+        <dt>پوشش</dt><dd>هیچ متنی مستقیم روی عکس نیست. زیرنویس و کنترل‌ها روی یک نوار سرمه‌ای ۹۲٪ پایین عکس هستند؛ حتی روی سفیدترین نقطه عکس، سفید روی آن ۱۰٫۳۵ به ۱ است.</dd>
+        <dt>قاب</dt><dd>بی‌قاب و تمام‌قد تا لبه صفحه؛ برگه سفید با لبه منحنی فیروزه‌ای روی عکس می‌نشیند.</dd>
+        <dt>حرکت</dt><dd>هر ۶ ثانیه عکس بعدی با محو شدن در عکس قبلی می‌آید (۰٫۹ ثانیه)، نقطه عکس فعلی پهن می‌شود و با گذر زمان پر می‌شود. با «توقف»، با رفتن نشانگر یا فوکوس روی اسلایدر و با کاهش حرکت، می‌ایستد.</dd>
+      </dl>
+      <div class="img-grid" style="margin-top:20px">
+        <figure><div class="thumb curved"><img src="media/photos/lab-5.jpg" alt="" style="object-position:62% 38%"></div><figcaption>ورودی آزمایشگاه، با برگه منحنی</figcaption></figure>
+        <figure><div class="thumb"><img src="media/photos/lab-2.jpg" alt="" style="object-position:45% 52%"></div><figcaption>پذیرش ۲، رنگ گرم‌شده</figcaption></figure>
+        <figure><div class="thumb"><img src="media/photos/lab-6.jpg" alt="" style="object-position:50% 50%"></div><figcaption>کیوسک نوبت</figcaption></figure>
+      </div>
+    </div>
+    <nav class="links" aria-label="جهت‌ها">
+      <a href="art-direction.html">مودبورد</a>
+      <a href="direction-roshana.html" aria-current="page">۱ روشنا</a>
+      <a href="direction-qab.html">۲ قاب</a>
+      <a href="direction-sarmei.html">۳ سرمه‌ای و چوب</a>
+    </nav>
+  </div>
+</section>
+
+<section class="review" aria-labelledby="review-title">
+  <div class="review-inner">
+    <h2 id="review-title">پنل بازبینی</h2>
+    <p>حالت‌ها برای بازبینی؛ جزو طرح نیست.</p>
+    <div class="row"><b>عکس اول اسلایدر</b><a href="?slide=1">۱ سالن انتظار</a><a href="?slide=2">۲ ورودی</a><a href="?slide=3">۳ جوابدهی</a><a href="?slide=4">۴ پذیرش ۲</a><a href="?slide=5">۵ کیوسک</a><a href="?slide=6">۶ تابلوها</a></div>
+    <div class="row"><b>حرکت</b><a href="?">پخش خودکار</a><a href="?paused=1">متوقف</a><a href="?rm=1">کاهش حرکت</a></div>
+  </div>
+</section>
+
+<script src="media/vendor/react-framer-motion.js"></script>
+<script src="media/hero-slider.js"></script>
+<script>
+PayvandSlider.mount(document.getElementById("slider"), { variant: "fade", digits: "fa" });
+const mq = matchMedia("(min-width: 1024px)");
+const curve = document.querySelector(".curve");
+const setCurve = () => {
+  if (mq.matches) {
+    curve.setAttribute("viewBox", "0 0 96 100");
+    curve.innerHTML = '<defs><linearGradient id="sheetg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FAF4EC"/></linearGradient></defs><path class="fill" style="fill:url(#sheetg)" d="M96 0 L40 0 C 4 30 4 70 40 100 L96 100 Z"/><path class="edge" d="M40 0 C 4 30 4 70 40 100"/>';
+  } else {
+    curve.setAttribute("viewBox", "0 0 100 52");
+    curve.innerHTML = '<path class="fill" d="M0 52 L0 46 C 30 46 58 4 100 2 L100 52 Z"/><path class="edge" d="M0 46 C 30 46 58 4 100 2"/>';
+  }
+};
+setCurve(); mq.addEventListener("change", setCurve);
+</script>
+</body>
+</html>

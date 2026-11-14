@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مودبورد و جهت‌های بصری — بازطراحی سایت آزمایشگاه پیوند</title>
+<meta name="description" content="مودبورد بازطراحی سایت آزمایشگاه تشخیص طبی و تخصصی پیوند: سه سایت مرجع، هفت عکس خود آزمایشگاه و سه جهت بصری.">
+<link rel="stylesheet" href="media/ad-base.css">
+<style>
+:root { --ink: #16233A; --muted: #4C5A6E; --navy: #003C7E; --cyan: #00C0F3; --ground: #F4F6F8; --card: #FFFFFF; --line: rgba(22, 35, 58, .1); --font-body: "Vazirmatn", sans-serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+.mb-top { background: #fff; border-bottom: 1px solid var(--line); }
+.mb-top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 76px; flex-wrap: wrap; padding-block: 10px; }
+.mb-top img { height: 44px; width: auto; }
+.mb-top nav { display: flex; flex-wrap: wrap; gap: 6px; }
+.mb-top nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 10px; text-decoration: none; font-weight: 500; font-size: 15px; }
+.mb-top nav a:hover { background: var(--ground); }
+.intro { background: #fff; padding: 44px 0 52px; }
+.intro h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.3; color: var(--navy); font-weight: 700; max-width: 22ch; }
+.intro .lead { font-size: 18px; line-height: 1.9; color: var(--muted); margin-top: 14px; max-width: 64ch; }
+.moods { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.moods li { padding: 8px 16px; border-radius: 999px; background: #EAF4FA; color: var(--navy); font-weight: 700; font-size: 16px; }
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 32px; }
+.quotes blockquote { margin: 0; padding: 18px 20px; border-radius: 14px; background: var(--ground); display: grid; gap: 8px; }
+.quotes p { font-size: 17px; line-height: 1.8; font-weight: 500; }
+.quotes cite { font-style: normal; font-size: 14px; color: var(--muted); }
+section.band { padding: 56px 0; }
+section.band h2 { font-size: 28px; line-height: 1.4; color: var(--ink); }
+section.band .note { color: var(--muted); font-size: 16px; margin-top: 6px; max-width: 70ch; line-height: 1.8; }
+.refs { display: grid; gap: 28px; margin-top: 28px; }
+.ref { display: grid; gap: 22px; grid-template-columns: 1fr; background: #fff; border-radius: 18px; padding: 18px; border: 1px solid var(--line); }
+.shots { display: grid; grid-template-columns: 1fr 26%; gap: 12px; align-items: start; }
+.shots img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); box-shadow: 0 10px 24px -16px rgba(22, 35, 58, .45); }
+.ref h3 { font-size: 21px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+.ref h3 small { font-size: 14px; font-weight: 400; color: var(--muted); }
+.ref dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin-top: 12px; font-size: 16px; line-height: 1.8; }
+.ref dt { font-weight: 700; color: var(--ink); white-space: nowrap; }
+.ref dd { color: var(--muted); }
+.ref .chips { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 4px; border-radius: 999px; background: var(--ground); font: 500 13px/1 ui-monospace, Menlo, monospace; direction: ltr; }
+.chip i { width: 20px; height: 20px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12); }
+@media (min-width: 960px) { .ref { grid-template-columns: 1.35fr 1fr; padding: 22px; } }
+.photos { columns: 2 160px; column-gap: 14px; margin-top: 28px; }
+.photos figure { break-inside: avoid; margin-bottom: 14px; background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.photos img { width: 100%; height: auto; }
+.photos figcaption { padding: 10px 12px 12px; display: grid; gap: 6px; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.photos figcaption b { color: var(--ink); font-size: 15px; }
+.photos .dots { display: flex; gap: 4px; }
+.photos .dots i { flex: 1; height: 14px; border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08); }
+@media (min-width: 700px) { .photos { columns: 4 200px; } }
+.brandrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
+.brandrow > div { background: #fff; border-radius: 14px; border: 1px solid var(--line); padding: 16px; display: grid; gap: 6px; font-size: 15px; color: var(--muted); }
+.brandrow b { color: var(--ink); }
+.brandrow .sw { height: 64px; border-radius: 10px; }
+.dirs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 26px; }
+.dir { display: grid; gap: 12px; padding: 22px; border-radius: 18px; text-decoration: none; min-height: 250px; align-content: start; box-shadow: 0 18px 34px -24px rgba(22, 35, 58, .6); }
+.dir .num { font-size: 15px; opacity: .85; }
+.dir .name { font-size: 40px; line-height: 1.2; }
+.dir .feel { margin: 0; gap: 6px; }
+.dir .feel li { background: rgba(255, 255, 255, .16); padding: 4px 12px; font-size: 14px; }
+.dir p { font-size: 15px; line-height: 1.8; }
+.dir .strip { display: flex; height: 18px; border-radius: 6px; overflow: hidden; margin-top: auto; }
+.dir .strip i { flex: 1; }
+.dir .open { font-weight: 700; font-size: 15px; text-decoration: underline; text-underline-offset: 5px; }
+.d1 { background: #fff; color: #13243A; font-family: "Estedad", sans-serif; border: 1px solid var(--line); }
+.d1 .name { color: #003C7E; font-weight: 850; }
+.d1 .feel li { background: #E2EFE6; color: #1F5B43; }
+.d2 { background: #F2EDE4; color: #1E2A2E; }
+.d2 .name { font-family: "Noto Naskh Arabic", serif; font-weight: 700; color: #003C7E; }
+.d2 .feel li { background: #FBFBF8; color: #8E3A24; }
+.d3 { background: #003C7E; color: #fff; font-family: "IBM Plex Sans Arabic", sans-serif; }
+.d3 .name { font-weight: 700; }
+.d3 .feel li { color: #E2C29C; }
+.d3 p { color: #C9D8EA; }
+.foot { padding: 32px 0 56px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+.foot li { list-style: disc; margin-inline-start: 20px; }
+</style>
+</head>
+<body>
+<header class="mb-top">
+  <div class="wrap">
+    <img src="media/payvand-logo.png" width="217" height="63" alt="آزمایشگاه تشخیص طبی و تخصصی پیوند">
+    <nav aria-label="بخش‌های این صفحه">
+      <a href="#refs">سایت‌های مرجع</a>
+      <a href="#photos">عکس‌های آزمایشگاه</a>
+      <a href="#dirs">سه جهت</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="intro">
+    <div class="wrap">
+      <h1>مودبورد و جهت‌های بصری بازطراحی سایت آزمایشگاه پیوند</h1>
+      <p class="lead">پیش از هر صفحه، ظاهر سایت از اینجا انتخاب می‌شود: از سه سایتی که آزمایشگاه پسندیده، از هفت عکس واقعی خود آزمایشگاه و از حرف‌های مهدی. در هر سه جهت لوگو و رنگ‌های سرمه‌ای و فیروزه‌ای آزمایشگاه دست نمی‌خورد و دکمه «جواب آزمایش» مهم‌ترین چیز صفحه اول است.</p>
+      <ul class="moods" aria-label="حس مطلوب"><li>گرم</li><li>قابل اعتماد</li><li>آرام</li><li>زنده</li><li>واقعی</li></ul>
+      <div class="quotes">
+        <blockquote><p>«از نظر بصری خیلی خامه و نیازه حتما از تصویر و ... استفاده بشه»</p><cite>مهدی، ۲۳ آبان ۱۴۰۵</cite></blockquote>
+        <blockquote><p>«نوبت دهی آنلاین» و «SEO اهمیت داره»</p><cite>مهدی، ۲۳ آبان ۱۴۰۵</cite></blockquote>
+        <blockquote><p>«سادگی، در دسترس پذیری و مشخص بودن موارد برای افراد مختلف مهمه»</p><cite>مهدی، ۱۷ آبان ۱۴۰۵</cite></blockquote>
+        <blockquote><p>«باید هر چیزی که توی سایت داره نمایش داده میشه رو بتونم ازش دفاع کنم»</p><cite>مهدی، ۱۷ آبان ۱۴۰۵؛ درباره درستی محتوا، نه ساده بودن ظاهر</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="refs" aria-labelledby="refs-title">
+    <div class="wrap">
+      <h2 id="refs-title">سه سایت مرجع و چیزی که حسشان را می‌سازد</h2>
+      <p class="note">صفحه اول هر سایت در دسکتاپ (۱۲۸۰ پیکسل) و گوشی (۳۶۰ پیکسل)، گرفته‌شده در ۲۲ آبان ۱۴۰۵. رنگ‌ها از خود تصویرها نمونه‌برداری شده‌اند.</p>
+      <div class="refs">
+        <article class="ref">
+          <div class="shots"><img src="media/refs/carelab-desktop.jpg" width="1280" height="800" alt="صفحه اول carelab.life در دسکتاپ"><img src="media/refs/carelab-mobile.jpg" width="360" height="740" alt="صفحه اول carelab.life در گوشی"></div>
+          <div>
+            <h3>carelab.life <small>سایتی که دکتر آزمایشگاه می‌پسندد</small></h3>
+            <dl>
+              <dt>تصویر</dt><dd>یک عکس مستند و گرم از یک لحظه واقعی، تمام‌قد و با عمق میدان کم؛ یک برگه سفید با لبه منحنی بزرگ از کنار روی عکس آمده و متن را نگه داشته است.</dd>
+              <dt>رنگ</dt><dd>سبزآبی تیره در عنوان، طلایی ملایم فقط در منوی فعال؛ بقیه رنگ از خود عکس می‌آید: چوب، کرم و پوست.</dd>
+              <dt>حروف و فضا</dt><dd>عنوان بسیار درشت و فشرده با فضای سفید زیاد و تراکم کم؛ حس انسانی، خانگی و آرام. از آن ظاهرش را می‌گیریم، نه متن نمونه‌اش را.</dd>
+            </dl>
+            <div class="chips"><span class="chip"><i style="background:#1A484E"></i>#1A484E</span><span class="chip"><i style="background:#FFC554"></i>#FFC554</span><span class="chip"><i style="background:#9D8975"></i>#9D8975</span></div>
+          </div>
+        </article>
+        <article class="ref">
+          <div class="shots"><img src="media/refs/noor-desktop.jpg" width="1280" height="800" alt="صفحه اول noorlab.com در دسکتاپ"><img src="media/refs/noor-mobile.jpg" width="360" height="740" alt="صفحه اول noorlab.com در گوشی"></div>
+          <div>
+            <h3>noorlab.com <small>برای دسترسی آسان به جواب</small></h3>
+            <dl>
+              <dt>تصویر</dt><dd>عکس نزدیک خون‌گیری با دستکش، بریده‌شده در یک قاب مورب؛ صریح و پزشکی.</dd>
+              <dt>رنگ</dt><dd>سرمه‌ای تیره و آبی در نوارهای مورب کل صفحه اول را پر کرده و یک نوار نارنجی تند آن را می‌شکافد؛ رنگ برند در سطح بزرگ، پرقدرت.</dd>
+              <dt>حروف و فضا</dt><dd>عنوان فارسی سفید، درشت و ضخیم روی سرمه‌ای؛ متراکم، با نوار آیکون‌های چسبیده به کنار. قدرت رنگ را می‌گیریم، شلوغی و آیکون‌های بی‌برچسب را نه.</dd>
+            </dl>
+            <div class="chips"><span class="chip"><i style="background:#001A3F"></i>#001A3F</span><span class="chip"><i style="background:#002D65"></i>#002D65</span><span class="chip"><i style="background:#F5720B"></i>#F5720B</span></div>
+          </div>
+        </article>
+        <article class="ref">
+          <div class="shots"><img src="media/refs/aramesh-desktop.jpg" width="1280" height="800" alt="صفحه اول arameshlab.ir در دسکتاپ"><img src="media/refs/aramesh-mobile.jpg" width="360" height="740" alt="صفحه اول arameshlab.ir در گوشی"></div>
+          <div>
+            <h3>arameshlab.ir <small>برای دسترسی آسان به جواب</small></h3>
+            <dl>
+              <dt>تصویر</dt><dd>تصویر سه‌بعدی میکروسکوپ و لوله آزمایش، بدون عکس واقعی از آزمایشگاه.</dd>
+              <dt>رنگ</dt><dd>زمینه سفید و خاکستری روشن؛ سرخابی در نوار بالا و دکمه‌های خطی، فیروزه‌ای در دکمه تلفن و دایره آیکون‌ها.</dd>
+              <dt>حروف و فضا</dt><dd>کاشی‌های مرتب و خطی برای هر کار، از جمله «جوابدهی آنلاین» در صفحه اول؛ تمیز و منظم ولی عمومی. نظم و در دسترس بودن جواب را می‌گیریم، تصویر سه‌بعدی عمومی را نه.</dd>
+            </dl>
+            <div class="chips"><span class="chip"><i style="background:#B40E80"></i>#B40E80</span><span class="chip"><i style="background:#00B6BE"></i>#00B6BE</span><span class="chip"><i style="background:#FFFFFF"></i>#FFFFFF</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="photos" aria-labelledby="photos-title" style="background:#fff">
+    <div class="wrap">
+      <h2 id="photos-title">هفت عکس خود آزمایشگاه</h2>
+      <p class="note">روشن، تمیز، سفید و خاکستری روشن با دیوارهای آبی، گیاه سبز و چوب گرم ورودی. زیر هر عکس رنگ‌هایی است که از خود عکس نمونه‌برداری شده. عکس‌های ۱ و ۴ آدم دارند و فقط با برشی نشان داده می‌شوند که هیچ چهره‌ای در آن شناخته نشود.</p>
+      <div class="photos">
+        <figure><img src="media/photos/lab-7.jpg" width="1050" height="1400" alt="سالن انتظار با صندلی‌های خاکستری و تابلوهای قاب‌شده"><figcaption><b>۷ سالن انتظار</b>اسلاید اول («اسلایدر»، به نوشته مهدی)<span class="dots"><i style="background:#778C92"></i><i style="background:#B2C3CA"></i><i style="background:#E9E5D9"></i><i style="background:#B3B4AC"></i></span></figcaption></figure>
+        <figure><img src="media/photos/lab-5.jpg" width="1050" height="1400" alt="ورودی با دیوار چوبی و نشان فلزی پیوند"><figcaption><b>۵ ورودی</b>قوی‌ترین عکس برند: چوب، نشان، گیاه<span class="dots"><i style="background:#C9A775"></i><i style="background:#8B7352"></i><i style="background:#4EB8F4"></i><i style="background:#91918E"></i></span></figcaption></figure>
+        <figure><img src="media/photos/lab-1-crop.jpg" width="910" height="1400" alt="میز جوابدهی"><figcaption><b>۱ میز جوابدهی</b>برش بدون چهره (لبه چپ حذف شد)<span class="dots"><i style="background:#BAD4E6"></i><i style="background:#A1B6C8"></i><i style="background:#2B4125"></i><i style="background:#AFB1AC"></i></span></figcaption></figure>
+        <figure><img src="media/photos/lab-2.jpg" width="1050" height="1400" alt="پذیرش ۲ با گلدان"><figcaption><b>۲ پذیرش ۲</b>تریبون سفید و سانسوریا<span class="dots"><i style="background:#9FC0D3"></i><i style="background:#A37568"></i><i style="background:#71C682"></i><i style="background:#D0D1CD"></i></span></figcaption></figure>
+        <figure><img src="media/photos/lab-3.jpg" width="1050" height="1400" alt="تابلوهای قاب‌شده گل و ظروف آزمایشگاهی"><figcaption><b>۳ تابلوهای سالن</b>گل‌ها، فلاسک و میکروسکوپ؛ منشأ جهت «قاب»<span class="dots"><i style="background:#E3CEA5"></i><i style="background:#A6946A"></i><i style="background:#886D5B"></i><i style="background:#AFB3B0"></i></span></figcaption></figure>
+        <figure><img src="media/photos/lab-4-crop.jpg" width="1050" height="718" alt="پیشخوان اصلی پذیرش، بخش بالای عکس"><figcaption><b>۴ پیشخوان اصلی</b>فقط بالای عکس، بدون چهره کارکنان<span class="dots"><i style="background:#A6B6CB"></i><i style="background:#7D93A1"></i><i style="background:#E1DCBE"></i><i style="background:#979895"></i></span></figcaption></figure>
+        <figure><img src="media/photos/lab-6.jpg" width="1050" height="1400" alt="کیوسک نوبت با دکمه‌های پذیرش و جوابدهی و ساعت دیواری"><figcaption><b>۶ کیوسک نوبت</b>«پذیرش» و «جوابدهی» روی صفحه<span class="dots"><i style="background:#49BAFA"></i><i style="background:#295054"></i><i style="background:#98A8AD"></i><i style="background:#BAF64F"></i></span></figcaption></figure>
+      </div>
+      <div class="brandrow">
+        <div><span class="sw" style="background:#003C7E"></span><b>سرمه‌ای لوگو #003C7E</b>نمونه از فایل لوگو؛ در هر سه جهت می‌ماند.</div>
+        <div><span class="sw" style="background:#00C0F3"></span><b>فیروزه‌ای لوگو #00C0F3</b>همان فیروزه‌ای صفحه کیوسک‌ها (#49BAFA در عکس ۶).</div>
+        <div><span class="sw" style="background:linear-gradient(90deg,#C9A775,#8B7352)"></span><b>چوب ورودی</b>از دیوار چوبی عکس ۵.</div>
+        <div><span class="sw" style="background:linear-gradient(90deg,#BAD4E6,#778C92)"></span><b>آبی دیوارها</b>از دیوارهای پذیرش و سالن، عکس‌های ۱ و ۷.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="dirs" aria-labelledby="dirs-title">
+    <div class="wrap">
+      <h2 id="dirs-title">سه جهت</h2>
+      <p class="note">هر جهت یک صفحه دارد: صفحه اول خانه با محتوای واقعی (لوگو، اسلایدر عکس‌ها با عکس ۷ در اول، «جواب آزمایش»، «نوبت‌دهی آنلاین»، تلفن و منو) و زیر آن رنگ‌ها، حروف و رفتار با عکس‌ها.</p>
+      <div class="dirs">
+        <a class="dir d1" href="direction-roshana.html"><span class="num">جهت ۱</span><span class="name">روشنا</span><ul class="feel"><li>روشن</li><li>باز</li><li>خوش‌آمد</li><li>واقعی</li></ul><p>عکس پرنور تا لبه صفحه، برگه سفید با لبه منحنی فیروزه‌ای، قلم استعداد.</p><span class="strip"><i style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #dde5ec"></i><i style="background:#003C7E"></i><i style="background:#00C0F3"></i><i style="background:#DCEBF3"></i><i style="background:#1F5B43"></i></span><span class="open">دیدن جهت ۱</span></a>
+        <a class="dir d2" href="direction-qab.html"><span class="num">جهت ۲</span><span class="name">قاب</span><ul class="feel"><li>آرام</li><li>فرهیخته</li><li>با حوصله</li><li>صمیمی</li></ul><p>عکس‌ها مثل تابلوهای سالن انتظار، با پاسپارتو و قاب برنزی روی دیوار؛ نسخ برای نام.</p><span class="strip"><i style="background:#F2EDE4;box-shadow:inset 0 0 0 1px #e2d9ca"></i><i style="background:#4B4433"></i><i style="background:#003C7E"></i><i style="background:#B04A30"></i><i style="background:#FBFBF8;box-shadow:inset 0 0 0 1px #e2d9ca"></i></span><span class="open">دیدن جهت ۲</span></a>
+        <a class="dir d3" href="direction-sarmei.html"><span class="num">جهت ۳</span><span class="name">سرمه‌ای و چوب</span><ul class="feel"><li>محکم</li><li>روشن و صریح</li><li>مطمئن</li><li>گرم</li></ul><p>سرمه‌ای لوگو در کل صفحه اول، عکس در طاق روی پنل چوبی ورودی، دکمه فیروزه‌ای جواب.</p><span class="strip"><i style="background:#003C7E"></i><i style="background:#002A5C"></i><i style="background:#00C0F3"></i><i style="background:#9C7A57"></i><i style="background:#E2C29C"></i></span><span class="open">دیدن جهت ۳</span></a>
+      </div>
+    </div>
+  </section>
+  <footer class="foot">
+    <div class="wrap">
+      <ul>
+        <li>فایل لوگوی موجود فقط ۲۱۷ در ۶۳ پیکسل است و در صفحه‌های رتینا نرم دیده می‌شود؛ برای طراحی نهایی نسخه برداری (SVG یا PDF) لوگو از آزمایشگاه لازم است.</li>
+        <li>عکس‌ها مال خود آزمایشگاه است؛ هیچ عکس آماده یا عکس آزمایشگاه دیگری به کار نرفته.</li>
+      </ul>
+    </div>
+  </footer>
+</main>
+</body>
+</html>
