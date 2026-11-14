@@ -4,251 +4,67 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>آزمایشگاه تشخیص طبی و تخصصی پیوند</title>
+<link rel="stylesheet" href="../system/payvandlab-tokens.css">
+<link rel="stylesheet" href="../system/payvandlab-components.css">
 <link rel="stylesheet" href="media/payvandlab-home.css">
-<script src="media/vendor/react-framer-motion.js"></script>
+<script src="../system/media/vendor/react-framer-motion.js"></script>
+<script src="../system/payvandlab-motion.js"></script>
+<script src="../system/payvandlab-components.js"></script>
 </head>
 <body>
 <div id="root"></div>
 <script>
-const { React, createRoot, motion, AnimatePresence, MotionConfig, html } = window.Vendor;
+const { React, createRoot, AnimatePresence, MotionConfig, html } = window.Vendor;
 const { useState, useEffect } = React;
-
-const LOGIN = "http://178.252.146.82:8082/Login";
-const PARTNER = "http://178.252.146.82:8082/Login#contractor";
-const TEL = "tel:+982171400004";
-const PHONE = "۰۲۱-۷۱۴۰۰۰۰۴";
-
-const spring = { press: { type: "spring", stiffness: 500, damping: 30 }, panel: { type: "spring", stiffness: 500, damping: 34 }, sheet: { type: "spring", stiffness: 420, damping: 42 } };
-const exitIn = { duration: 0.18, ease: [0.4, 0, 1, 1] };
-
-const P = {
-  phone: "M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z",
-  chat: "M7.9 20A9 9 0 1 0 4 16.1L2 22z",
-  arrow: "M19 12H5M12 19l-7-7 7-7",
-  chev: "M15 18l-6-6 6-6",
-  x: "M18 6L6 18M6 6l12 12",
-  book: "M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z",
-  out: "M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-};
-const Ico = ({ d, cls }) => html`<svg class=${"pv-ico " + (cls || "")} viewBox="0 0 24 24" aria-hidden="true"><path d=${d}/></svg>`;
-
-const MENU = [
-  { t: "صفحه اصلی", h: "#", cur: true },
-  { t: "جواب آزمایش", h: LOGIN, results: true },
-  { t: "آزمایش‌های فعال", h: "https://test.payvandlab.com" },
-  { t: "بخش‌ها", h: "/departments" },
-  { t: "خدمات", h: "/services" },
-  { t: "درباره آزمایشگاه", h: "/about" },
-  { t: "ارتباط با ما", h: "/contact" },
-  { t: "اخبار", h: "/news" }
-];
+const { Util, Head, Results, List, Hours, Foot, Sheet, Chat } = window.PV;
 
 const q = new URLSearchParams(location.search);
 const initial = q.get("state") || "first";
-
-function todayRow() {
-  const d = new Date().getDay();
-  if (d === 6 || d <= 3) return 0;
-  if (d === 4) return 1;
-  return -1;
-}
-
-function Util({ chatOpen, onChat }) {
-  return html`<div class="pv-util"><div class="pv-wrap">
-    <a class="pv-tel" href=${TEL}><${Ico} d=${P.phone}/><small>تلفن</small><span class="pv-lat">${PHONE}</span></a>
-    <${motion.button} type="button" class="pv-yar" id="pv-yar" aria-expanded=${chatOpen ? "true" : "false"} aria-controls="pv-chat" onClick=${onChat} whileTap=${{ scale: 0.95 }} transition=${spring.press}>
-      <${Ico} d=${chatOpen ? P.x : P.chat}/>${chatOpen ? "بستن پیوندیار" : "پیوندیار"}
-    <//>
-  </div></div>`;
-}
-
-function Head({ onMenu }) {
-  return html`<header class="pv-head"><div class="pv-wrap">
-    <a class="pv-logo" href="#" aria-label="آزمایشگاه پیوند، صفحه اصلی"><img src="media/payvand-logo.png" width="217" height="63" alt="آزمایشگاه تشخیص طبی و تخصصی پیوند"/></a>
-    <nav class="pv-nav" aria-label="منوی اصلی"><ul>
-      ${MENU.map(m => html`<li key=${m.t}><a href=${m.h} class=${m.results ? "pv-nav-results" : ""} aria-current=${m.cur ? "page" : null}>${m.t}${m.results ? html`<${Ico} d=${P.arrow}/>` : null}</a></li>`)}
-    </ul></nav>
-    <${motion.button} type="button" class="pv-menubtn" id="pv-menubtn" aria-haspopup="dialog" onClick=${onMenu} whileTap=${{ scale: 0.95 }} transition=${spring.press}>
-      <span class="pv-burger" aria-hidden="true"><i></i><i></i><i></i></span>منو
-    <//>
-  </div></header>`;
-}
-
-function Entry({ compact }) {
-  return html`<${motion.a} class="pv-entry" id=${compact ? null : "pv-entry"} href=${LOGIN} whileTap=${{ scale: 0.98 }} whileHover="hover" initial="rest" animate="rest" transition=${spring.press}>
-    <span class="pv-entry-text">
-      <span class="pv-entry-title">جواب آزمایش</span>
-      <span class="pv-entry-sub">ورود به سامانه جوابدهی آنلاین</span>
-    </span>
-    <${motion.span} class="pv-entry-go" variants=${{ rest: { x: 0 }, hover: { x: -4 } }} transition=${spring.press}><${Ico} d=${P.arrow}/><//>
-  <//>`;
-}
-
-function Results() {
-  return html`<section class="pv-results" aria-labelledby="pv-h1"><div class="pv-wrap">
-    <h1 class="pv-sr" id="pv-h1">جواب آزمایش، آزمایشگاه پیوند</h1>
-    <div class="pv-results-grid">
-      <${Entry}/>
-      <div class="pv-stub" id="pv-stub">
-        <div class="pv-stub-top"><dl>
-          <dt>نام کاربری</dt><dd>شماره پذیرش یا کد ملی</dd>
-          <dt>رمز عبور</dt><dd>شماره اشتراک یا شماره موبایل</dd>
-        </dl></div>
-        <div class="pv-stub-bot"><p>هر دو روی قبض آزمایشگاه و در پیامک پذیرش آمده است.</p></div>
-      </div>
-      <div class="pv-help">
-        <span>وارد نمی‌شوید؟</span>
-        <a class="pv-link" href="/results-help"><${Ico} d=${P.book}/>راهنمای جوابدهی اینترنتی</a>
-      </div>
-      <div class="pv-roles">
-        <span class="pv-roles-label">پزشک یا مرکز همکار هستید؟</span>
-        <a class="pv-role" href=${LOGIN}>ورود پزشکان<${Ico} d=${P.chev}/></a>
-        <a class="pv-role" href=${PARTNER}>ورود مراکز همکار<${Ico} d=${P.chev}/></a>
-      </div>
-    </div>
-  </div></section>`;
-}
-
-const Row = ({ href, title, text }) => html`<${motion.a} href=${href} whileTap=${{ scale: 0.99 }} transition=${spring.press}>
-  <span class="pv-row-text"><h3>${title}</h3><p>${text}</p></span>
-  <span class="pv-row-go"><${Ico} d=${P.chev}/></span>
-<//>`;
+const narrow = matchMedia("(max-width: 959.98px)");
 
 function Jobs() {
-  const t = todayRow();
-  const rows = [["شنبه تا چهارشنبه", "۰۶:۳۰ تا ۱۹:۰۰"], ["پنجشنبه", "۰۶:۳۰ تا ۱۸:۰۰"]];
   return html`<section class="pv-sec" id="jobs" aria-labelledby="pv-jobs-h"><div class="pv-wrap">
     <h2 id="pv-jobs-h">پیش از مراجعه</h2>
     <div class="pv-jobs">
-      <div class="pv-list">
-        <${Row} href="/visit-guide" title="راهنمای مراجعه و پذیرش غیرحضوری" text="نسخه را با فرمت jpg بفرستید تا کارشناسان پذیرش با شما تماس بگیرند."/>
-        <${Row} href="/home-sampling" title="درخواست نمونه‌گیری در منزل" text="۲۴ ساعت زودتر درخواست دهید. برای بالای ۱۵ سال؛ نمونه‌گیری در منزل رایگان است و فقط هزینه آزمایش‌ها گرفته می‌شود."/>
-        <${Row} href="/insurers" title="بیمه‌های طرف قرارداد" text="۳۰ بیمه و سازمان، از جمله سازمان تامین اجتماعی، سازمان بیمه خدمات درمانی و بیمه نیروهای مسلح."/>
-      </div>
-      <div class="pv-hours" id="pv-hours">
-        <h3>ساعت کار، نشانی و تلفن</h3>
-        <table><tbody>
-          ${rows.map((r, i) => html`<tr key=${i} class=${i === t ? "is-today" : ""}><th scope="row">${r[0]}${i === t ? html`<span class="pv-today">امروز</span>` : null}</th><td>${r[1]}</td></tr>`)}
-        </tbody></table>
-        <p class="pv-hours-note">روزهای تعطیل رسمی، آزمایشگاه تعطیل است.</p>
-        <address>تهران، خیابان شریعتی، خیابان دستگردی (ظفر)، نرسیده به خیابان دکتر مصدق، پلاک ۱۷۴</address>
-        <div class="pv-hours-actions">
-          <a class="pv-tel" href=${TEL}><${Ico} d=${P.phone}/><span class="pv-lat">${PHONE}</span></a>
-          <a class="pv-link" href="/contact">نشانی و راه‌های ارتباط<${Ico} d=${P.chev}/></a>
-        </div>
-      </div>
+      <${List}/>
+      <${Hours} id="pv-hours"/>
     </div>
   </div></section>`;
-}
-
-function Foot() {
-  return html`<footer class="pv-foot"><div class="pv-wrap">
-    <div>
-      <h2>نشانی و تماس</h2>
-      <address>تهران- خیابان شریعتی – خیابان دستگردی (ظفر)- نرسیده به خیابان دکتر مصدق (نفت سابق) پلاک ۱۷۴، کدپستی <span class="pv-num">۱۹۱۹۷۵۳۵۵۷</span></address>
-      <div class="pv-contact">
-        <a href=${TEL}><span class="pv-num pv-lat">${PHONE}</span></a>
-        <a href="mailto:info@payvandlab.com"><span class="pv-lat">info@payvandlab.com</span></a>
-      </div>
-    </div>
-    <div>
-      <h2>تاییدیه‌های آزمایشگاه</h2>
-      <ul>
-        <li>دارنده گواهینامه <span class="pv-lat">ISO ۱۵۱۸۹</span> از NACI</li>
-        <li>دارنده لوح کیفیت از آزمایشگاه مرجع سلامت</li>
-        <li>گواهینامه بین‌المللی <span class="pv-lat">ISO ۱۰۰۰۲:۲۰۱۴</span></li>
-        <li>گواهینامه بین‌المللی <span class="pv-lat">ISO ۹۰۰۱:۲۰۱۵</span></li>
-        <li>عضو شبکه مراکز تشخیص ملکولی IFCC</li>
-      </ul>
-    </div>
-  </div></footer>`;
-}
-
-function Sheet({ onClose }) {
-  useEffect(() => {
-    const k = e => { if (e.key === "Escape") onClose(); };
-    addEventListener("keydown", k);
-    const b = document.querySelector(".pv-sheet .pv-close");
-    b && b.focus({ preventScroll: true });
-    return () => removeEventListener("keydown", k);
-  }, []);
-  return html`<${React.Fragment}>
-    <${motion.div} class="pv-scrim" key="scrim" onClick=${onClose} initial=${{ opacity: 0 }} animate=${{ opacity: 1 }} exit=${{ opacity: 0, transition: exitIn }} transition=${{ duration: 0.24, ease: [0, 0, 0.2, 1] }}/>
-    <${motion.div} class="pv-sheet" key="sheet" role="dialog" aria-modal="true" aria-label="منو" id="pv-sheet" initial=${{ x: "100%" }} animate=${{ x: 0 }} exit=${{ x: "100%", transition: exitIn }} transition=${spring.sheet}>
-      <div class="pv-sheet-head">
-        <img src="media/payvand-logo.png" width="217" height="63" alt="آزمایشگاه پیوند"/>
-        <button type="button" class="pv-close" onClick=${onClose}><${Ico} d=${P.x}/>بستن</button>
-      </div>
-      <div class="pv-sheet-body">
-        <${Entry} compact=${true}/>
-        <nav aria-label="منوی اصلی"><ul>
-          ${MENU.filter(m => !m.results).map(m => html`<li key=${m.t}><a href=${m.h} aria-current=${m.cur ? "page" : null}>${m.t}<${Ico} d=${P.chev}/></a></li>`)}
-        </ul></nav>
-      </div>
-      <div class="pv-sheet-foot">
-        <a class="pv-tel" href=${TEL}><${Ico} d=${P.phone}/><small>تلفن</small><span class="pv-lat">${PHONE}</span></a>
-      </div>
-    <//>
-  <//>`;
-}
-
-function Chat({ onClose }) {
-  const wide = matchMedia("(min-width: 960px)").matches;
-  useEffect(() => {
-    const k = e => { if (e.key === "Escape") onClose(); };
-    addEventListener("keydown", k);
-    return () => removeEventListener("keydown", k);
-  }, []);
-  const from = wide ? { opacity: 0, scale: 0.55, y: -10 } : { y: "105%" };
-  const to = wide ? { opacity: 1, scale: 1, y: 0 } : { y: 0 };
-  return html`<${motion.section} class="pv-chat" id="pv-chat" role="dialog" aria-labelledby="pv-chat-h" key="chat" initial=${from} animate=${to} exit=${{ ...from, transition: exitIn }} transition=${wide ? spring.panel : spring.sheet}>
-    <div class="pv-chat-head">
-      <div><h2 id="pv-chat-h">پیوندیار</h2><p>دستیار هوش مصنوعی آزمایشگاه پیوند</p></div>
-      <button type="button" class="pv-close" onClick=${onClose}><${Ico} d=${P.x}/>بستن</button>
-    </div>
-    <div class="pv-chat-body">
-      <div class="pv-msg">
-        <p>به آزمایشگاه پیوند خوش آمدید.</p>
-        <p>سوال خود را مطرح کنید تا دستیار هوش مصنوعی آزمایشگاه پیوند (پیوندیار) پاسخگوی سوالات شما باشد.</p>
-        <p>در صورت نیاز به اتصال به اپراتور، از پیوندیار بخواهید تا اتصال شما به اپراتورهای ما را برقرار کند.</p>
-      </div>
-    </div>
-    <form class="pv-chat-form" onSubmit=${e => e.preventDefault()}>
-      <label><span class="pv-sr">پیام شما</span><input type="text" name="m" autocomplete="off" placeholder="پیام خود را بنویسید"/></label>
-      <button type="submit" class="pv-send">ارسال</button>
-    </form>
-  <//>`;
 }
 
 function Review({ state }) {
   const S = [["first", "صفحه اول (پیوندیار بسته)"], ["full", "تمام صفحه"], ["menu", "منوی گوشی باز"], ["chat", "پیوندیار باز"]];
   return html`<aside class="pv-review" aria-label="پنل بازبینی"><div class="pv-wrap">
     <h2>پنل بازبینی طرح (بخشی از سایت نیست)</h2>
-    <p>هر وضعیت را در عرض ۳۶۰ (گوشی) و ۱۲۸۰ (رومیزی) ببینید. منوی گوشی زیر عرض ۹۶۰ دیده می‌شود؛ در رومیزی منو در سرصفحه باز است.</p>
+    <p>هر وضعیت را در عرض ۳۶۰ (گوشی) و ۱۲۸۰ (رومیزی) ببینید. منوی گوشی فقط زیر عرض ۹۶۰ وجود دارد؛ در رومیزی همان ناوبری سرصفحه است و «منوی گوشی باز» همان صفحه اول را نشان می‌دهد.</p>
     <ul>${S.map(s => html`<li key=${s[0]}><a href=${"?state=" + s[0]} aria-current=${s[0] === state ? "true" : null}>${s[1]}</a></li>`)}</ul>
   </div></aside>`;
 }
 
 function App() {
-  const [menu, setMenu] = useState(initial === "menu");
+  const [menu, setMenu] = useState(initial === "menu" && narrow.matches);
   const [chat, setChat] = useState(initial === "chat");
   useEffect(() => {
     if (initial === "full") requestAnimationFrame(() => document.getElementById("jobs").scrollIntoView({ block: "start" }));
+    const onWidth = e => { if (!e.matches) setMenu(false); };
+    narrow.addEventListener("change", onWidth);
+    return () => narrow.removeEventListener("change", onWidth);
   }, []);
   const closeMenu = () => { setMenu(false); const b = document.getElementById("pv-menubtn"); b && b.focus({ preventScroll: true }); };
+  const closeChat = () => { setChat(false); const y = document.getElementById("pv-yar"); y && y.focus({ preventScroll: true }); };
   return html`<${MotionConfig} reducedMotion="user">
     <div id="page">
       <${Util} chatOpen=${chat} onChat=${() => setChat(v => !v)}/>
       <${Head} onMenu=${() => setMenu(true)}/>
       <main>
-        <${Results}/>
+        <${Results} h1=${true}/>
         <${Jobs}/>
       </main>
       <${Foot}/>
       <${Review} state=${initial}/>
     </div>
     <${AnimatePresence}>${menu ? html`<${Sheet} key="menu" onClose=${closeMenu}/>` : null}<//>
-    <${AnimatePresence}>${chat ? html`<${Chat} key="chat" onClose=${() => { setChat(false); const y = document.getElementById("pv-yar"); y && y.focus({ preventScroll: true }); }}/>` : null}<//>
+    <${AnimatePresence}>${chat ? html`<${Chat} key="chat" onClose=${closeChat}/>` : null}<//>
   <//>`;
 }
 

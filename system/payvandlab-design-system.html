@@ -1,0 +1,372 @@
+<!doctype html>
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سامانه طراحی سایت آزمایشگاه پیوند</title>
+<link rel="stylesheet" href="payvandlab-tokens.css">
+<link rel="stylesheet" href="payvandlab-components.css">
+<script src="media/vendor/react-framer-motion.js"></script>
+<script src="payvandlab-motion.js"></script>
+<script src="payvandlab-components.js"></script>
+<style>
+.ds-top{background:var(--pv-surface);border-bottom:1px solid var(--pv-line)}
+.ds-top .pv-wrap{padding-top:var(--pv-s6);padding-bottom:var(--pv-s6);display:grid;gap:var(--pv-s3)}
+.ds-top img{width:152px}
+.ds-top h1{margin:0;font-size:var(--pv-fs-h2);font-weight:900;line-height:var(--pv-lh-tight)}
+.ds-top p{margin:0;font-size:var(--pv-fs-small);color:var(--pv-ink-2);max-width:68ch}
+.ds-idea{font-size:var(--pv-fs-body)!important;color:var(--pv-ink)!important;font-weight:500}
+.ds-index{display:flex;flex-wrap:wrap;gap:var(--pv-s1) var(--pv-s2);margin:var(--pv-s2) 0 0;padding:0;list-style:none}
+.ds-index a{display:inline-flex;align-items:center;min-height:var(--pv-tap-min);padding:0 var(--pv-s3);border:1px solid var(--pv-line);border-radius:var(--pv-r-pill);text-decoration:none;font-size:var(--pv-fs-small);font-weight:500;color:var(--pv-ink-2);background:var(--pv-paper)}
+.ds-index a:hover{border-color:var(--pv-field-line);color:var(--pv-ink)}
+.ds-later{font-size:var(--pv-fs-small)!important}
+.ds-sec{padding:var(--pv-s10) 0;border-bottom:1px solid var(--pv-line)}
+.ds-sec>.pv-wrap>h2{margin:0;font-size:var(--pv-fs-h2);font-weight:700;line-height:var(--pv-lh-tight);display:flex;gap:var(--pv-s3);align-items:baseline}
+.ds-sec>.pv-wrap>h2 span{font-size:var(--pv-fs-small);color:var(--pv-ink-3);font-weight:500}
+.ds-why{margin:var(--pv-s2) 0 var(--pv-s6);font-size:var(--pv-fs-small);color:var(--pv-ink-2);max-width:72ch}
+.ds-why b{color:var(--pv-ink)}
+.ds-h3{margin:var(--pv-s8) 0 var(--pv-s3);font-size:var(--pv-fs-h3);font-weight:700}
+.ds-sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:var(--pv-s3)}
+.ds-swatch{display:grid;grid-template-columns:48px 1fr;gap:var(--pv-s3);align-items:start;padding:var(--pv-s3);background:var(--pv-surface);border:1px solid var(--pv-line);border-radius:var(--pv-r-md)}
+.ds-chip{width:48px;height:48px;border-radius:var(--pv-r-sm);box-shadow:inset 0 0 0 1px rgba(29,32,39,.08)}
+.ds-swatch b{display:block;font-size:var(--pv-fs-small);line-height:1.5}
+.ds-swatch code{font-family:inherit;font-size:var(--pv-fs-micro);color:var(--pv-ink-3)}
+.ds-swatch p{margin:var(--pv-s1) 0 0;font-size:var(--pv-fs-micro);color:var(--pv-ink-2);line-height:1.6}
+.ds-table{width:100%;border-collapse:collapse;font-size:var(--pv-fs-small);background:var(--pv-surface);border:1px solid var(--pv-line);border-radius:var(--pv-r-md);overflow:hidden}
+.ds-table th,.ds-table td{padding:var(--pv-s2) var(--pv-s3);text-align:start;vertical-align:middle;border-top:1px solid var(--pv-line)}
+.ds-table thead th{border-top:0;font-weight:500;color:var(--pv-ink-3);font-size:var(--pv-fs-micro);background:var(--pv-paper)}
+.ds-table td.ds-r{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ds-pair{display:inline-flex;align-items:center;min-height:36px;padding:0 var(--pv-s3);border-radius:var(--pv-r-sm);font-weight:700;white-space:nowrap}
+.ds-ring{display:inline-block;width:56px;height:28px;border-radius:var(--pv-r-sm)}
+.ds-scroll{overflow-x:auto}
+.ds-type{display:grid;gap:0;background:var(--pv-surface);border:1px solid var(--pv-line);border-radius:var(--pv-r-md)}
+.ds-type>div{display:grid;gap:var(--pv-s1);padding:var(--pv-s4);border-top:1px solid var(--pv-line)}
+.ds-type>div:first-child{border-top:0}
+.ds-meta{font-size:var(--pv-fs-micro);color:var(--pv-ink-3);line-height:1.6}
+.ds-meta b{color:var(--pv-ink-2);font-weight:700}
+.ds-grid2{display:grid;gap:var(--pv-s4)}
+.ds-box{background:var(--pv-surface);border:1px solid var(--pv-line);border-radius:var(--pv-r-md);padding:var(--pv-s4)}
+.ds-scale{display:grid;gap:var(--pv-s2)}
+.ds-scale div{display:grid;grid-template-columns:72px 1fr;align-items:center;gap:var(--pv-s3);font-size:var(--pv-fs-micro);color:var(--pv-ink-2)}
+.ds-scale i{display:block;height:12px;background:var(--pv-ink-3);border-radius:2px}
+.ds-radii{display:flex;flex-wrap:wrap;gap:var(--pv-s4)}
+.ds-radii div{display:grid;justify-items:center;gap:var(--pv-s2);font-size:var(--pv-fs-micro);color:var(--pv-ink-2);text-align:center}
+.ds-radii i{display:block;width:72px;height:56px;border:2px solid var(--pv-ink-3);background:var(--pv-paper)}
+.ds-elev{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--pv-s5)}
+.ds-elev div{height:84px;background:var(--pv-surface);border-radius:var(--pv-r-md);display:grid;place-items:center;text-align:center;padding:var(--pv-s2);font-size:var(--pv-fs-micro);color:var(--pv-ink-2);line-height:1.5}
+.ds-stage{background:var(--pv-paper-2);border:1px solid var(--pv-line);border-radius:var(--pv-r-md);padding:var(--pv-s4);overflow:hidden}
+.ds-stage.is-bleed{padding:0}
+.ds-stage.is-wash{background:var(--pv-wash);border-color:var(--pv-wash-line)}
+.ds-states{display:grid;gap:var(--pv-s4);grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:var(--pv-s4)}
+.ds-state{display:grid;gap:var(--pv-s2);align-content:start}
+.ds-state>span{font-size:var(--pv-fs-micro);color:var(--pv-ink-3);font-weight:500}
+.ds-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--pv-s3)}
+.ds-frames{display:grid;gap:var(--pv-s5)}
+.ds-frame{display:grid;gap:var(--pv-s2);justify-items:start}
+.ds-frame>span{font-size:var(--pv-fs-micro);color:var(--pv-ink-3);font-weight:500}
+.ds-frame iframe{display:block;box-sizing:content-box;width:360px;max-width:calc(100% - 2px);height:640px;border:1px solid var(--pv-line);border-radius:var(--pv-r-lg);background:var(--pv-surface)}
+.ds-only-wide{display:none}
+.ds-only-narrow{font-size:var(--pv-fs-small);color:var(--pv-ink-2);margin:var(--pv-s3) 0 0}
+.ds-chatframe{position:relative;height:500px;width:380px;max-width:100%}
+.ds-chatframe .pv-chat{position:absolute;inset:0;width:auto;height:auto;min-height:0}
+.ds-motion td:first-child{white-space:nowrap;font-weight:700}
+.ds-end{padding:var(--pv-s8) 0 var(--pv-s12);font-size:var(--pv-fs-small);color:var(--pv-ink-2)}
+@media (min-width:960px){
+  .ds-only-wide{display:block}
+  .ds-only-narrow{display:none}
+  .ds-grid2{grid-template-columns:1fr 1fr;gap:var(--pv-s6)}
+  .ds-frames{grid-template-columns:repeat(2,max-content);gap:var(--pv-s8)}
+  .ds-top .pv-wrap{padding-top:var(--pv-s8);padding-bottom:var(--pv-s8)}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const { React, createRoot, MotionConfig, html } = window.Vendor;
+const { useEffect, useRef, useState } = React;
+const PV = window.PV;
+const M = window.PvMotion;
+
+const fa = v => String(v).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]).replace(".", "٫");
+
+function Spec({ marks, cls, children }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const t = setTimeout(() => (marks || []).forEach(([sel, c, style]) => {
+      const e = ref.current && ref.current.querySelector(sel);
+      if (!e) return;
+      if (c) c.split(" ").forEach(k => e.classList.add(k));
+      if (style) Object.assign(e.style, style);
+    }), 60);
+    return () => clearTimeout(t);
+  }, []);
+  return html`<div ref=${ref} class=${cls || ""}>${children}</div>`;
+}
+
+const State = ({ label, children }) => html`<div class="ds-state">${children}<span>${label}</span></div>`;
+
+function Sec({ id, n, title, why, children }) {
+  return html`<section class="ds-sec" id=${id} aria-labelledby=${id + "-h"}><div class="pv-wrap">
+    <h2 id=${id + "-h"}><span>${fa(n)}</span>${title}</h2>
+    <p class="ds-why">${why}</p>
+    ${children}
+  </div></section>`;
+}
+
+const COLORS = [
+  ["brand", [
+    ["navy", "سرمه‌ای لوگو", "تنها رنگ پررنگ سایت؛ فقط ورود به جواب آزمایش، گزینه «جواب آزمایش» در منو و حلقه فوکوس، تا همیشه یعنی «جواب»."],
+    ["navy-press", "سرمه‌ای فشرده", "هاور و فشار ورود؛ همان رنگ، یک پله تیره‌تر، بدون رنگ تازه."],
+    ["navy-ink", "جوهر پیوند", "پیوندها و برچسب «امروز»؛ تیره‌تر از سرمه‌ای تا متن کوچک روی سطح آبی خوانا بماند."],
+    ["cyan", "فیروزه‌ای لوگو", "برای متن و آیکون کم‌رنگ است (۲٫۱۴:۱)؛ فقط منبع رنگ سطح خنک است."],
+    ["wash", "سطح خنک", "زمینه بخش جواب آزمایش، از فیروزه‌ای لوگو؛ جای جواب را بی پرِ سرمه‌ای بزرگ نشان می‌دهد."],
+    ["wash-line", "خط سطح خنک", "مرز بخش جواب و دکمه‌های کوچک روی آن."],
+    ["wash-line-2", "خط سطح خنک، هاور", "هاور دکمه‌های پزشکان و مراکز همکار؛ فقط مرز پررنگ‌تر می‌شود."]
+  ]],
+  ["surface", [
+    ["paper", "کاغذ", "زمینه گرم صفحه، مثل کاغذ قبض؛ کنار سطح خنک، ساختار با دما دیده می‌شود نه فقط با خاکستری."],
+    ["paper-2", "کاغذ ۲", "نوار تلفن و پیوندیار بالای صفحه و هاور منو؛ یک پله گرم‌تر از کاغذ."],
+    ["surface", "سفید", "سرصفحه، کارت‌ها و پنل‌ها؛ بیشترین کنتراست برای متن."],
+    ["hover", "هاور ردیف", "هاور ردیف‌های فهرست؛ آن‌قدر کم که فقط بگوید زیر نشانگر است."],
+    ["line", "خط", "جداکننده‌های گرم کارت‌ها و ردیف‌ها."],
+    ["field-line", "مرز فیلد", "مرز فیلد پیام و هاور دکمه‌های قاب‌دار؛ ۴٫۰۲:۱ روی سفید، بالای ۳:۱ مرز کنترل."],
+    ["scrim", "پرده", "پشت منوی گوشی؛ صفحه دیده می‌شود ولی عقب می‌رود."]
+  ]],
+  ["ink", [
+    ["ink", "جوهر", "متن اصلی، عنوان‌ها و دکمه تیره (پیوندیار باز، ارسال)."],
+    ["ink-2", "جوهر ۲", "متن توضیح، پیوندهای منو و آیکون‌ها."],
+    ["ink-3", "جوهر ۳", "برچسب‌ها و آیکون‌های کم‌اهمیت؛ کم‌رنگ‌ترین متن، هنوز بالای ۴٫۵:۱."],
+    ["on-navy", "روی سرمه‌ای", "عنوان و فلش ورود."],
+    ["on-navy-2", "روی سرمه‌ای ۲", "خط دوم ورود «ورود به سامانه جوابدهی آنلاین»؛ یک پله آرام‌تر از عنوان."],
+    ["on-navy-tint", "دایره فلش", "زمینه دایره فلش روی ورود؛ سفید ۱۴٪."],
+    ["on-ink", "روی جوهر", "متن روی دکمه تیره."]
+  ]],
+  ["foot", [
+    ["foot", "پاورقی", "زغالی گرم، نه سرمه‌ای، تا سرمه‌ای فقط معنای «جواب» را نگه دارد."],
+    ["on-foot", "روی پاورقی", "متن و پیوندهای پاورقی و حلقه فوکوس روی آن (focus-on-dark)."],
+    ["on-foot-2", "روی پاورقی ۲", "عنوان ستون‌های پاورقی."],
+    ["foot-line", "خط پاورقی", "جداکننده فهرست تاییدیه‌ها."]
+  ]]
+];
+const GROUP = { brand: "رنگ‌های لوگو و سطح جواب", surface: "سطح‌ها و خط‌ها", ink: "جوهرها", foot: "پاورقی" };
+
+function Colors() {
+  const cs = getComputedStyle(document.documentElement);
+  return html`${COLORS.map(([g, list]) => html`<div key=${g}>
+    <h3 class="ds-h3">${GROUP[g]}</h3>
+    <div class="ds-sw">${list.map(([t, name, why]) => html`<div class="ds-swatch" key=${t}>
+      <i class="ds-chip" style=${{ background: "var(--pv-" + t + ")" }}></i>
+      <div><b>${name}</b><code class="pv-lat">--pv-${t} ${cs.getPropertyValue("--pv-" + t).trim()}</code><p>${why}</p></div>
+    </div>`)}</div>
+  </div>`)}`;
+}
+
+const PAIRS = [
+  ["ink", "paper", "t", "متن اصلی روی صفحه"], ["ink", "surface", "t", "متن روی کارت و سرصفحه"], ["ink", "paper-2", "t", "تلفن در نوار بالا"], ["ink", "hover", "t", "ردیف فهرست در هاور"],
+  ["ink-2", "surface", "t", "توضیح ردیف، منو، ساعت"], ["ink-2", "paper", "t", "متن توضیح روی صفحه"], ["ink-2", "wash", "t", "«وارد نمی‌شوید؟»"], ["ink-2", "paper-2", "i", "آیکون تلفن"],
+  ["ink-3", "surface", "t", "برچسب «نام کاربری»"], ["ink-3", "wash", "t", "«پزشک یا مرکز همکار هستید؟»"], ["ink-3", "paper-2", "t", "واژه «تلفن»"], ["ink-3", "paper", "t", "متن کمکی روی صفحه"],
+  ["on-navy", "navy", "t", "عنوان ورود"], ["on-navy", "navy-press", "t", "عنوان ورود در هاور"], ["on-navy-2", "navy", "t", "خط دوم ورود"], ["on-navy-2", "navy-press", "t", "خط دوم در هاور"],
+  ["navy", "wash", "t", "«جواب آزمایش» در منوی رومیزی"], ["navy", "wash-line", "t", "همان در هاور"], ["navy-ink", "wash", "t", "پیوند راهنما و «امروز»"], ["navy-ink", "surface", "t", "پیوند روی کارت"],
+  ["on-foot", "foot", "t", "متن پاورقی"], ["on-foot-2", "foot", "t", "عنوان پاورقی"], ["on-ink", "ink", "t", "پیوندیار باز، ارسال"],
+  ["focus", "paper", "r", "حلقه فوکوس روی صفحه"], ["focus", "surface", "r", "روی کارت"], ["focus", "wash", "r", "روی سطح جواب"], ["focus", "paper-2", "r", "روی نوار بالا"], ["focus-on-dark", "foot", "r", "روی پاورقی"],
+  ["field-line", "surface", "r", "مرز فیلد پیام"]
+];
+const rgbOf = v => { const c = document.createElement("i"); c.style.color = v; document.body.appendChild(c); const m = getComputedStyle(c).color.match(/[\d.]+/g).map(Number); c.remove(); return m; };
+const lum = ([r, g, b]) => [r, g, b].map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
+const ratio = (f, b) => { const x = lum(rgbOf(f)), y = lum(rgbOf(b)); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+
+function Contrast() {
+  const [rows, setRows] = useState([]);
+  useEffect(() => { setRows(PAIRS.map(([f, b, k, use]) => ({ f, b, k, use, r: ratio("var(--pv-" + f + ")", "var(--pv-" + b + ")") }))); }, []);
+  const need = k => k === "t" ? 4.5 : 3;
+  const kind = { t: "متن", i: "آیکون", r: "مرز یا حلقه" };
+  return html`<div class="ds-scroll"><table class="ds-table">
+    <thead><tr><th scope="col">نمونه</th><th scope="col">جفت</th><th scope="col">کجا</th><th scope="col">نسبت</th><th scope="col">حد</th></tr></thead>
+    <tbody>${rows.map(p => html`<tr key=${p.f + p.b}>
+      <td>${p.k === "t" ? html`<span class="ds-pair" style=${{ color: "var(--pv-" + p.f + ")", background: "var(--pv-" + p.b + ")" }}>آزمایش ۱۲</span>` : html`<span class="ds-ring" style=${{ background: "var(--pv-" + p.b + ")", boxShadow: "inset 0 0 0 3px var(--pv-" + p.f + ")" }}></span>`}</td>
+      <td class="pv-lat" style=${{ textAlign: "end", fontSize: "var(--pv-fs-micro)" }}>${p.f} / ${p.b}</td>
+      <td>${p.use}</td>
+      <td class="ds-r">${fa(p.r.toFixed(2))}:۱</td>
+      <td>${kind[p.k]} ${fa(need(p.k))}:۱، قبول</td>
+    </tr>`)}</tbody>
+  </table></div>`;
+}
+
+const TYPE = [
+  ["entry", "۲۶ / ۳۴", "۹۰۰", "۱٫۳", "عنوان ورود؛ تنها عنوان سیاه‌وزن سایت، چون مهم‌ترین چیز است.", html`<span style=${{ fontSize: "var(--pv-fs-entry)", fontWeight: 900, lineHeight: 1.3 }}>جواب آزمایش</span>`],
+  ["entry-compact", "۲۱", "۹۰۰", "۱٫۳", "ورود کوچک در منوی گوشی؛ کوچک‌تر ولی هنوز سنگین‌ترین در منو.", html`<span style=${{ fontSize: "var(--pv-fs-entry-compact)", fontWeight: 900, lineHeight: 1.3 }}>جواب آزمایش</span>`],
+  ["h2", "۲۱ / ۲۴", "۷۰۰", "۱٫۴", "عنوان بخش؛ کوچک‌تر از ورود تا با آن رقابت نکند.", html`<span style=${{ fontSize: "var(--pv-fs-h2)", fontWeight: 700, lineHeight: 1.4 }}>پیش از مراجعه</span>`],
+  ["h3", "۱۸", "۷۰۰", "۱٫۵", "عنوان ردیف و کارت.", html`<span style=${{ fontSize: "var(--pv-fs-h3)", fontWeight: 700, lineHeight: 1.5 }}>درخواست نمونه‌گیری در منزل</span>`],
+  ["body", "۱۷", "۴۰۰ / ۷۰۰", "۱٫۷۵", "متن خواندنی؛ برای خوانندگان مسن یک پله بزرگ‌تر از ۱۶، و ارتفاع خط ۱٫۷۵ چون فارسی نقطه و دندانه بالا و پایین دارد.", html`<span style=${{ fontSize: "var(--pv-fs-body)" }}>نسخه را با فرمت jpg بفرستید تا کارشناسان پذیرش با شما تماس بگیرند.</span>`],
+  ["small", "۱۵", "۵۰۰ / ۷۰۰", "۱٫۶", "منو، پیوندها، توضیح کوتاه.", html`<span style=${{ fontSize: "var(--pv-fs-small)" }}>روزهای تعطیل رسمی، آزمایشگاه تعطیل است.</span>`],
+  ["micro", "۱۴", "۵۰۰ / ۷۰۰", "۱٫۵", "کمترین اندازه سایت: برچسب‌ها و «امروز». هیچ متنی کوچک‌تر نیست.", html`<span style=${{ fontSize: "var(--pv-fs-micro)", color: "var(--pv-ink-3)" }}>پزشک یا مرکز همکار هستید؟</span>`]
+];
+
+function Type() {
+  return html`<div class="ds-type">${TYPE.map(([t, px, w, lh, why, sample]) => html`<div key=${t}>
+    ${sample}
+    <span class="ds-meta"><b class="pv-lat">--pv-fs-${t}</b> اندازه ${px} پیکسل (گوشی / رومیزی)، وزن ${w}، ارتفاع خط ${lh}. ${why}</span>
+  </div>`)}</div>`;
+}
+
+const SPACE = [["s1", 4], ["s2", 8], ["s3", 12], ["s4", 16], ["s5", 20], ["s6", 24], ["s8", 32], ["s10", 40], ["s12", 48], ["s16", 64]];
+
+function Space() {
+  return html`<div class="ds-grid2">
+    <div class="ds-box">
+      <div class="ds-scale">${SPACE.map(([t, v]) => html`<div key=${t}><span class="pv-lat">--pv-${t}</span><span style=${{ display: "flex", alignItems: "center", gap: "8px" }}><i style=${{ width: v * 3 + "px" }}></i>${fa(v)}</span></div>`)}</div>
+      <p class="ds-meta" style=${{ margin: "16px 0 0" }}>پله‌های ۴ پیکسلی؛ ۴ تا ۱۲ درون کنترل، ۱۶ تا ۲۴ بین اجزای یک بلوک، ۳۲ تا ۶۴ بین بخش‌ها. حاشیه کناره <span class="pv-lat">--pv-gutter</span> ۱۶ در گوشی و ۴۰ در رومیزی؛ پهنای محتوا <span class="pv-lat">--pv-wrap</span> ۱۲۰۰. نقطه شکست ۹۶۰ پیکسل: منو به سرصفحه می‌رود و بخش‌ها دو ستونه می‌شوند.</p>
+    </div>
+    <div class="ds-box">
+      <div class="ds-radii">
+        <div><i style=${{ borderRadius: "var(--pv-r-sm)" }}></i><span><b class="pv-lat">r-sm</b> ۱۰<br/>دکمه‌ها و فیلد</span></div>
+        <div><i style=${{ borderRadius: "var(--pv-r-md)" }}></i><span><b class="pv-lat">r-md</b> ۱۴<br/>ورود و کارت‌ها</span></div>
+        <div><i style=${{ borderRadius: "var(--pv-r-lg)" }}></i><span><b class="pv-lat">r-lg</b> ۲۰<br/>پنل پیوندیار</span></div>
+        <div><i style=${{ borderRadius: "var(--pv-r-pill)" }}></i><span><b class="pv-lat">r-pill</b><br/>دکمه‌های کوچک</span></div>
+      </div>
+      <p class="ds-meta" style=${{ margin: "16px 0 0" }}>گردی نرم ولی نه کودکانه؛ هرچه بزرگ‌تر، گردتر، تا گوشه‌ها با هم هم‌خوان باشند.</p>
+      <div class="ds-elev" style=${{ marginTop: "20px" }}>
+        <div style=${{ boxShadow: "var(--pv-shadow-2)" }}><span><b class="pv-lat">shadow-2</b><br/>فقط ورود به جواب</span></div>
+        <div style=${{ filter: "var(--pv-lift)" }}><span><b class="pv-lat">lift</b><br/>ته‌برگ قبض</span></div>
+        <div style=${{ boxShadow: "var(--pv-shadow-chat)" }}><span><b class="pv-lat">shadow-chat</b><br/>پنل پیوندیار</span></div>
+        <div style=${{ boxShadow: "var(--pv-shadow-3)" }}><span><b class="pv-lat">shadow-3</b><br/>منوی گوشی</span></div>
+      </div>
+      <p class="ds-meta" style=${{ margin: "16px 0 0" }}>تنها سایه برجسته مال ورود است، چون مهم‌ترین چیز باید جلوتر بنشیند؛ بقیه فقط لایه را نشان می‌دهند.</p>
+      <div class="ds-row" style=${{ marginTop: "20px" }}>
+        <${Spec} marks=${[[".pv-close", "is-focus"]]}><${PV.Close}/><//>
+        <span class="ds-meta">لمس: <b class="pv-lat">--pv-tap</b> ۴۸، کمینه <b class="pv-lat">--pv-tap-min</b> ۴۴. فوکوس: حلقه ۳ پیکسلی سرمه‌ای با فاصله ۳، روی پاورقی کرم.</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+const MOTION = [
+  ["press", "فنر ۵۰۰ / ۳۰", "فشار ورود (۰٫۹۸)، ردیف (۰٫۹۹)، دکمه‌ها (۰٫۹۵)", "می‌گوید لمس ثبت شد؛ کوتاه، بی‌جهش."],
+  ["nudge", "۴- پیکسل، فنر press", "فلش ورود در هاور", "می‌گوید این راه ادامه دارد، به سمت جلو در راست‌به‌چپ."],
+  ["sheet", "فنر ۴۲۰ / ۴۲", "منوی گوشی از لبه راست؛ پیوندیار گوشی از پایین", "از همان لبه‌ای می‌آید که دکمه‌اش هست؛ بی‌جهش، چون پنل سنگین است."],
+  ["panel", "فنر ۵۰۰ / ۳۴، مقیاس ۰٫۵۵ به ۱، از گوشه دکمه", "پنل پیوندیار رومیزی", "از دکمه پیوندیار رشد می‌کند تا معلوم باشد از کجا آمد."],
+  ["exit", "۰٫۱۸ ثانیه، [۰٫۴، ۰، ۱، ۱]", "بستن منو و پیوندیار", "بستن تندتر از باز شدن، تا کاربر منتظر نماند."],
+  ["scrim", "۰٫۲۴ ثانیه، [۰، ۰، ۰٫۲، ۱]", "پرده پشت منو", "پرده محتوا نیست، فقط کم‌رنگ و پررنگ می‌شود."]
+];
+
+function Motion() {
+  return html`<div class="ds-scroll"><table class="ds-table ds-motion">
+    <thead><tr><th scope="col">توکن</th><th scope="col">مقدار</th><th scope="col">کجا</th><th scope="col">چرا</th></tr></thead>
+    <tbody>${MOTION.map(m => html`<tr key=${m[0]}><td class="pv-lat" style=${{ textAlign: "end" }}>${m[0]}</td><td>${m[1]}</td><td>${m[2]}</td><td>${m[3]}</td></tr>`)}</tbody>
+  </table></div>
+  <p class="ds-why" style=${{ marginTop: "12px" }}>همه با Framer Motion و از <span class="pv-lat">payvandlab-motion.js</span>؛ با «کاهش حرکت» سیستم عامل، همه جابه‌جایی‌ها خاموش می‌شوند و پنل‌ها سر جایشان ظاهر می‌شوند. هیچ چیز خودبه‌خود حرکت نمی‌کند.</p>`;
+}
+
+function App() {
+  return html`<${MotionConfig} reducedMotion="user">
+    <header class="ds-top"><div class="pv-wrap">
+      <img src=${PV.LOGO} width="217" height="63" alt="آزمایشگاه تشخیص طبی و تخصصی پیوند"/>
+      <h1>سامانه طراحی سایت آزمایشگاه پیوند</h1>
+      <p class="ds-idea">یک قدم از قبضی که در دست دارید تا جواب آزمایش؛ تنها چیز سنگین هر صفحه همان قدم است.</p>
+      <p>برگرفته از صفحه اصلی پذیرفته‌شده (ZIP-513، ۲۳ آبان ۱۴۰۵). هر صفحه بعدی فقط از همین توکن‌ها و اجزا ساخته می‌شود؛ جزء تازه اول به این سامانه می‌آید.</p>
+      <ul class="ds-index" aria-label="فهرست">
+        ${[["colors", "رنگ"], ["contrast", "کنتراست"], ["type", "حروف و ارقام"], ["space", "فاصله، گردی، سایه"], ["motion", "حرکت"], ["entry", "ورود به جواب"], ["header", "سرصفحه و منو"], ["content", "بلوک محتوا"], ["hours", "ساعت کار"], ["footer", "پاورقی"], ["yar", "پیوندیار"]].map(([h, t]) => html`<li key=${h}><a href=${"#" + h}>${t}</a></li>`)}
+      </ul>
+      <p class="ds-later">هنوز نیست: گام‌های شماره‌دار و پرسش و پاسخ؛ پیش از نخستین صفحه‌ای که لازمشان دارد به این سامانه افزوده می‌شوند.</p>
+    </div></header>
+    <main>
+      <${Sec} id="colors" n=${1} title="رنگ" why=${html`رنگ‌های لوگو بی‌تغییر می‌مانند (سرمه‌ای <span class="pv-lat">#003C7E</span> و فیروزه‌ای <span class="pv-lat">#00C0F3</span>، از پیکسل‌های لوگو). سرمه‌ای کمیاب است تا معنا داشته باشد؛ عمق صفحه از دما می‌آید: کاغذ گرم در برابر سطح خنک جواب و پاورقی زغالی.`}>
+        <${Colors}/>
+      <//>
+      <${Sec} id="contrast" n=${2} title="کنتراست هر جفت به‌کاررفته" why="هر نسبت همین‌جا در مرورگر از خود توکن‌ها اندازه گرفته می‌شود (WCAG 2.2): متن ۴٫۵:۱، آیکون، مرز کنترل و حلقه فوکوس ۳:۱. جفتی که رد شود وارد سامانه نمی‌شود.">
+        <${Contrast}/>
+      <//>
+      <${Sec} id="type" n=${3} title="حروف و ارقام" why=${html`<b>وزیرمتن</b> (مجوز SIL OFL 1.1) با وزن‌های ۴۰۰، ۵۰۰، ۷۰۰ و ۹۰۰: برای فارسی روی صفحه ساخته شده، فضای داخلی باز و نقطه‌های روشن در اندازه کوچک برای خوانندگان مسن، و مجوز آزاد. دلیلی برای تغییر قلم صفحه اصلی پیدا نشد.`}>
+        <${Type}/>
+        <h3 class="ds-h3">قاعده ارقام</h3>
+        <div class="ds-box">
+          <p style=${{ margin: 0 }}>همه عددها با <b>رقم فارسی</b>: <span class="pv-lat pv-num">۰۲۱-۷۱۴۰۰۰۰۴</span>، ۰۶:۳۰ تا ۱۹:۰۰، کدپستی <span class="pv-num">۱۹۱۹۷۵۳۵۵۷</span>، <span class="pv-lat">ISO ۱۵۱۸۹</span>.</p>
+          <p class="ds-meta" style=${{ margin: "8px 0 0" }}>فقط واژه‌ها و نشانی‌های لاتین لاتین می‌مانند (jpg، ISO، NACI، IFCC، ایمیل). عددی که شماره‌گیری می‌شود یا کنار لاتین است در جداساز چپ‌به‌راست <b class="pv-lat">.pv-lat</b> می‌نشیند تا جابه‌جا نشود؛ عددهای ستونی <b class="pv-lat">.pv-num</b> هم‌عرض‌اند. یک قاعده برای همه سایت، چون کاربران همان رقم‌های قبض و پیامک را می‌شناسند.</p>
+        </div>
+      <//>
+      <${Sec} id="space" n=${4} title="فاصله، گردی، سایه، لمس" why="فاصله و گردی از صفحه اصلی؛ همه هدف‌های لمسی دست‌کم ۴۴ پیکسل و حلقه فوکوس روی هر کنترل دیده می‌شود.">
+        <${Space}/>
+      <//>
+      <${Sec} id="motion" n=${5} title="حرکت" why="چیزی فقط وقتی حرکت می‌کند که به پرسشی جواب بدهد: لمس ثبت شد؟ این پنل از کجا آمد؟ هر نوع حرکت یک توکن دارد.">
+        <${Motion}/>
+      <//>
+      <${Sec} id="entry" n=${6} title="ورود به جواب آزمایش" why=${html`<b>مهم‌ترین چیز هر صفحه‌ای که در آن بیاید</b> (INV-3): تنها پرِ سرمه‌ای، تنها عنوان سیاه‌وزن، تنها سایه برجسته؛ یک لمس تا صفحه ورود سامانه فعلی. نسخه اصلی با «چه چیزی وارد کنید» به شکل ته‌برگ قبض، راهنما و درِ پزشکان و مراکز همکار؛ نسخه کوچک بالای منوی گوشی.`}>
+        <${Spec} cls="ds-stage is-bleed is-wash"><${PV.Results}/><//>
+        <div class="ds-states">
+          <${State} label="هاور: سرمه‌ای فشرده، فلش ۴ پیکسل جلو"><${Spec} marks=${[[".pv-entry", "is-hover"], [".pv-entry-go", null, { transform: "translateX(-4px)" }]]}><${PV.Entry}/><//><//>
+          <${State} label="فوکوس: حلقه ۳ پیکسلی با فاصله ۴"><${Spec} cls="ds-stage is-wash" marks=${[[".pv-entry", "is-focus"]]}><${PV.Entry}/><//><//>
+          <${State} label="فشار: مقیاس ۰٫۹۸، فنر press"><${Spec} marks=${[[".pv-entry", null, { transform: "scale(0.98)" }]]}><${PV.Entry}/><//><//>
+          <${State} label="نسخه کوچک (منوی گوشی)"><${Spec} cls="ds-stage" style=""><div style=${{ background: "var(--pv-surface)", padding: "16px", borderRadius: "var(--pv-r-md)" }}><${PV.Entry} compact=${true}/></div><//><//>
+        </div>
+        <h3 class="ds-h3">اجزای کوچک بخش جواب</h3>
+        <${Spec} cls="ds-stage is-wash" marks=${[[".ds-a .pv-role", "is-hover"], [".ds-b .pv-role", "is-focus"], [".ds-c .pv-link", "is-hover"], [".ds-d .pv-link", "is-focus"]]}>
+          <div class="ds-row">
+            <span class="ds-a"><a class="pv-role" href=${PV.LOGIN}>ورود پزشکان<${PV.Ico} d=${PV.P.chev}/></a></span>
+            <span class="ds-b"><a class="pv-role" href=${PV.PARTNER}>ورود مراکز همکار<${PV.Ico} d=${PV.P.chev}/></a></span>
+            <span class="ds-c"><a class="pv-link" href="/results-help"><${PV.Ico} d=${PV.P.book}/>راهنمای جوابدهی اینترنتی</a></span>
+            <span class="ds-d"><a class="pv-link" href="/contact">نشانی و راه‌های ارتباط<${PV.Ico} d=${PV.P.chev}/></a></span>
+          </div>
+          <p class="ds-meta" style=${{ margin: "12px 0 0" }}>دکمه‌های پزشکان و مراکز: قرصی ۴۴ پیکسل، بسیار سبک‌تر از ورود (هاور: مرز پررنگ‌تر؛ فوکوس: حلقه). پیوند: زیرخط کم‌رنگ که در هاور هم‌رنگ متن می‌شود (دوم: فوکوس).</p>
+        <//>
+      <//>
+      <${Sec} id="header" n=${7} title="سرصفحه و منو" why="سرصفحه چسبان نیست تا هرگز روی محتوا ننشیند. نوار بالا: تلفن قابل لمس و پیوندیار. از ۹۶۰ پیکسل به بالا ناوبری در سرصفحه است و «جواب آزمایش» در آن سرمه‌ای روی سطح خنک؛ زیر ۹۶۰ دکمه «منو» با واژه، و منوی گوشی فقط همان‌جا وجود دارد.">
+        <${Spec} cls="ds-stage is-bleed"><${PV.Util} chatOpen=${false} onChat=${() => {}}/><${PV.Head} onMenu=${() => {}}/><//>
+        <div class="ds-only-wide">
+          <h3 class="ds-h3">گزینه‌های ناوبری رومیزی</h3>
+          <${Spec} cls="ds-stage" marks=${[[".pv-nav li:nth-child(3) a", "is-hover"], [".pv-nav li:nth-child(4) a", "is-focus"], [".pv-nav li:nth-child(2) a", "is-hover"]]}>
+            <div style=${{ background: "var(--pv-surface)", borderRadius: "var(--pv-r-md)", padding: "8px" }}><nav class="pv-nav" aria-label="نمونه ناوبری"><ul>
+              ${PV.MENU.slice(0, 4).map(m => html`<li key=${m.t}><a href=${m.h} class=${m.results ? "pv-nav-results" : ""} aria-current=${m.cur ? "page" : null}>${m.t}${m.results ? html`<${PV.Ico} d=${PV.P.arrow}/>` : null}</a></li>`)}
+            </ul></nav></div>
+            <p class="ds-meta" style=${{ margin: "12px 0 0" }}>از راست: صفحه فعلی (پررنگ)، «جواب آزمایش» در هاور، گزینه در هاور، گزینه با فوکوس.</p>
+          <//>
+        </div>
+        <p class="ds-only-narrow">ناوبری رومیزی از عرض ۹۶۰ پیکسل دیده می‌شود.</p>
+        <h3 class="ds-h3">گوشی: سرصفحه و منوی باز</h3>
+        <div class="ds-frames">
+          <div class="ds-frame"><span>زیر ۹۶۰: دکمه «منو» با واژه</span><iframe src="../home/home.html?state=first" title="سرصفحه گوشی"></iframe></div>
+          <div class="ds-frame"><span>منوی گوشی باز: از لبه راست، ورود کوچک اول، «بستن» با واژه، Esc می‌بندد</span><iframe src="../home/home.html?state=menu" title="منوی گوشی باز"></iframe></div>
+        </div>
+        <div class="ds-states">
+          <${State} label="دکمه منو: هاور، مرز پررنگ‌تر"><div class="ds-row"><${Spec} marks=${[[".pv-close", "is-hover"]]}><${PV.Close}/><//></div><//>
+          <${State} label="«بستن»: فوکوس"><div class="ds-row"><${Spec} marks=${[[".pv-close", "is-focus"]]}><${PV.Close}/><//></div><//>
+        </div>
+      <//>
+      <${Sec} id="content" n=${8} title="بلوک محتوا" why="فهرست ردیف‌های پیوندی برای کارهای پیش از مراجعه (نه کاشی‌های هم‌وزن): هر ردیف عنوان، یک واقعیت واقعی از سایت فعلی و فلش. کارت سفید برای داده‌ای که باید دیده شود، مثل ساعت کار.">
+        <div class="ds-grid2">
+          <${Spec} marks=${[[".pv-list a:nth-child(2)", "is-hover"], [".pv-list a:nth-child(3)", "is-focus"]]}><${PV.List}/><//>
+          <div class="ds-box"><p class="ds-meta" style=${{ margin: 0 }}>ردیف اول: حالت عادی. دوم: هاور (سطح <span class="pv-lat">hover</span>، دایره فلش). سوم: فوکوس، حلقه داخل ردیف تا بریده نشود. فشار: مقیاس ۰٫۹۹. ارتفاع ۷۲ در گوشی و ۸۸ در رومیزی؛ متن بلند می‌شکند و ردیف بلندتر می‌شود.</p></div>
+        </div>
+      <//>
+      <${Sec} id="hours" n=${9} title="جدول ساعت کار" why="«وقتی می‌روم باز است؟» دو ردیف از ساعت‌های خود آزمایشگاه؛ ردیف امروز پررنگ با برچسب «امروز» از تاریخ دستگاه. جمعه برچسبی ندارد چون منبع ساعتی برایش نگفته است.">
+        <div class="ds-grid2">
+          <${State} label="امروز: شنبه تا چهارشنبه"><${PV.Hours} today=${0}/><//>
+          <${State} label="جمعه: بدون برچسب"><${PV.Hours} today=${-1}/><//>
+        </div>
+      <//>
+      <${Sec} id="footer" n=${10} title="پاورقی" why="اعتماد برای یک خدمت پزشکی: نشانی با کدپستی، تلفن، ایمیل و تاییدیه‌های آزمایشگاه به‌صورت متن. زغالی گرم، نه سرمه‌ای.">
+        <${Spec} cls="ds-stage is-bleed" marks=${[[".pv-contact a:first-child", "is-focus"], [".pv-contact a:last-child", "is-hover"]]}><${PV.Foot}/><//>
+        <p class="ds-meta" style=${{ margin: "12px 0 0" }}>تلفن با حلقه فوکوس کرم، ایمیل در هاور (زیرخط).</p>
+      <//>
+      <${Sec} id="yar" n=${11} title="پیوندیار" why="سوال راهی برای پرسیدن می‌خواهد، اما گفتگو هرگز روی یک کار نمی‌نشیند (INV-5): دکمه قرصی با واژه در نوار بالا، نه حباب شناور؛ هرگز خودش باز نمی‌شود. گوشی: برگه از پایین با بیشینه ۴۲۰ پیکسل تا ورود دیده بماند. رومیزی: پنل ۳۸۰ در ۵۰۰ کنار دکمه.">
+        <div class="ds-states">
+          <${State} label="بسته"><div class="ds-row"><${PV.Yar} open=${false}/></div><//>
+          <${State} label="هاور: مرز پررنگ‌تر"><${Spec} cls="ds-row" marks=${[[".pv-yar", "is-hover"]]}><${PV.Yar} open=${false}/><//><//>
+          <${State} label="فوکوس"><${Spec} cls="ds-row" marks=${[[".pv-yar", "is-focus"]]}><${PV.Yar} open=${false}/><//><//>
+          <${State} label="باز: پر تیره، «بستن پیوندیار»"><div class="ds-row"><${PV.Yar} open=${true}/></div><//>
+        </div>
+        <h3 class="ds-h3">پنل باز</h3>
+        <div class="ds-frames">
+          <div class="ds-frame"><span>گوشی: برگه از پایین، ورود بالای آن دیده می‌ماند</span><iframe src="../home/home.html?state=chat" title="پیوندیار باز در گوشی"></iframe></div>
+          <div class="ds-frame ds-only-wide"><span>رومیزی: پنل کنار دکمه، فیلد پیام با برچسب «پیام شما»</span><${Spec} cls="ds-chatframe" marks=${[[".pv-chat-form input", "is-focus"]]}><${PV.Chat} onClose=${() => {}}/><//></div>
+        </div>
+      <//>
+    </main>
+    <footer class="ds-end"><div class="pv-wrap">منبع: <span class="pv-lat">payvandlab-tokens.css</span>، <span class="pv-lat">payvandlab-components.css</span>، <span class="pv-lat">payvandlab-components.js</span>، <span class="pv-lat">payvandlab-motion.js</span>؛ صفحه اصلی از همین پرونده‌ها ساخته می‌شود.</div></footer>
+  <//>`;
+}
+
+createRoot(document.getElementById("root")).render(html`<${App}/>`);
+</script>
+</body>
+</html>
