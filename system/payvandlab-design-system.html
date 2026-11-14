@@ -170,7 +170,8 @@ const PAIRS = [
   ["navy", "wash", "t", "«جواب آزمایش» در منوی رومیزی"], ["navy", "wash-line", "t", "همان در هاور"], ["navy-ink", "wash", "t", "پیوند راهنما و «امروز»"], ["navy-ink", "surface", "t", "پیوند روی کارت"],
   ["on-foot", "foot", "t", "متن پاورقی"], ["on-foot-2", "foot", "t", "عنوان پاورقی"], ["on-ink", "ink", "t", "پیوندیار باز، ارسال"],
   ["focus", "paper", "r", "حلقه فوکوس روی صفحه"], ["focus", "surface", "r", "روی کارت"], ["focus", "wash", "r", "روی سطح جواب"], ["focus", "paper-2", "r", "روی نوار بالا"], ["focus-on-dark", "foot", "r", "روی پاورقی"],
-  ["field-line", "surface", "r", "مرز فیلد پیام"]
+  ["field-line", "surface", "r", "مرز فیلد پیام"],
+  ["ink", "wash", "t", "عنوان صفحه روی سطح جواب"], ["navy-ink", "paper", "t", "پیوند کمکی در پاسخ باز"], ["ink-2", "paper-2", "i", "پیکان پرسش بسته"], ["on-ink", "ink", "i", "پیکان پرسش باز"], ["ink-3", "paper-2", "t", "«نمونه پیامک پذیرش»"], ["ink-3", "surface", "t", "جای خالی پیامک"], ["navy-ink", "wash", "t", "برچسب «نام کاربری» و «رمز عبور»"], ["ink", "paper", "t", "متن پاسخ باز"], ["navy-ink", "wash", "i", "تیک پایان گام‌ها"]
 ];
 const rgbOf = v => { const c = document.createElement("i"); c.style.color = v; document.body.appendChild(c); const m = getComputedStyle(c).color.match(/[\d.]+/g).map(Number); c.remove(); return m; };
 const lum = ([r, g, b]) => [r, g, b].map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
@@ -183,7 +184,7 @@ function Contrast() {
   const kind = { t: "متن", i: "آیکون", r: "مرز یا حلقه" };
   return html`<div class="ds-scroll"><table class="ds-table">
     <thead><tr><th scope="col">نمونه</th><th scope="col">جفت</th><th scope="col">کجا</th><th scope="col">نسبت</th><th scope="col">حد</th></tr></thead>
-    <tbody>${rows.map(p => html`<tr key=${p.f + p.b}>
+    <tbody>${rows.map(p => html`<tr key=${p.f + p.b + p.use}>
       <td>${p.k === "t" ? html`<span class="ds-pair" style=${{ color: "var(--pv-" + p.f + ")", background: "var(--pv-" + p.b + ")" }}>آزمایش ۱۲</span>` : html`<span class="ds-ring" style=${{ background: "var(--pv-" + p.b + ")", boxShadow: "inset 0 0 0 3px var(--pv-" + p.f + ")" }}></span>`}</td>
       <td class="pv-lat" style=${{ textAlign: "end", fontSize: "var(--pv-fs-micro)" }}>${p.f} / ${p.b}</td>
       <td>${p.use}</td>
@@ -247,7 +248,10 @@ const MOTION = [
   ["sheet", "فنر ۴۲۰ / ۴۲", "منوی گوشی از لبه راست؛ پیوندیار گوشی از پایین", "از همان لبه‌ای می‌آید که دکمه‌اش هست؛ بی‌جهش، چون پنل سنگین است."],
   ["panel", "فنر ۵۰۰ / ۳۴، مقیاس ۰٫۵۵ به ۱، از گوشه دکمه", "پنل پیوندیار رومیزی", "از دکمه پیوندیار رشد می‌کند تا معلوم باشد از کجا آمد."],
   ["exit", "۰٫۱۸ ثانیه، [۰٫۴، ۰، ۱، ۱]", "بستن منو و پیوندیار", "بستن تندتر از باز شدن، تا کاربر منتظر نماند."],
-  ["scrim", "۰٫۲۴ ثانیه، [۰، ۰، ۰٫۲، ۱]", "پرده پشت منو", "پرده محتوا نیست، فقط کم‌رنگ و پررنگ می‌شود."]
+  ["scrim", "۰٫۲۴ ثانیه، [۰، ۰، ۰٫۲، ۱]", "پرده پشت منو", "پرده محتوا نیست، فقط کم‌رنگ و پررنگ می‌شود."],
+  ["disclose", "فنر ۴۸۰ / ۴۰، جرم ۰٫۶", "ارتفاع پاسخ در پرسش و پاسخ", "جعبه پاسخ از زیر پرسش باز می‌شود و پاسخ قبلی هم‌زمان جمع می‌شود؛ بی‌جهش، محتوای پایین آرام جابه‌جا می‌شود."],
+  ["chevron", "فنر ۷۰۰ / ۴۶، جرم ۰٫۵", "پیکان پرسش، ۰ به ۱۸۰ درجه", "وضعیت دوحالتی باز و بسته را برمی‌گرداند، تندتر از جعبه تا اول بگوید چه شد."],
+  ["dissolveIn / dissolveOut", "۰٫۱۸ / ۰٫۱۴ ثانیه", "متن پاسخ درون جعبه", "متن خواندنی در جای خود پدیدار می‌شود؛ بستن تندتر."]
 ];
 
 function Motion() {
@@ -258,6 +262,15 @@ function Motion() {
   <p class="ds-why" style=${{ marginTop: "12px" }}>همه با Framer Motion و از <span class="pv-lat">payvandlab-motion.js</span>؛ با «کاهش حرکت» سیستم عامل، همه جابه‌جایی‌ها خاموش می‌شوند و پنل‌ها سر جایشان ظاهر می‌شوند. هیچ چیز خودبه‌خود حرکت نمی‌کند.</p>`;
 }
 
+function FaqDemo() {
+  const [o, setO] = useState("c");
+  return html`<${PV.Faq} open=${o} onToggle=${setO} items=${[
+    { id: "a", q: "فیلترشکن (VPN) روشن است؟", a: html`<p>فیلترشکن را خاموش کنید تا آدرس IP شما مجاز شناخته شود.</p>` },
+    { id: "b", q: "پیام «خطای غیرمنتظره» می‌بینم", a: html`<p>یک بار «خروج» را بزنید و دوباره وارد شوید.</p>` },
+    { id: "c", q: "صفحه ورود باز نمی‌شود", a: html`<p>از لینک کمکی آزمایشگاه وارد شوید:</p><ul><li><a class="pv-link" href="http://5.201.182.117:1984/">لینک کمکی دوم<${PV.Ico} d=${PV.P.chev}/></a><span class="pv-note">فقط مشاهده جواب، بدون پرداخت آنلاین</span></li></ul>` }
+  ]}/>`;
+}
+
 function App() {
   return html`<${MotionConfig} reducedMotion="user">
     <header class="ds-top"><div class="pv-wrap">
@@ -266,9 +279,9 @@ function App() {
       <p class="ds-idea">یک قدم از قبضی که در دست دارید تا جواب آزمایش؛ تنها چیز سنگین هر صفحه همان قدم است.</p>
       <p>برگرفته از صفحه اصلی پذیرفته‌شده (ZIP-513، ۲۳ آبان ۱۴۰۵). هر صفحه بعدی فقط از همین توکن‌ها و اجزا ساخته می‌شود؛ جزء تازه اول به این سامانه می‌آید.</p>
       <ul class="ds-index" aria-label="فهرست">
-        ${[["colors", "رنگ"], ["contrast", "کنتراست"], ["type", "حروف و ارقام"], ["space", "فاصله، گردی، سایه"], ["motion", "حرکت"], ["entry", "ورود به جواب"], ["header", "سرصفحه و منو"], ["content", "بلوک محتوا"], ["hours", "ساعت کار"], ["footer", "پاورقی"], ["yar", "پیوندیار"]].map(([h, t]) => html`<li key=${h}><a href=${"#" + h}>${t}</a></li>`)}
+        ${[["colors", "رنگ"], ["contrast", "کنتراست"], ["type", "حروف و ارقام"], ["space", "فاصله، گردی، سایه"], ["motion", "حرکت"], ["entry", "ورود به جواب"], ["header", "سرصفحه و منو"], ["content", "بلوک محتوا"], ["hours", "ساعت کار"], ["footer", "پاورقی"], ["yar", "پیوندیار"], ["steps", "گام‌های شماره‌دار"], ["faq", "پرسش و پاسخ"], ["sms", "نمونه پیامک"]].map(([h, t]) => html`<li key=${h}><a href=${"#" + h}>${t}</a></li>`)}
       </ul>
-      <p class="ds-later">هنوز نیست: گام‌های شماره‌دار و پرسش و پاسخ؛ پیش از نخستین صفحه‌ای که لازمشان دارد به این سامانه افزوده می‌شوند.</p>
+      <p class="ds-later">افزوده برای راهنمای جوابدهی اینترنتی (ZIP-520): گام‌های شماره‌دار، پرسش و پاسخ، نمونه پیامک، ردیف بی‌پیوند فهرست، جدول ساعت با ردیف‌های دیگر، و عنوان دیدنی صفحه بالای ورود.</p>
     </div></header>
     <main>
       <${Sec} id="colors" n=${1} title="رنگ" why=${html`رنگ‌های لوگو بی‌تغییر می‌مانند (سرمه‌ای <span class="pv-lat">#003C7E</span> و فیروزه‌ای <span class="pv-lat">#00C0F3</span>، از پیکسل‌های لوگو). سرمه‌ای کمیاب است تا معنا داشته باشد؛ عمق صفحه از دما می‌آید: کاغذ گرم در برابر سطح خنک جواب و پاورقی زغالی.`}>
@@ -297,6 +310,7 @@ function App() {
           <${State} label="هاور: سرمه‌ای فشرده، فلش ۴ پیکسل جلو"><${Spec} marks=${[[".pv-entry", "is-hover"], [".pv-entry-go", null, { transform: "translateX(-4px)" }]]}><${PV.Entry}/><//><//>
           <${State} label="فوکوس: حلقه ۳ پیکسلی با فاصله ۴"><${Spec} cls="ds-stage is-wash" marks=${[[".pv-entry", "is-focus"]]}><${PV.Entry}/><//><//>
           <${State} label="فشار: مقیاس ۰٫۹۸، فنر press"><${Spec} marks=${[[".pv-entry", null, { transform: "scale(0.98)" }]]}><${PV.Entry}/><//><//>
+          <${State} label="با عنوان صفحه، بی پیوند راهنما (در خود صفحه راهنما)"><${Spec} cls="ds-stage is-wash"><h1 class="pv-results-title" style=${{ fontSize: "var(--pv-fs-h2)" }}>راهنمای جوابدهی اینترنتی</h1><${PV.Entry}/><//><//>
           <${State} label="نسخه کوچک (منوی گوشی)"><${Spec} cls="ds-stage" style=""><div style=${{ background: "var(--pv-surface)", padding: "16px", borderRadius: "var(--pv-r-md)" }}><${PV.Entry} compact=${true}/></div><//><//>
         </div>
         <h3 class="ds-h3">اجزای کوچک بخش جواب</h3>
@@ -334,7 +348,10 @@ function App() {
       <//>
       <${Sec} id="content" n=${8} title="بلوک محتوا" why="فهرست ردیف‌های پیوندی برای کارهای پیش از مراجعه (نه کاشی‌های هم‌وزن): هر ردیف عنوان، یک واقعیت واقعی از سایت فعلی و فلش. کارت سفید برای داده‌ای که باید دیده شود، مثل ساعت کار.">
         <div class="ds-grid2">
-          <${Spec} marks=${[[".pv-list a:nth-child(2)", "is-hover"], [".pv-list a:nth-child(3)", "is-focus"]]}><${PV.List}/><//>
+          <div class="pv-col">
+            <${Spec} marks=${[[".pv-list a:nth-child(2)", "is-hover"], [".pv-list a:nth-child(3)", "is-focus"]]}><${PV.List}/><//>
+            <${State} label="ردیف بی‌پیوند: عنوان و واقعیت، با کنترل اختیاری در انتها"><${PV.List} rows=${[{ title: "درخواست جواب در گفتگوی سایت", text: "درخواست جواب را در پیوندیار، بخش گفتگوی سایت، با کارشناسان آزمایشگاه در میان بگذارید.", action: html`<${PV.Yar} open=${false}/>` }, { title: "ارسال جواب با پیک آزمایشگاه", text: "اگر می‌خواهید جواب با پیک موتوری برسد، هنگام پذیرش فرم آن را پر کنید و به همکاران آزمایشگاه بدهید." }]}/><//>
+          </div>
           <div class="ds-box"><p class="ds-meta" style=${{ margin: 0 }}>ردیف اول: حالت عادی. دوم: هاور (سطح <span class="pv-lat">hover</span>، دایره فلش). سوم: فوکوس، حلقه داخل ردیف تا بریده نشود. فشار: مقیاس ۰٫۹۹. ارتفاع ۷۲ در گوشی و ۸۸ در رومیزی؛ متن بلند می‌شکند و ردیف بلندتر می‌شود.</p></div>
         </div>
       <//>
@@ -342,6 +359,7 @@ function App() {
         <div class="ds-grid2">
           <${State} label="امروز: شنبه تا چهارشنبه"><${PV.Hours} today=${0}/><//>
           <${State} label="جمعه: بدون برچسب"><${PV.Hours} today=${-1}/><//>
+          <${State} label="ردیف‌های دیگر و بی نشانی: ساعت تحویل حضوری جواب"><${PV.Hours} title="ساعت تحویل حضوری جواب" rows=${PV.PICKUP} plain=${true} today=${0}/><//>
         </div>
       <//>
       <${Sec} id="footer" n=${10} title="پاورقی" why="اعتماد برای یک خدمت پزشکی: نشانی با کدپستی، تلفن، ایمیل و تاییدیه‌های آزمایشگاه به‌صورت متن. زغالی گرم، نه سرمه‌ای.">
@@ -360,6 +378,21 @@ function App() {
           <div class="ds-frame"><span>گوشی: برگه از پایین، ورود بالای آن دیده می‌ماند</span><iframe src="../home/home.html?state=chat" title="پیوندیار باز در گوشی"></iframe></div>
           <div class="ds-frame ds-only-wide"><span>رومیزی: پنل کنار دکمه، فیلد پیام با برچسب «پیام شما»</span><${Spec} cls="ds-chatframe" marks=${[[".pv-chat-form input", "is-focus"]]}><${PV.Chat} onClose=${() => {}}/><//></div>
         </div>
+      <//>
+      <${Sec} id="steps" n=${12} title="گام‌های شماره‌دار" why="«حالا چه کنم؟» کاری که چند قدم پشت سر هم دارد: دایره شماره با رقم فارسی روی خط نقطه‌چین که قدم‌ها را به هم وصل می‌کند، هر گام یک خط؛ خط به نتیجه می‌رسد، تیک سرمه‌ای تیره روی سطح خنک، چون نتیجه همان جواب است. بی کارت و بی آیکون تا گام‌ها خوانده شوند نه تزئین. حرکت ندارد، چون چیزی در آن تغییر نمی‌کند. منبع ۲۱st.dev ‏26902 (ریل و گره‌های شماره‌دار)، رنگ و اندازه از توکن‌ها.">
+        <div class="ds-grid2">
+          <${PV.Steps} label="نمونه" items=${["دکمه «جواب آزمایش» را بزنید.", "زبانه «مراجعین آزمایشگاه» را بزنید.", "نام کاربری و رمز عبور را بنویسید."]} end=${{ title: "فایل PDF جواب نهایی و تاییدشده است", text: "مهر و امضای دیجیتال مسئول فنی آزمایشگاه روی آن ثبت شده است." }}/>
+          <div class="ds-box"><p class="ds-meta" style=${{ margin: 0 }}>دایره ۳۶ پیکسل، مرز <span class="pv-lat">wash-line-2</span>، رقم ۱۵ پیکسل ۷۰۰ جوهر. متن گام ۱۷ پیکسل. خط نقطه‌چین ۲ پیکسل از زیر هر دایره تا دایره بعد. پایان: دایره روی <span class="pv-lat">wash</span> با تیک <span class="pv-lat">navy-ink</span> (۱۱٫۱۲:۱). فهرست واقعی <span class="pv-lat">ol</span> است؛ رقم دیدنی برای صفحه‌خوان پنهان است تا دو بار خوانده نشود. متن بلند می‌شکند و دایره بالای خط اول می‌ماند.</p></div>
+        </div>
+      <//>
+      <${Sec} id="faq" n=${13} title="پرسش و پاسخ" why="«چرا کار نکرد؟» هر مشکل یک پرسش کوتاه با پاسخش؛ بسته تا فهرست مشکل‌ها یک‌جا دیده شود، فقط یکی باز. دکمه با پرسش به‌عنوان برچسب، Enter و Space باز و بسته می‌کنند، پیکان بالا و پایین و Home و End بین پرسش‌ها می‌روند. باز: دایره پیکان تیره مثل پیوندیار باز. منبع ۲۱st.dev ‏23530 (فنرها، اندازه‌گیری ارتفاع، صفحه‌کلید)، رنگ و اندازه از توکن‌ها.">
+        <div class="ds-grid2">
+          <${State} label="اول: هاور؛ دوم: فوکوس؛ سوم: باز"><${Spec} marks=${[["#pv-faq-h-a", "is-hover"], ["#pv-faq-h-b", "is-focus"]]}><${FaqDemo}/><//><//>
+          <div class="ds-box"><p class="ds-meta" style=${{ margin: 0 }}>پرسش ۱۸ پیکسل ۷۰۰، ردیف ۶۴ پیکسل در گوشی و ۷۲ در رومیزی. پاسخ روی کاغذ گرم با متن ۱۷ پیکسل. باز شدن: ارتفاع جعبه با فنر <span class="pv-lat">disclose</span>، پیکان با <span class="pv-lat">chevron</span>، متن با <span class="pv-lat">dissolveIn</span>؛ پاسخ قبلی هم‌زمان جمع می‌شود. فشار: مقیاس ۰٫۹۹. با «کاهش حرکت» همه بی‌درنگ.</p></div>
+        </div>
+      <//>
+      <${Sec} id="sms" n=${14} title="نمونه پیامک پذیرش" why="«شماره‌ها کجاست؟» همان متن پیامک آزمایشگاه با جای خالی، هرگز عددی شبیه واقعی؛ کنار هر شماره برچسب فیلدی که در صفحه ورود باید آن را نوشت. حباب پیام همان حباب پیوندیار (۲۱st.dev ‏24691)، روی زمینه گرم مثل صفحه پیام‌های گوشی. حرکت ندارد.">
+        <div class="ds-grid2"><div class="pv-card"><${PV.Sms}/></div><div class="ds-box"><p class="ds-meta" style=${{ margin: 0 }}>عنوان کوچک <span class="pv-lat">ink-3</span> روی <span class="pv-lat">paper-2</span> (۵٫۲۶:۱). برچسب‌ها همان شکل «امروز» (<span class="pv-lat">.pv-tag</span>). جای خالی با <span class="pv-lat">ink-3</span> و برچسب صفحه‌خوان «شماره پذیرش».</p></div></div>
       <//>
     </main>
     <footer class="ds-end"><div class="pv-wrap">منبع: <span class="pv-lat">payvandlab-tokens.css</span>، <span class="pv-lat">payvandlab-components.css</span>، <span class="pv-lat">payvandlab-components.js</span>، <span class="pv-lat">payvandlab-motion.js</span>؛ صفحه اصلی از همین پرونده‌ها ساخته می‌شود.</div></footer>

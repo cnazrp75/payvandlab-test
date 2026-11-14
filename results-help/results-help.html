@@ -1,0 +1,131 @@
+<!doctype html>
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>راهنمای جوابدهی اینترنتی، آزمایشگاه پیوند</title>
+<link rel="stylesheet" href="../system/payvandlab-tokens.css">
+<link rel="stylesheet" href="../system/payvandlab-components.css">
+<script src="../system/media/vendor/react-framer-motion.js"></script>
+<script src="../system/payvandlab-motion.js"></script>
+<script src="../system/payvandlab-components.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const { React, createRoot, AnimatePresence, MotionConfig, html } = window.Vendor;
+const { useState, useEffect, useRef } = React;
+const { Util, Head, Results, Steps, Faq, Sms, List, Hours, PICKUP, Tel, Yar, Foot, Sheet, Chat, Ico, P } = window.PV;
+
+const q = new URLSearchParams(location.search);
+const initial = q.get("state") || "first";
+const narrow = matchMedia("(max-width: 959.98px)");
+
+const STEPS = [
+  html`دکمه «جواب آزمایش» را بزنید.`,
+  html`زبانه «مراجعین آزمایشگاه» را بزنید.`,
+  html`نام کاربری و رمز عبور را بنویسید.`,
+  html`چند پذیرش دارید؟ آخرین را انتخاب کنید.`,
+  html`تا ۱ دقیقه منتظر فایل PDF بمانید.`
+];
+
+const FAQ = [
+  { id: "vpn", q: "فیلترشکن (VPN) روشن است؟", a: html`<p>برای دریافت جواب از وب‌سایت یا لینک پیامک، فیلترشکن (VPN) را خاموش کنید تا آدرس IP شما مجاز شناخته شود. بعد دوباره وارد شوید.</p>` },
+  { id: "error", q: "پیام «خطای غیرمنتظره» می‌بینم", a: html`<p>یعنی پیش‌تر از دستگاه دیگری وارد شده‌اید، یا دفعه قبل بدون کلید «خروج» بیرون آمده‌اید.</p><p>یک بار «خروج» را بزنید و دوباره با نام کاربری و شماره اشتراک یا موبایل وارد شوید.</p><p><b>برای بیرون آمدن هرگز دکمه بازگشت (Back) مرورگر را نزنید.</b></p>` },
+  { id: "down", q: "صفحه ورود باز نمی‌شود", a: html`<p>از لینک کمکی آزمایشگاه وارد شوید:</p><ul>
+      <li><a class="pv-link" href="http://5.201.182.117:8082/">لینک کمکی ورود به جوابدهی اینترنتی<${Ico} d=${P.chev}/></a></li>
+      <li><a class="pv-link" href="http://5.201.182.117:1984/">لینک کمکی دوم<${Ico} d=${P.chev}/></a><span class="pv-note">فقط مشاهده جواب، بدون پرداخت آنلاین</span></li>
+    </ul>` },
+  { id: "browser", q: "با کدام مرورگر وارد شوم؟", a: html`<p>آزمایشگاه مرورگر <span class="pv-lat">Google Chrome</span> یا <span class="pv-lat">Firefox</span> را پیشنهاد می‌کند تا کمتر به خطا بخورید.</p>` }
+];
+
+function Review({ state }) {
+  const S = [["first", "صفحه اول"], ["full", "تمام صفحه"], ["closed", "همه پاسخ‌ها بسته"], ["open", "یک پاسخ باز"]];
+  return html`<aside class="pv-review" aria-label="پنل بازبینی"><div class="pv-wrap">
+    <h2>پنل بازبینی طرح (بخشی از سایت نیست)</h2>
+    <p>هر وضعیت را در عرض ۳۶۰ (گوشی) و ۱۲۸۰ (رومیزی) ببینید. «صفحه اول» همه پاسخ‌ها را بسته نشان می‌دهد؛ «یک پاسخ باز» پاسخ فیلترشکن را باز می‌کند.</p>
+    <ul>${S.map(s => html`<li key=${s[0]}><a href=${"?state=" + s[0]} aria-current=${s[0] === state ? "true" : null}>${s[1]}</a></li>`)}</ul>
+  </div></aside>`;
+}
+
+function App() {
+  const [menu, setMenu] = useState(false);
+  const [chat, setChat] = useState(false);
+  const [open, setOpen] = useState(initial === "open" ? "vpn" : null);
+  const opener = useRef("pv-yar");
+  useEffect(() => {
+    const to = { full: "rh-steps", closed: "rh-fail", open: "rh-fail" }[initial];
+    if (to) requestAnimationFrame(() => document.getElementById(to).scrollIntoView({ block: "start" }));
+    const onWidth = e => { if (!e.matches) setMenu(false); };
+    narrow.addEventListener("change", onWidth);
+    return () => narrow.removeEventListener("change", onWidth);
+  }, []);
+  const toggleChat = id => () => { opener.current = id; setChat(v => !v); };
+  const closeMenu = () => { setMenu(false); const b = document.getElementById("pv-menubtn"); b && b.focus({ preventScroll: true }); };
+  const closeChat = () => { setChat(false); const y = document.getElementById(opener.current); y && y.focus({ preventScroll: true }); };
+  const ways = [
+    { title: "درخواست جواب در گفتگوی سایت", text: "درخواست جواب را در پیوندیار، بخش گفتگوی سایت، با کارشناسان آزمایشگاه در میان بگذارید.", action: html`<${Yar} id="pv-yar-ways" open=${chat} onClick=${toggleChat("pv-yar-ways")}/>` },
+    { title: "ارسال جواب با پیک آزمایشگاه", text: "اگر می‌خواهید جواب با پیک موتوری برسد، هنگام پذیرش فرم آن را پر کنید و به همکاران آزمایشگاه بدهید." }
+  ];
+  return html`<${MotionConfig} reducedMotion="user">
+    <div id="page">
+      <${Util} chatOpen=${chat} onChat=${toggleChat("pv-yar")}/>
+      <${Head} cur=${null} onMenu=${() => setMenu(true)}/>
+      <main>
+        <${Results} h1=${true} title="راهنمای جوابدهی اینترنتی" help=${false}/>
+        <section class="pv-sec" id="rh-steps" aria-labelledby="rh-steps-h"><div class="pv-wrap pv-cols">
+          <div>
+            <h2 id="rh-steps-h">گام‌به‌گام تا فایل جواب</h2>
+            <${Steps} items=${STEPS} label="مراحل دریافت جواب" end=${{ title: "فایل PDF جواب نهایی و تاییدشده است", text: "مهر و امضای دیجیتال مسئول فنی آزمایشگاه روی آن ثبت شده است." }}/>
+          </div>
+          <div class="pv-col">
+            <div class="pv-card">
+              <h3>نام کاربری و رمز در پیامک پذیرش</h3>
+              <${Sms}/>
+            </div>
+          </div>
+        </div></section>
+        <section class="pv-sec" id="rh-fail" aria-labelledby="rh-fail-h"><div class="pv-wrap pv-cols">
+          <div>
+            <h2 id="rh-fail-h">اگر وارد نشدید</h2>
+            <${Faq} items=${FAQ} open=${open} onToggle=${setOpen}/>
+          </div>
+          <div class="pv-col">
+            <div class="pv-card">
+              <h3>جواب کی باز می‌شود؟</h3>
+              <p>وقتی جواب آماده باشد و هزینه آزمایش کامل تسویه شده باشد.</p>
+              <h3>باخبر شدن از وضعیت جواب</h3>
+              <p>شماره پذیرش را به همان شماره‌ای پیامک کنید که پیامک پذیرش از آن آمده است.</p>
+            </div>
+            <div class="pv-card">
+              <h3>پاسخ را پیدا نکردید؟</h3>
+              <p>با آزمایشگاه تماس بگیرید یا از پیوندیار بپرسید.</p>
+              <div class="pv-card-actions">
+                <${Tel} label=${true}/>
+                <${Yar} id="pv-yar-help" open=${chat} onClick=${toggleChat("pv-yar-help")}/>
+              </div>
+            </div>
+          </div>
+        </div></section>
+        <section class="pv-sec" id="rh-ways" aria-labelledby="rh-ways-h"><div class="pv-wrap pv-cols">
+          <div>
+            <h2 id="rh-ways-h">راه‌های دیگر دریافت جواب</h2>
+            <${List} rows=${ways}/>
+          </div>
+          <div class="pv-col">
+            <${Hours} title="ساعت تحویل حضوری جواب" rows=${PICKUP} plain=${true}/>
+          </div>
+        </div></section>
+      </main>
+      <${Foot}/>
+      <${Review} state=${initial}/>
+    </div>
+    <${AnimatePresence}>${menu ? html`<${Sheet} key="menu" cur=${null} onClose=${closeMenu}/>` : null}<//>
+    <${AnimatePresence}>${chat ? html`<${Chat} key="chat" onClose=${closeChat}/>` : null}<//>
+  <//>`;
+}
+
+createRoot(document.getElementById("root")).render(html`<${App}/>`);
+</script>
+</body>
+</html>
