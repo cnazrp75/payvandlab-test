@@ -3,6 +3,8 @@
   const { useState, useEffect, useRef, useLayoutEffect } = React;
   const params = new URLSearchParams(location.search);
   const faDigits = "۰۱۲۳۴۵۶۷۸۹";
+  let FOCUS = [];
+  const pos = (s, i) => FOCUS[i] || `${s.fx} ${s.fy}`;
 
   const SLIDES = [
     { src: "media/photos/lab-7.jpg", caption: "سالن انتظار", alt: "سالن انتظار آزمایشگاه پیوند با صندلی‌های خاکستری و تابلوهای قاب‌شده", fy: "40%", fx: "50%" },
@@ -122,7 +124,7 @@
           class="sl-img"
           src=${s.src}
           alt=${s.alt}
-          style=${{ objectPosition: `${s.fx} ${s.fy}` }}
+          style=${{ objectPosition: pos(s, c.index) }}
           initial=${{ opacity: 0 }}
           animate=${{ opacity: 1 }}
           exit=${{ opacity: 1, transition: { duration: c.reduced ? 0 : 0.9 } }}
@@ -159,12 +161,12 @@
             class=${"sl-frame" + (i === c.index ? " is-current" : "")}
             aria-hidden=${i !== c.index}
             initial=${false}
-            animate=${{ scale: i === c.index ? 1 : 0.8, opacity: Math.abs(i - c.index) > 2 ? 0 : 1 }}
+            animate=${{ scale: i === c.index ? 1 : 0.8, opacity: Math.abs(i - c.index) > 3 ? 0 : 1 }}
             transition=${spring}
             onClick=${() => i !== c.index && c.go(i)}
           >
             <svg class="sl-wire" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M8 30L50 2L92 30" /></svg>
-            <div class="sl-mat"><img src=${s.src} alt=${i === c.index ? s.alt : ""} style=${{ objectPosition: `${s.fx} ${s.fy}` }} loading=${i < 3 ? "eager" : "lazy"} /></div>
+            <div class="sl-mat"><img src=${s.src} alt=${i === c.index ? s.alt : ""} style=${{ objectPosition: pos(s, i) }} loading=${i < 3 ? "eager" : "lazy"} /></div>
           <//>`)}
       <//>
     </div>`;
@@ -184,6 +186,7 @@
 
   window.PayvandSlider = {
     mount(el, opts) {
+      FOCUS = opts.focus || [];
       createRoot(el).render(html`<${Slider} variant=${opts.variant || "fade"} digits=${opts.digits || "fa"} interval=${opts.interval || 6000} />`);
       window.MotionIsMounted = true;
     }

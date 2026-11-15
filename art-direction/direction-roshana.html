@@ -4,122 +4,113 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>جهت «روشنا» — آزمایشگاه تشخیص طبی و تخصصی پیوند</title>
-<meta name="description" content="جهت بصری روشنا برای صفحه اصلی آزمایشگاه تشخیص طبی و تخصصی پیوند: عکس واقعی و پرنور، برگه سفید با لبه منحنی و دکمه جواب آزمایش.">
+<meta name="description" content="جهت بصری روشنا برای صفحه اصلی آزمایشگاه تشخیص طبی و تخصصی پیوند: عکس پهن و پرنور خود آزمایشگاه بالای صفحه و دکمه جواب آزمایش که از لبه عکس بالا می‌آید.">
 <link rel="stylesheet" href="media/ad-base.css">
 <style>
 :root {
-  --navy: #003C7E; --cyan: #00C0F3; --ink: #13243A; --muted: #4A5B6E;
-  --wall: #DCEBF3; --wall-soft: #EEF5F9; --leaf: #1F5B43; --leaf-pale: #E2EFE6; --paper: #FFFFFF;
+  --navy: #003C7E; --navy-2: #002F63; --cyan: #00C0F3; --paper: #FBF8F3; --white: #FFFFFF; --wall: #E4EEF4; --leaf: #2E6A4F; --ink: #14243A; --muted: #4A5A6C; --on-navy-2: #CFE3F5; --sand: #F6E7D6; --clay: #7A3E12;
   --ground: var(--paper); --font-body: "Estedad", "Vazirmatn", sans-serif;
-  --focus: var(--navy); --focus-halo: rgba(0, 192, 243, .5);
-  --spec-ground: var(--wall-soft); --chip: #fff; --card: #fff; --line: rgba(0, 60, 126, .1);
+  --focus: #003C7E; --focus-halo: rgba(0, 192, 243, .5);
+  --chip: rgba(0, 60, 126, .08); --card: #fff; --line: rgba(20, 36, 58, .1);
 }
 .hero { min-height: 100svh; display: grid; grid-template-rows: auto 1fr; background: var(--paper); }
-.top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding-inline: 16px 10px; background: var(--paper); }
+.top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; padding-inline: 16px 10px; background: var(--white); box-shadow: 0 1px 0 rgba(20, 36, 58, .07); }
+.brand { display: flex; }
 .brand img { height: 40px; width: auto; }
-.nav { display: none; }
-.top-tel { display: none; }
-.menu-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 0; border-radius: 12px; background: var(--wall-soft); color: var(--navy); font-weight: 600; font-size: 15px; cursor: pointer; }
+.nav, .top-tel { display: none; }
+.menu-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 1.5px solid rgba(0, 60, 126, .22); border-radius: 12px; background: var(--white); color: var(--navy); font-weight: 600; font-size: 15px; cursor: pointer; }
 .menu-btn svg { width: 22px; height: 22px; }
 
-.body { position: relative; display: grid; grid-template-rows: clamp(250px, 44svh, 420px) auto; }
-.stage { position: relative; }
-.stage .sl-img { filter: saturate(1.14) brightness(1.04) contrast(1.03) sepia(.07); }
-.stage .sl-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255, 196, 140, .26), rgba(255, 196, 140, 0) 60%), linear-gradient(0deg, rgba(255, 190, 130, .22), rgba(255, 190, 130, 0) 40%); mix-blend-mode: soft-light; pointer-events: none; }
-.sl--fade .sl-bar { position: absolute; z-index: 2; left: 12px; right: 12px; bottom: 58px; display: flex; align-items: center; justify-content: space-between; gap: 6px; padding-inline: 14px 2px; background: rgba(0, 48, 102, .92); color: #fff; border-radius: 14px; box-shadow: 0 10px 26px -10px rgba(0, 20, 50, .55), inset 0 0 0 1px rgba(255, 255, 255, .14); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); --dot: rgba(255, 255, 255, .42); --dot-track: rgba(255, 255, 255, .3); --dot-on: var(--cyan); }
-.sl--fade .sl-caption { min-width: 0; min-height: 44px; font-size: 14px; font-weight: 600; white-space: nowrap; }
-.sl--fade .sl-dots { display: none; }
-.sl--fade .sl-btn:hover { background: rgba(255, 255, 255, .1); border-radius: 10px; }
-.sl-count { color: #D3E4F6; font-weight: 500; }
-.sl--fade .sl-controls { display: flex; padding: 0 2px; }
-.sl--fade .sl-btn { font-size: 13px; font-weight: 600; padding: 0 8px; }
-.sl--fade .sl-btn span { line-height: 1; }
-.sl-progress { --progress-track: rgba(0, 60, 126, .12); }
+.body { display: grid; grid-template-rows: auto 1fr; }
+.band { position: relative; height: clamp(200px, 34svh, 320px); background: var(--wall); overflow: hidden; }
+.band .sl { position: absolute; inset: 0; }
+.sl--fade .sl-img { filter: saturate(1.14) sepia(.13) brightness(1.03) contrast(1.02); }
+.sl--fade .sl-shade { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 70% 70% at 85% 0%, rgba(255, 226, 184, .34), rgba(255, 226, 184, 0) 70%), linear-gradient(180deg, rgba(255, 214, 170, .08), rgba(255, 214, 170, 0) 50%, rgba(10, 30, 60, .3)); }
+.sl--fade .sl-bar { position: absolute; inset: auto 12px 22px auto; display: flex; align-items: center; padding-inline: 4px 2px; border-radius: 999px; background: var(--white); box-shadow: 0 10px 24px -12px rgba(10, 30, 60, .55); }
 
-.sheet { position: relative; z-index: 2; background: var(--paper); padding: 2px 20px 18px; display: grid; gap: 10px; align-content: start; }
-.sheet-main { display: grid; gap: 10px; }
-.curve { position: absolute; left: 0; right: 0; bottom: 100%; height: 52px; width: 100%; display: block; }
-.curve .fill { fill: var(--paper); stroke: none; }
-.curve .edge { fill: none; stroke: var(--cyan); stroke-width: 3; vector-effect: non-scaling-stroke; }
-.title { display: grid; gap: 2px; color: var(--navy); }
-.title .t1 { font-size: 15px; font-weight: 600; line-height: 1.5; }
-.title .t2 { font-size: 30px; font-weight: 850; line-height: 1.15; letter-spacing: -.01em; }
-.sub { font-size: 14px; color: var(--muted); line-height: 1.6; }
-.actions { display: grid; gap: 10px; margin-top: 4px; }
-.results { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; min-height: 80px; padding: 12px 14px 12px 10px; border-radius: 20px; background: var(--navy); color: #fff; text-decoration: none; box-shadow: 0 14px 30px -12px rgba(0, 60, 126, .55); }
-.results:hover { background: #00326B; }
-.results .ic { width: 46px; height: 46px; border-radius: 14px; background: rgba(0, 192, 243, .18); display: grid; place-items: center; color: #7FE0FA; }
-.results .ic svg { width: 26px; height: 26px; }
-.results .lbl { display: grid; gap: 2px; }
-.results .lbl b { font-size: 23px; font-weight: 800; line-height: 1.25; }
-.results .lbl span { font-size: 13px; color: #D3E4F6; line-height: 1.5; letter-spacing: -.01em; }
-.results .go { width: 20px; height: 20px; color: #7FE0FA; }
-.book { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 18px; border: 0; border-radius: 16px; background: var(--leaf); color: #fff; font-size: 17px; font-weight: 700; cursor: pointer; box-shadow: 0 8px 18px -12px rgba(31, 91, 67, .5); }
-.book:hover { background: #174A36; }
-.book svg { width: 22px; height: 22px; }
-.tel { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 16px; border-radius: 999px; background: var(--wall-soft); color: var(--navy); text-decoration: none; font-size: 15px; font-weight: 600; justify-self: start; }
-.tel svg { width: 19px; height: 19px; color: var(--navy); }
-.tel b { color: var(--ink); font-weight: 700; font-size: 16px; }
-.hours, .facts { display: none; }
+.sl--fade .sl-caption { min-height: 44px; padding: 0 10px 0 12px; color: var(--ink); font-size: 13px; font-weight: 650; white-space: nowrap; border-inline-end: 1px solid rgba(20, 36, 58, .12); }
+.sl--fade .sl-dots { position: absolute; inset: auto 0 -14px 0; display: flex; gap: 4px; --dot: rgba(255, 255, 255, .55); --dot-track: rgba(255, 255, 255, .55); --dot-on: var(--white); }
+.sl--fade .sl-dots i { flex: 1; width: auto !important; height: 3px; border-radius: 3px; }
+.sl--fade .sl-caption .sl-dots::after { display: none; }
+.sl--fade .sl-controls { display: flex; color: var(--navy); }
+.sl--fade .sl-btn { font-size: 13px; font-weight: 600; padding: 0 7px; border-radius: 999px; }
+.sl--fade .sl-btn:hover { background: var(--wall); }
 
-@media (max-width: 1023px) and (min-height: 820px) {
-  .hours { display: grid; grid-template-columns: auto 1fr; gap: 0 12px; padding-top: 12px; border-top: 1px solid rgba(0, 60, 126, .12); font-size: 14px; color: var(--muted); }
-  .hours dt { font-weight: 700; color: var(--ink); grid-row: span 2; }
-}
+.sheet { position: relative; z-index: 2; display: grid; grid-template-areas: "intro" "actions" "facts"; align-content: start; padding: 18px 20px 22px; background: linear-gradient(180deg, var(--paper), #F4EFE6); }
+.intro { grid-area: intro; }
+.title { display: grid; color: var(--navy); }
+.title .t1 { font-size: 15px; font-weight: 600; line-height: 1.6; color: var(--ink); }
+.title .t2 { font-size: 38px; font-weight: 850; line-height: 1.15; letter-spacing: -.2px; }
+.sub { display: none; }
+.actions { grid-area: actions; display: grid; gap: 10px; margin-top: 16px; }
+.results { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; min-height: 84px; padding: 12px; border-radius: 18px; background: linear-gradient(180deg, #004791, var(--navy) 60%); color: #fff; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 22px 40px -22px rgba(0, 40, 90, .75); }
+.results:hover { background: linear-gradient(180deg, #00509F, #00448C 60%); }
+.results .ic { width: 44px; height: 44px; padding: 10px; border-radius: 13px; background: rgba(0, 192, 243, .16); color: var(--cyan); box-shadow: inset 0 0 0 1px rgba(0, 192, 243, .35); }
+.results .lbl { display: grid; }
+.results .lbl b { font-size: 25px; font-weight: 800; line-height: 1.35; }
+.results .lbl span { font-size: 13px; font-weight: 500; color: var(--on-navy-2); line-height: 1.5; }
+.results .go { width: 22px; height: 22px; padding: 3px; border-radius: 50%; background: rgba(255, 255, 255, .12); }
+.second { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.book, .tel { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 12px; border-radius: 14px; font-size: 15px; font-weight: 650; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.book { border: 0; background: var(--sand); color: var(--clay); }
+.tel { border: 1.5px solid rgba(0, 60, 126, .3); background: var(--white); color: var(--navy); font-size: 16px; font-weight: 750; }
+.book:hover { background: #F0DCC5; }
+.tel:hover { border-color: var(--navy); }
+.book svg, .tel svg { width: 20px; height: 20px; flex: none; }
+.tel svg { color: var(--leaf); }
+.results .lbl span { white-space: nowrap; }
+.facts { grid-area: facts; display: grid; gap: 8px; margin-top: 14px; padding: 12px 14px; border-radius: 16px; background: var(--white); box-shadow: 0 1px 0 rgba(20, 36, 58, .06), 0 10px 24px -18px rgba(20, 36, 58, .4); font-size: 14px; line-height: 1.7; color: var(--muted); }
+.facts div { display: grid; grid-template-columns: 20px 1fr; gap: 8px; align-items: start; }
+.facts svg { width: 18px; height: 18px; margin-top: 4px; color: var(--leaf); }
+.facts dt { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.facts b { font-weight: 600; color: var(--ink); }
+.facts { grid-template-columns: 1fr 64px; column-gap: 12px; }
+.facts > div { grid-column: 1; }
+.facts .entr { grid-column: 2; grid-row: 1 / span 2; align-self: center; width: 64px; height: 64px; border-radius: 12px; object-fit: cover; object-position: 60% 38%; filter: saturate(1.08) sepia(.06); box-shadow: 0 0 0 1px rgba(20, 36, 58, .08); }
+
 @media (min-width: 1024px) {
-  .top { height: 80px; padding-inline: 40px; gap: 24px; box-shadow: 0 1px 0 rgba(0, 60, 126, .08); }
+  .top { height: 76px; padding-inline: 40px; gap: 24px; }
   .brand img { height: 50px; }
   .nav { display: flex; gap: 2px; }
-  .nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border-radius: 10px; position: relative; white-space: nowrap; }
-  .nav a:hover { background: var(--wall-soft); }
-  .nav a[aria-current] { color: var(--navy); font-weight: 700; }
-  .nav a[aria-current]::after { content: ""; position: absolute; inset-inline: 10px; bottom: 4px; height: 3px; border-radius: 3px; background: var(--cyan); }
-  .top-tel { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 12px; background: var(--wall-soft); color: var(--navy); text-decoration: none; font-weight: 700; font-size: 16px; white-space: nowrap; }
-  .top-tel svg { width: 19px; height: 19px; }
+  .nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 11px; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border-radius: 10px; position: relative; white-space: nowrap; }
+  .nav a:hover { background: var(--wall); }
+  .nav a[aria-current] { font-weight: 700; color: var(--navy); }
+  .nav a[aria-current]::after { content: ""; position: absolute; inset-inline: 11px; bottom: 5px; height: 3px; border-radius: 3px; background: var(--cyan); }
+  .top-tel { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 16px; border-radius: 12px; border: 1.5px solid rgba(0, 60, 126, .22); color: var(--navy); text-decoration: none; font-weight: 700; font-size: 16px; white-space: nowrap; }
+  .top-tel svg { width: 19px; height: 19px; color: var(--leaf); }
   .menu-btn { display: none; }
-  .body { grid-template-rows: none; grid-template-columns: minmax(470px, 43%) 1fr; }
-  .stage { grid-column: 2; grid-row: 1; }
-  .sheet { grid-column: 1; grid-row: 1; padding: 32px 64px 32px 24px; align-content: center; gap: 22px; background: #F6EFE3; }
-  .curve .fill { fill: #F6EFE3; }
-  .sheet-main { gap: 16px; }
-  .facts { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px 20px; padding: 18px 20px; max-width: 470px; background: #fff; border-radius: 20px; box-shadow: 0 1px 0 rgba(0, 60, 126, .06), 0 14px 30px -20px rgba(0, 60, 126, .35); }
-  .facts div { display: grid; gap: 4px; align-content: start; }
-  .facts div:last-child { grid-column: 1 / -1; padding-top: 14px; border-top: 1px solid rgba(0, 60, 126, .08); }
-  .facts dt { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--leaf); }
-  .facts dt svg { width: 16px; height: 16px; flex: none; }
-  .facts a { display: inline-flex; align-items: center; min-height: 44px; margin-block: -12px; }
-  .facts dd { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.7; }
-  .facts a { text-decoration: none; color: var(--navy); }
-  .curve { left: auto; right: 100%; top: 0; bottom: 0; height: 100%; width: 96px; }
-  .title .t1 { font-size: 20px; }
-  .title .t2 { font-size: 56px; }
-  .sub { font-size: 17px; }
-  .actions { gap: 14px; margin-top: 14px; max-width: 470px; }
-  .results { min-height: 100px; padding: 16px 24px 16px 18px; border-radius: 24px; gap: 18px; }
-  .results .ic { width: 60px; height: 60px; border-radius: 18px; }
-  .results .ic svg { width: 30px; height: 30px; }
-  .results .lbl b { font-size: 30px; }
-  .results .lbl span { font-size: 15px; }
-  .book { min-height: 60px; font-size: 18px; justify-self: stretch; }
-  .tel { display: none; }
-  .sl--fade .sl-bar { left: 28px; right: auto; bottom: 28px; gap: 14px; padding-inline: 18px 4px; }
-  .sl--fade .sl-dots { display: inline-flex; }
-  .results .go { width: 24px; height: 24px; }
-  .hours { display: none; }
-  .sl--fade .sl-caption { font-size: 15px; min-height: 48px; }
-  .sl--fade .sl-btn { font-size: 14px; padding: 0 12px; min-height: 48px; }
-}
-@media (min-width: 1360px) {
-  .sheet { padding-inline: 88px 32px; }
-  .title .t2 { font-size: 64px; }
+  .band { height: max(380px, calc(100svh - 76px - 274px)); }
+  .sl--fade .sl-bar { inset: auto auto 26px max(40px, calc((100vw - 1200px) / 2)); padding-inline: 6px 4px; }
+  .sl--fade .sl-caption { min-height: 48px; padding: 0 14px 0 16px; font-size: 15px; gap: 12px; }
+  .sl--fade .sl-dots { position: static; display: inline-flex; gap: 5px; order: -1; --dot: rgba(0, 60, 126, .2); --dot-track: rgba(0, 60, 126, .2); --dot-on: var(--navy); }
+  .sl--fade .sl-dots i { flex: none; height: 6px; }
+  .sl--fade .sl-dots i:not(.on) { width: 6px !important; }
+  .sl--fade .sl-dots i.on { width: 24px !important; }
+  .sl--fade .sl-btn { font-size: 14px; padding: 0 10px; }
+  .sl--fade .sl-img { transform: scale(1.08); transform-origin: 50% 40%; }
+  .sheet { grid-template-areas: "actions intro" "actions facts"; grid-template-columns: 560px 1fr; grid-template-rows: auto 1fr; column-gap: 72px; align-content: start; padding: 22px max(40px, calc((100vw - 1200px) / 2)) 26px; }
+  .title .t1 { font-size: 18px; }
+  .title .t2 { font-size: 46px; line-height: 1.15; }
+  .sub { display: none; }
+  .actions { margin-top: -86px; align-self: start; gap: 14px; }
+  .results { min-height: 120px; padding: 18px 26px 18px 22px; gap: 20px; border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 34px 60px -28px rgba(0, 40, 90, .8), 0 0 0 6px var(--paper); }
+  .results .ic { width: 62px; height: 62px; padding: 15px; border-radius: 16px; }
+  .results .lbl b { font-size: 34px; }
+  .results .lbl span { font-size: 16px; }
+  .results .go { width: 32px; height: 32px; padding: 6px; }
+  .second { grid-template-columns: auto; justify-content: start; }
+  .book { min-height: 52px; padding: 0 24px; font-size: 16px; }
+  .second .tel { display: none; }
+  .facts { grid-template-columns: 172px auto; grid-template-rows: auto auto; align-content: center; justify-content: start; column-gap: 20px; row-gap: 10px; margin-top: 14px; padding: 10px; border-radius: 18px; font-size: 15px; }
+  .facts > div { grid-column: 2; }
+  .facts .entr { grid-column: 1; grid-row: 1 / span 2; align-self: stretch; width: 172px; height: 108px; border-radius: 12px; object-position: 60% 36%; }
 }
 
-.spec .lead { font-size: 19px; line-height: 1.9; max-width: 62ch; }
-.spec h2 { color: var(--navy); font-size: 34px; font-weight: 850; }
-.thumb { aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; position: relative; }
-.thumb img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.1) brightness(1.03) contrast(1.02); }
-.thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255, 210, 160, .16), rgba(255, 210, 160, 0) 55%); mix-blend-mode: soft-light; }
-.thumb.curved::before { content: ""; position: absolute; z-index: 1; left: -10%; right: -10%; bottom: -46px; height: 80px; background: #fff; border-radius: 50% 50% 0 0 / 100% 100% 0 0; box-shadow: 0 -3px 0 var(--cyan); }
+.spec { --spec-ground: var(--wall); }
+.spec h2 { font-size: 36px; font-weight: 850; color: var(--navy); }
+.spec .lead { font-size: 18px; line-height: 1.9; }
+.thumb { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.1) sepia(.07) brightness(1.03); }
 </style>
 </head>
 <body>
@@ -140,27 +131,27 @@
     <button class="menu-btn" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>منو</button>
   </header>
   <main class="body">
-    <div class="stage" id="slider"></div>
+    <div class="band"><div id="slider" style="display:contents"></div></div>
     <div class="sheet">
-      <svg class="curve curve-m" viewBox="0 0 100 52" preserveAspectRatio="none" aria-hidden="true"><path class="fill" d="M0 52 L0 46 C 30 46 58 4 100 2 L100 52 Z"/><path class="edge" d="M0 46 C 30 46 58 4 100 2"/></svg>
-      <div class="sheet-main">
-      <h1 class="title"><span class="t1">آزمایشگاه تشخیص طبی و تخصصی</span><span class="t2">پیوند</span></h1>
-      <p class="sub">پاتولوژی، ژنتیک پزشکی و مولکولی</p>
+      <div class="intro">
+        <h1 class="title"><span class="t1">آزمایشگاه تشخیص طبی و تخصصی</span><span class="t2">پیوند</span></h1>
+        <p class="sub">پاتولوژی، ژنتیک پزشکی و مولکولی</p>
+      </div>
       <div class="actions">
         <a class="results" href="http://178.252.146.82:8082/Login">
-          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
           <span class="lbl"><b>جواب آزمایش</b><span>دریافت اینترنتی جواب آزمایش مراجعین</span></span>
           <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
         </a>
-        <button class="book" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 14h2M13 14h2M9 17h2"/></svg>نوبت‌دهی آنلاین</button>
-        <a class="tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>تلفن <b class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</b></a>
-      </div>
-      <dl class="hours"><dt>ساعات کاری</dt><dd>شنبه تا چهارشنبه: <span class="nw">۰۶:۳۰ الی ۱۹:۰۰</span></dd><dd>پنج‌شنبه: <span class="nw">۰۶:۳۰ الی ۱۸:۰۰</span></dd></dl>
+        <div class="second">
+          <button class="book" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 14h2M13 14h2M9 17h2"/></svg>نوبت‌دهی آنلاین</button>
+          <a class="tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="visually-hidden">تلفن</span><span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></a>
+        </div>
       </div>
       <dl class="facts">
-        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>ساعات کاری</dt><dd>شنبه تا چهارشنبه: <span class="nw">۰۶:۳۰ الی ۱۹:۰۰</span><br>پنج‌شنبه: <span class="nw">۰۶:۳۰ الی ۱۸:۰۰</span></dd></div>
-        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>تلفن</dt><dd><a href="tel:+982171400004" class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</a></dd></div>
-        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>نشانی</dt><dd>تهران، خیابان شریعتی، خیابان ظفر، پلاک ۱۷۴</dd></div>
+        <img class="entr" src="media/photos/lab-5.jpg" width="1200" height="1600" alt="ورودی آزمایشگاه پیوند با دیوار چوبی و نشان آزمایشگاه">
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><dt>ساعات کاری</dt><dd>شنبه تا چهارشنبه <b class="nw"><span class="ltr">۰۶:۳۰</span> الی <span class="ltr">۱۹:۰۰</span></b><br>پنجشنبه <b class="nw"><span class="ltr">۰۶:۳۰</span> الی <span class="ltr">۱۸:۰۰</span></b></dd></div>
+        <div class="addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><dt>نشانی</dt><dd><span class="nw">تهران،</span> <span class="nw">خیابان شریعتی،</span> <span class="nw">خیابان ظفر،</span> <b class="nw">پلاک ۱۷۴</b></dd></div>
       </dl>
     </div>
   </main>
@@ -171,40 +162,39 @@
     <div>
       <h2 id="spec-title">جهت ۱ — روشنا</h2>
       <ul class="feel" aria-label="حس"><li>روشن</li><li>باز</li><li>خوش‌آمد</li><li>واقعی</li></ul>
-      <p class="lead" style="margin-top:18px">صفحه مثل لحظه ورود به آزمایشگاه است: عکس واقعی و پرنور تا لبه صفحه، و یک برگه سفید با لبه منحنی که دکمه «جواب آزمایش» روی آن نشسته است. منحنی از قطره نشان پیوند آمده و خط فیروزه‌ای لبه‌اش همان فیروزه‌ای لوگو است.</p>
+      <p class="lead" style="margin-top:18px">عکس، خود اتاق است: نوار پهن و پرنوری از آزمایشگاه که از لبه تا لبه صفحه باز می‌شود، مثل پنجره‌ای رو به سالن. زیر آن کاغذ گرم روز است و دکمه «جواب آزمایش» از لبه عکس بالا می‌آید؛ تنها بلوک پررنگ صفحه. نوبت‌دهی و تلفن دکمه‌های سفید و آرام کنار آن هستند.</p>
     </div>
     <div>
       <h3>رنگ‌ها و جای پررنگ هر کدام</h3>
       <div class="swatches">
-        <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#fff">سرمه‌ای لوگو</div><div class="swatch-body"><code>#003C7E</code><span>دکمه جواب آزمایش، نام آزمایشگاه، نشانگر منو. سفید روی آن ۱۰٫۷۸ به ۱.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#00C0F3;color:#003C7E">فیروزه‌ای لوگو</div><div class="swatch-body"><code>#00C0F3</code><span>خط لبه منحنی، نوار زمان اسلایدر، هاله فوکوس، زیرخط منو. فقط گرافیک؛ روی سفید ۲٫۱۴ به ۱ است و متن نمی‌شود.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;color:#13243A;border-bottom:1px solid #E3EAF0">سفید روز</div><div class="swatch-body"><code>#FFFFFF</code><span>سربرگ، برگه در گوشی و کارت ساعات و نشانی.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#F6EFE3;color:#13243A">کاغذ گرم</div><div class="swatch-body"><code>#F6EFE3</code><span>برگه دسکتاپ تا لبه منحنی. جوهر روی آن ۱۳٫۷، سرمه‌ای ۹٫۴۳ و متن کم‌رنگ ۶٫۱ به ۱.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#DCEBF3;color:#003C7E">آبی دیوار</div><div class="swatch-body"><code>#DCEBF3</code><span>از دیوارهای آبی خود آزمایشگاه؛ زمینه بخش‌های پایین صفحه. سرمه‌ای روی آن ۸٫۸۴ به ۱.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#1F5B43;color:#fff">سبز گلدان</div><div class="swatch-body"><code>#1F5B43 · متن سفید</code><span>از گیاهان پذیرش و ورودی؛ دکمه پر نوبت‌دهی و عنوان‌های کارت ساعات و نشانی. سفید روی آن ۷٫۹۷ به ۱.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#13243A;color:#fff">جوهر</div><div class="swatch-body"><code>#13243A · #4A5B6E</code><span>متن اصلی ۱۵٫۶۶ به ۱ و متن کم‌رنگ ۶٫۹۷ به ۱ روی سفید.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#fff">سرمه‌ای لوگو</div><div class="swatch-body"><code>#003C7E</code><span>فقط دکمه جواب آزمایش و نام آزمایشگاه. سفید روی آن ۱۰٫۷۸ به ۱، روی کاغذ ۱۰٫۱۸ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#00C0F3;color:#003C7E">فیروزه‌ای لوگو</div><div class="swatch-body"><code>#00C0F3</code><span>آیکون جواب آزمایش روی سرمه‌ای (۵٫۰۵ به ۱)، زیرخط منو و هاله فوکوس. روی کاغذ متن نمی‌شود.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FBF8F3;color:#14243A">کاغذ روز</div><div class="swatch-body"><code>#FBF8F3</code><span>زمینه زیر عکس، کمی گرم‌تر از سفید تا کنار آبی سرد عکس‌ها حس نور صبح بدهد. جوهر ۱۴٫۷۶، متن دوم ۶٫۶۷ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#E4EEF4;color:#003C7E">آبی دیوار</div><div class="swatch-body"><code>#E4EEF4</code><span>از دیوارهای آبی سالن؛ دکمه‌های دوم (نوبت‌دهی و تلفن)، زمینه بخش‌های پایین و حالت نشانگر منو. سرمه‌ای روی آن ۹٫۱۶ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#2E6A4F;color:#fff">سبز گلدان</div><div class="swatch-body"><code>#2E6A4F</code><span>خانواده دوم رنگ، از گیاهان ورودی و پذیرش: فقط آیکون‌های تقویم، تلفن، ساعت و نشانی. روی کاغذ ۶٫۰۲ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;color:#003C7E;border-bottom:1px solid #E3EAF0">سفید</div><div class="swatch-body"><code>#FFFFFF</code><span>سربرگ، کارت ساعات و نشانی در گوشی و قرص زیرنویس روی عکس؛ جوهر روی آن ۱۵٫۶ به ۱.</span></div></div>
       </div>
     </div>
     <div>
       <h3>حروف</h3>
       <div class="type-grid">
-        <div class="type-card"><div class="sample" style="font-weight:850;font-size:40px;color:#003C7E">جواب آزمایش</div><dl><dt>قلم</dt><dd>استعداد (Estedad)، یک خانواده برای همه چیز</dd><dt>وزن‌ها</dt><dd>۸۵۰ عنوان، ۷۰۰ دکمه، ۴۰۰ و ۵۰۰ متن</dd><dt>مجوز</dt><dd>SIL Open Font License 1.1، استفاده روی وب آزاد</dd></dl></div>
-        <div class="type-card"><div class="sample" style="font-size:18px;line-height:1.9">آزمایشگاه تشخیص طبی و تخصصی پیوند، پاتولوژی، ژنتیک پزشکی و مولکولی. ارقام فارسی: <span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></div><dl><dt>چرا</dt><dd>هندسی و گشاده، با پایانه‌های نرم؛ در اندازه درشت گرم و دوستانه و در اندازه ریز خوانا. از وزیرمتنِ همه‌جایی جداست.</dd><dt>ارقام</dt><dd>همه‌جا فارسی</dd></dl></div>
+        <div class="type-card"><div class="sample" style="font-weight:850;font-size:42px;color:#003C7E">جواب آزمایش</div><dl><dt>قلم</dt><dd>استعداد (Estedad)، یک خانواده برای همه چیز</dd><dt>وزن‌ها</dt><dd>۸۵۰ نام، ۸۰۰ دکمه اصلی، ۶۵۰ دکمه دوم، ۵۰۰ متن</dd><dt>مجوز</dt><dd>SIL Open Font License 1.1، استفاده روی وب آزاد</dd></dl></div>
+        <div class="type-card"><div class="sample" style="font-size:18px;line-height:1.9">شنبه تا چهارشنبه <span class="ltr">۰۶:۳۰</span> الی <span class="ltr">۱۹:۰۰</span>، تلفن <span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></div><dl><dt>چرا</dt><dd>هندسی و گشاده با پایانه‌های نرم؛ در اندازه درشت گرم و در اندازه ریز خوانا، برای همه سنین.</dd><dt>ارقام</dt><dd>همه‌جا فارسی</dd></dl></div>
       </div>
     </div>
     <div>
       <h3>عکس‌ها</h3>
       <dl class="treat">
-        <dt>برش</dt><dd>عکس‌های عمودی به نوار افقی بریده می‌شوند و نقطه کانونی هر عکس ثابت است (سالن انتظار در ۴۰٪ ارتفاع تا تابلوهای گل دیده شوند، ورودی روی نشان پیوند). در گوشی عکس ۴۴٪ ارتفاع صفحه را می‌گیرد.</dd>
-        <dt>رنگ</dt><dd>کمی پرنورتر و گرم‌تر از اصل (اشباع ۱٫۱، روشنایی ۱٫۰۳) و یک لایه نور گرم نرم در بالای عکس، تا خاکستری سرد عکس‌ها حس آفتاب صبح بگیرد.</dd>
-        <dt>پوشش</dt><dd>هیچ متنی مستقیم روی عکس نیست. زیرنویس و کنترل‌ها روی یک نوار سرمه‌ای ۹۲٪ پایین عکس هستند؛ حتی روی سفیدترین نقطه عکس، سفید روی آن ۱۰٫۳۵ به ۱ است.</dd>
-        <dt>قاب</dt><dd>بی‌قاب و تمام‌قد تا لبه صفحه؛ برگه سفید با لبه منحنی فیروزه‌ای روی عکس می‌نشیند.</dd>
-        <dt>حرکت</dt><dd>هر ۶ ثانیه عکس بعدی با محو شدن در عکس قبلی می‌آید (۰٫۹ ثانیه)، نقطه عکس فعلی پهن می‌شود و با گذر زمان پر می‌شود. با «توقف»، با رفتن نشانگر یا فوکوس روی اسلایدر و با کاهش حرکت، می‌ایستد.</dd>
+        <dt>برش</dt><dd>عکس‌های عمودی به نوار افقی تمام‌عرض بریده می‌شوند و نقطه کانونی هر عکس جداست: سالن انتظار روی ردیف تابلوهای گل، ورودی روی نشان پیوند و گلدان‌ها. در دسکتاپ نوار بیش از نیمی از صفحه اول است.</dd>
+        <dt>رنگ</dt><dd>کمی گرم‌تر و پرنورتر از اصل (اشباع ۱٫۱، گرمای ۷٪، روشنایی ۱٫۰۳) و نوری گرم و نرم از گوشه بالا، مثل آفتاب صبح از پنجره سالن.</dd>
+        <dt>پوشش</dt><dd>هیچ متنی مستقیم روی عکس نیست. زیرنویس و کنترل‌ها روی قرص‌های سفید و یکدست می‌نشینند (جوهر روی آن ۱۵٫۶ به ۱، روی هر عکسی).</dd>
+        <dt>قاب</dt><dd>بی‌قاب، از لبه تا لبه؛ دکمه جواب آزمایش با حاشیه‌ای به رنگ کاغذ از لبه عکس بیرون می‌زند.</dd>
+        <dt>حرکت</dt><dd>هر ۶ ثانیه عکس بعدی در عکس قبلی محو می‌شود (۰٫۹ ثانیه). در گوشی نوار زمان شش تکه زیر عکس پر می‌شود؛ با «توقف»، نشانگر یا فوکوس روی اسلایدر و کاهش حرکت می‌ایستد.</dd>
       </dl>
       <div class="img-grid" style="margin-top:20px">
-        <figure><div class="thumb curved"><img src="media/photos/lab-5.jpg" alt="" style="object-position:62% 38%"></div><figcaption>ورودی آزمایشگاه، با برگه منحنی</figcaption></figure>
-        <figure><div class="thumb"><img src="media/photos/lab-2.jpg" alt="" style="object-position:45% 52%"></div><figcaption>پذیرش ۲، رنگ گرم‌شده</figcaption></figure>
-        <figure><div class="thumb"><img src="media/photos/lab-6.jpg" alt="" style="object-position:50% 50%"></div><figcaption>کیوسک نوبت</figcaption></figure>
+        <figure><div class="thumb"><img src="media/photos/lab-5.jpg" alt="" style="object-position:62% 34%"></div><figcaption>ورودی آزمایشگاه، روی نشان و گلدان‌ها</figcaption></figure>
+        <figure><div class="thumb"><img src="media/photos/lab-2.jpg" alt="" style="object-position:45% 50%"></div><figcaption>پذیرش ۲</figcaption></figure>
+        <figure><div class="thumb"><img src="media/photos/lab-3.jpg" alt="" style="object-position:50% 38%"></div><figcaption>تابلوهای سالن انتظار</figcaption></figure>
       </div>
     </div>
     <nav class="links" aria-label="جهت‌ها">
@@ -220,27 +210,13 @@
   <div class="review-inner">
     <h2 id="review-title">پنل بازبینی</h2>
     <p>حالت‌ها برای بازبینی؛ جزو طرح نیست.</p>
-    <div class="row"><b>عکس اول اسلایدر</b><a href="?slide=1">۱ سالن انتظار</a><a href="?slide=2">۲ ورودی</a><a href="?slide=3">۳ جوابدهی</a><a href="?slide=4">۴ پذیرش ۲</a><a href="?slide=5">۵ کیوسک</a><a href="?slide=6">۶ تابلوها</a></div>
+    <div class="row"><b>عکس اول اسلایدر</b><a href="?slide=1&amp;paused=1">1 سالن انتظار</a><a href="?slide=2&amp;paused=1">2 ورودی</a><a href="?slide=3&amp;paused=1">3 جوابدهی</a><a href="?slide=4&amp;paused=1">4 پذیرش 2</a><a href="?slide=5&amp;paused=1">5 کیوسک</a><a href="?slide=6&amp;paused=1">6 تابلوها</a></div>
     <div class="row"><b>حرکت</b><a href="?">پخش خودکار</a><a href="?paused=1">متوقف</a><a href="?rm=1">کاهش حرکت</a></div>
   </div>
 </section>
 
 <script src="media/vendor/react-framer-motion.js"></script>
 <script src="media/hero-slider.js"></script>
-<script>
-PayvandSlider.mount(document.getElementById("slider"), { variant: "fade", digits: "fa" });
-const mq = matchMedia("(min-width: 1024px)");
-const curve = document.querySelector(".curve");
-const setCurve = () => {
-  if (mq.matches) {
-    curve.setAttribute("viewBox", "0 0 96 100");
-    curve.innerHTML = '<defs><linearGradient id="sheetg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FAF4EC"/></linearGradient></defs><path class="fill" style="fill:url(#sheetg)" d="M96 0 L40 0 C 4 30 4 70 40 100 L96 100 Z"/><path class="edge" d="M40 0 C 4 30 4 70 40 100"/>';
-  } else {
-    curve.setAttribute("viewBox", "0 0 100 52");
-    curve.innerHTML = '<path class="fill" d="M0 52 L0 46 C 30 46 58 4 100 2 L100 52 Z"/><path class="edge" d="M0 46 C 30 46 58 4 100 2"/>';
-  }
-};
-setCurve(); mq.addEventListener("change", setCurve);
-</script>
+<script>PayvandSlider.mount(document.getElementById("slider"), { variant: "fade", digits: "fa", focus: ["50% 37%", "64% 36%", "50% 52%", "42% 52%", "50% 46%", "50% 36%"] });</script>
 </body>
 </html>
