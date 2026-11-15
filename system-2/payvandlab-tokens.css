@@ -1,0 +1,94 @@
+@font-face { font-family: "Estedad"; src: url("media/vendor/Estedad.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+
+:root {
+  --pv-navy: #003C7E;
+  --pv-navy-hi: #0A4E98;
+  --pv-navy-deep: #002B5E;
+  --pv-cyan: #00C0F3;
+  --pv-on-navy: #FFFFFF;
+  --pv-on-navy-2: #CFE3F5;
+
+  --pv-paper: #FBF8F3;
+  --pv-white: #FFFFFF;
+  --pv-linen: #F3ECE3;
+  --pv-blush: #F6E4DE;
+  --pv-blush-2: #EFD3CB;
+  --pv-wall: #E4EEF4;
+  --pv-wall-2: #D3E3EE;
+
+  --pv-rose-ink: #8A2E44;
+  --pv-rose: #A8475B;
+  --pv-rose-deep: #74243A;
+
+  --pv-ink: #14243A;
+  --pv-ink-2: #3A4A5E;
+  --pv-ink-3: #5B6878;
+  --pv-line: rgba(20, 36, 58, .12);
+  --pv-line-2: rgba(20, 36, 58, .24);
+
+  --pv-light: 255, 226, 192;
+  --pv-shade: 52, 26, 34;
+
+  --pv-focus: #003C7E;
+  --pv-focus-halo: rgba(0, 192, 243, .55);
+
+  --pv-font: "Estedad", system-ui, sans-serif;
+  --pv-fs-display: 42px;
+  --pv-fs-h1: 30px;
+  --pv-fs-h2: 25px;
+  --pv-fs-h3: 19px;
+  --pv-fs-entry: 26px;
+  --pv-fs-lead: 18px;
+  --pv-fs-body: 17px;
+  --pv-fs-small: 16px;
+  --pv-fs-caption: 15px;
+  --pv-lh-tight: 1.2;
+  --pv-lh-head: 1.45;
+  --pv-lh-body: 1.85;
+  --pv-w-display: 850;
+  --pv-w-head: 800;
+  --pv-w-strong: 700;
+  --pv-w-label: 650;
+  --pv-w-body: 450;
+
+  --pv-s-1: 4px;
+  --pv-s-2: 8px;
+  --pv-s-3: 12px;
+  --pv-s-4: 16px;
+  --pv-s-5: 20px;
+  --pv-s-6: 24px;
+  --pv-s-7: 32px;
+  --pv-s-8: 40px;
+  --pv-s-9: 56px;
+  --pv-s-10: 72px;
+  --pv-s-11: 96px;
+  --pv-gutter: 16px;
+  --pv-max: 1200px;
+
+  --pv-r-chip: 8px;
+  --pv-r-control: 14px;
+  --pv-r-card: 20px;
+  --pv-r-sheet: 28px;
+  --pv-r-pill: 999px;
+
+  --pv-e-card: 0 0 0 1px var(--pv-line), 0 1px 2px rgba(var(--pv-shade), .06);
+  --pv-e-raised: 0 0 0 1px var(--pv-line), 0 10px 24px -14px rgba(var(--pv-shade), .35);
+  --pv-e-plaque: 0 0 0 1px rgba(20, 36, 58, .08), 0 14px 30px -14px rgba(var(--pv-shade), .55);
+  --pv-e-sheet: 0 0 0 1px rgba(20, 36, 58, .05), 0 2px 4px rgba(var(--pv-shade), .06), 0 48px 90px -40px rgba(var(--pv-shade), .62);
+  --pv-e-entry: inset 0 1px 0 rgba(255, 255, 255, .18), 0 22px 40px -22px rgba(0, 40, 90, .85);
+
+  --pv-hit: 44px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --pv-fs-display: 64px;
+    --pv-fs-h1: 44px;
+    --pv-fs-h2: 32px;
+    --pv-fs-h3: 21px;
+    --pv-fs-entry: 34px;
+    --pv-fs-lead: 19px;
+    --pv-fs-body: 18px;
+    --pv-gutter: 40px;
+  }
+}

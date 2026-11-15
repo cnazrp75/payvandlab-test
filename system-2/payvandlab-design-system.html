@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سامانه طراحی آزمایشگاه پیوند: روشنا</title>
+<meta name="description" content="سامانه طراحی وب‌سایت آزمایشگاه تشخیص طبی و تخصصی پیوند: رنگ‌ها، حروف، عکس‌ها، حرکت و همه اجزا با همه حالت‌ها.">
+<link rel="stylesheet" href="payvandlab-tokens.css">
+<link rel="stylesheet" href="payvandlab-components.css">
+<style>
+.ds-live { min-height: 100svh; display: flex; flex-direction: column; background: var(--pv-paper); }
+.ds-live > [data-pv="Room"] { flex: 1; display: flex; flex-direction: column; }
+.ds-live > [data-pv="Room"] > .pv-room { flex: 1; }
+.ds { counter-reset: none; }
+.ds-sec { padding-block: var(--pv-s-9); }
+.ds-sec--paper { background: var(--pv-paper); }
+.ds-sec--linen { background: var(--pv-linen); }
+.ds-sec--wall { background: var(--pv-wall); }
+.ds-sec--white { background: var(--pv-white); }
+.ds-sec--band { padding-top: 0; }
+.ds-intro { padding-block: var(--pv-s-9) var(--pv-s-8); background: var(--pv-paper); box-shadow: inset 0 1px 0 var(--pv-line); }
+.ds-intro h1 { font-size: var(--pv-fs-h1); font-weight: var(--pv-w-head); line-height: var(--pv-lh-head); color: var(--pv-navy); text-wrap: balance; }
+.ds-intro .pv-lead { max-width: 62ch; margin-top: var(--pv-s-3); font-size: var(--pv-fs-lead); color: var(--pv-ink-2); }
+.ds-rules { display: grid; gap: var(--pv-s-3); margin-top: var(--pv-s-7); }
+.ds-rules li { display: grid; grid-template-columns: 36px 1fr; gap: var(--pv-s-3); align-items: start; padding: var(--pv-s-4); border-radius: var(--pv-r-card); background: var(--pv-white); box-shadow: var(--pv-e-card); }
+.ds-rules li > span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: var(--pv-blush); color: var(--pv-rose); }
+.ds-rules li.is-navy > span { background: var(--pv-navy); color: var(--pv-cyan); }
+.ds-rules b { display: block; font-size: var(--pv-fs-h3); font-weight: var(--pv-w-strong); line-height: 1.5; color: var(--pv-ink); }
+.ds-rules p { margin-top: 2px; font-size: var(--pv-fs-small); line-height: 1.75; color: var(--pv-ink-2); }
+.ds-h { display: grid; gap: var(--pv-s-2); max-width: 64ch; margin-bottom: var(--pv-s-7); }
+.ds-h .pv-h2 { margin: 0; }
+.ds-h p { font-size: var(--pv-fs-lead); line-height: 1.8; color: var(--pv-ink); }
+.ds-sub { margin: var(--pv-s-7) 0 var(--pv-s-4); font-size: var(--pv-fs-h3); font-weight: var(--pv-w-strong); color: var(--pv-rose-ink); }
+.ds-sub:first-of-type { margin-top: 0; }
+.ds-why { font-size: var(--pv-fs-small); line-height: 1.75; color: var(--pv-ink-2); }
+code { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 14px; direction: ltr; unicode-bidi: isolate; color: var(--pv-ink); }
+.ds-swatches { display: grid; gap: var(--pv-s-4); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.ds-sw { display: grid; grid-template-rows: auto 1fr; overflow: hidden; border-radius: var(--pv-r-card); background: var(--pv-white); box-shadow: var(--pv-e-card); }
+.ds-chip { height: 88px; box-shadow: inset 0 -1px 0 var(--pv-line); }
+.ds-sw-b { display: grid; align-content: start; gap: 6px; padding: var(--pv-s-4); }
+.ds-sw h4 { font-size: var(--pv-fs-h3); font-weight: var(--pv-w-strong); line-height: 1.4; }
+.ds-code { display: flex; flex-wrap: wrap; gap: 6px 12px; }
+.ds-code code { padding: 1px 8px; border-radius: 6px; background: var(--pv-paper); box-shadow: inset 0 0 0 1px var(--pv-line); }
+.ds-ratios { display: grid; gap: 2px; margin-top: 4px; padding-top: 8px; border-top: 1px solid var(--pv-line); }
+.ds-ratios li { display: flex; justify-content: space-between; gap: 12px; font-size: var(--pv-fs-small); color: var(--pv-ink-2); }
+.ds-ratio { font-weight: var(--pv-w-strong); color: var(--pv-ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ds-types { display: grid; gap: 0; border-radius: var(--pv-r-card); background: var(--pv-white); box-shadow: var(--pv-e-card); }
+.ds-type { display: grid; gap: 4px; padding: var(--pv-s-5) var(--pv-s-4); border-top: 1px solid var(--pv-line); }
+.ds-type:first-child { border-top: 0; }
+.ds-type-s { line-height: var(--pv-lh-head); color: var(--pv-ink); }
+.ds-type:nth-child(-n+5) .ds-type-s { color: var(--pv-navy); }
+.ds-type-m { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-size: var(--pv-fs-small); color: var(--pv-ink-2); }
+.ds-digits { margin-top: var(--pv-s-5); padding: var(--pv-s-4); border-radius: var(--pv-r-card); background: var(--pv-blush); color: var(--pv-ink); }
+.ds-digits b { color: var(--pv-rose-ink); }
+.ds-photos { display: grid; gap: var(--pv-s-5); grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.ds-photo { display: grid; align-content: start; gap: 6px; }
+.ds-photo-i { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--pv-r-card); background: var(--pv-wall); box-shadow: var(--pv-e-raised); }
+.ds-photo-i img { width: 100%; height: 100%; object-fit: cover; }
+.ds-photo h4 { margin-top: 6px; font-size: var(--pv-fs-h3); font-weight: var(--pv-w-strong); color: var(--pv-ink); }
+.ds-photo p { font-size: var(--pv-fs-small); line-height: 1.75; color: var(--pv-ink); }
+.ds-photo b { color: var(--pv-rose-ink); font-weight: var(--pv-w-strong); }
+.ds-rules--img { margin-top: var(--pv-s-7); grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.ds-three { display: grid; gap: var(--pv-s-5); }
+.ds-card { padding: var(--pv-s-5) var(--pv-s-4); border-radius: var(--pv-r-card); background: var(--pv-white); box-shadow: var(--pv-e-card); }
+.ds-card h3 { margin-bottom: var(--pv-s-4); font-size: var(--pv-fs-h3); font-weight: var(--pv-w-strong); color: var(--pv-navy); }
+.ds-card ul { display: grid; gap: 10px; }
+.ds-card li { display: grid; grid-template-columns: 96px auto 1fr; align-items: center; gap: 4px 12px; font-size: var(--pv-fs-small); color: var(--pv-ink-2); }
+.ds-card li small { grid-column: 1 / -1; font-size: var(--pv-fs-caption); color: var(--pv-ink-2); }
+.ds-bar { display: block; height: 14px; border-radius: 4px; background: var(--pv-rose); }
+.ds-rad { display: block; width: 56px; height: 40px; background: var(--pv-blush); box-shadow: inset 0 0 0 1.5px var(--pv-rose); }
+.ds-elev { display: block; width: 72px; height: 44px; border-radius: 12px; background: var(--pv-white); }
+.ds-elev-l { padding: 12px; border-radius: 14px; background: var(--pv-paper); }
+.ds-table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: var(--pv-r-card); background: var(--pv-white); box-shadow: var(--pv-e-card); font-size: var(--pv-fs-small); }
+.ds-table caption { padding-bottom: var(--pv-s-3); text-align: start; color: var(--pv-ink-2); }
+.ds-table th, .ds-table td { padding: 12px 14px; border-top: 1px solid var(--pv-line); text-align: start; vertical-align: top; line-height: 1.7; }
+.ds-table thead th { border-top: 0; background: var(--pv-linen); color: var(--pv-rose-ink); font-weight: var(--pv-w-strong); }
+.ds-table tbody th { color: var(--pv-ink); font-weight: var(--pv-w-strong); }
+.ds-table td { color: var(--pv-ink-2); }
+.ds-scroll { overflow-x: auto; border-radius: var(--pv-r-card); }
+.ds-specs { display: grid; gap: var(--pv-s-6); }
+.ds-spec { min-width: 0; border-radius: var(--pv-r-card); background: var(--pv-white); box-shadow: var(--pv-e-card); }
+.ds-spec-h { display: grid; gap: 4px; padding: var(--pv-s-5) var(--pv-s-4) var(--pv-s-4); border-bottom: 1px solid var(--pv-line); }
+.ds-spec-h h3 { font-size: var(--pv-fs-h3); font-weight: var(--pv-w-strong); color: var(--pv-navy); }
+.ds-spec-b { min-width: 0; padding: var(--pv-s-5) var(--pv-s-4); background: var(--pv-paper); border-radius: 0 0 var(--pv-r-card) var(--pv-r-card); }
+.ds-states { display: grid; gap: var(--pv-s-5); }
+.ds-state { display: grid; gap: var(--pv-s-2); min-width: 0; }
+.ds-state > figcaption { font-size: var(--pv-fs-caption); font-weight: var(--pv-w-label); color: var(--pv-ink-2); }
+.ds-state > figcaption::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-inline-end: 8px; border-radius: 50%; background: var(--pv-rose); vertical-align: middle; }
+.ds-phone { max-width: 390px; margin-inline: auto; overflow: hidden; border-radius: var(--pv-r-card); box-shadow: var(--pv-e-raised); }
+.ds-spec [data-pv="Head"] { overflow: hidden; border-radius: 14px; box-shadow: var(--pv-e-card); }
+.ds-chat-demo { max-width: 420px; margin-top: var(--pv-s-6); }
+.ds-review { padding-block: var(--pv-s-7); background: var(--pv-navy-deep); color: var(--pv-on-navy); }
+.ds-review h2 { font-size: var(--pv-fs-h3); font-weight: var(--pv-w-strong); }
+.ds-review p { margin-top: 4px; font-size: var(--pv-fs-small); color: var(--pv-on-navy-2); }
+.ds-review ul { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--pv-s-4); }
+.ds-review a { display: inline-flex; align-items: center; min-height: var(--pv-hit); padding: 0 16px; border-radius: var(--pv-r-pill); background: rgba(255, 255, 255, .1); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .28); color: var(--pv-white); font-size: var(--pv-fs-small); font-weight: var(--pv-w-label); text-decoration: none; }
+.ds-review a:hover { background: rgba(255, 255, 255, .18); }
+.ds-review a:focus-visible { outline-color: var(--pv-cyan); }
+.ds-palette { display: flex; gap: 4px; height: 112px; padding: 4px; border-radius: var(--pv-r-card); background: var(--pv-white); box-shadow: 0 0 0 1px var(--pv-line-2), var(--pv-e-raised); }
+.ds-palette span { display: block; min-width: 10px; border-radius: 14px; box-shadow: inset 0 0 0 1px var(--pv-line); }
+.ds-palette-c { margin: 10px 0 var(--pv-s-7); font-size: var(--pv-fs-small); color: var(--pv-ink-2); }
+.ds-hero-type { display: grid; gap: 4px; margin-bottom: var(--pv-s-6); padding: var(--pv-s-7) var(--pv-s-5); border-radius: var(--pv-r-sheet); background: var(--pv-paper); box-shadow: var(--pv-e-raised); }
+.ds-hero-type .t1 { font-size: 18px; font-weight: 600; color: var(--pv-ink); }
+.ds-hero-type .t2 { font-size: clamp(76px, 13vw, 150px); font-weight: 850; line-height: 1.05; color: var(--pv-navy); letter-spacing: -.5px; }
+.ds-hero-type .t3 { font-size: var(--pv-fs-lead); font-weight: 500; color: var(--pv-ink-2); }
+.ds-hero-type .t4 { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--pv-s-4); }
+.ds-hero-type .t4 span { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: var(--pv-r-pill); background: var(--pv-blush); color: var(--pv-rose-ink); font-size: var(--pv-fs-caption); font-weight: var(--pv-w-label); }
+.ds-band { position: relative; height: 300px; margin-bottom: var(--pv-s-8); overflow: hidden; }
+.ds-band img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 36%; }
+.ds-band::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 6% 0%, rgba(var(--pv-light), .4), rgba(var(--pv-light), 0) 70%), linear-gradient(180deg, rgba(var(--pv-shade), 0) 60%, rgba(var(--pv-shade), .22)); }
+.ds-band p { position: absolute; z-index: 1; inset-inline-start: var(--pv-gutter); bottom: 20px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: var(--pv-r-pill); background: var(--pv-paper); color: var(--pv-ink); font-size: var(--pv-fs-small); font-weight: var(--pv-w-label); box-shadow: var(--pv-e-plaque); }
+.ds-band p i { width: 8px; height: 8px; border-radius: 50%; background: var(--pv-rose); }
+@media (min-width: 1024px) { .ds-band { height: 420px; } .ds-hero-type { padding: var(--pv-s-9) var(--pv-s-8); } .ds-band p { inset-inline-start: max(var(--pv-gutter), calc((100vw - var(--pv-max)) / 2)); bottom: 28px; } }
+@media (max-width: 759px) {
+  .ds-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .ds-table, .ds-table tbody, .ds-table tr, .ds-table th, .ds-table td { display: block; }
+  .ds-table tr { padding: 14px 16px; border-top: 1px solid var(--pv-line); }
+  .ds-table tr:first-child { border-top: 0; }
+  .ds-table th, .ds-table td { padding: 0; border: 0; }
+  .ds-table tbody th { font-size: var(--pv-fs-body); }
+  .ds-table td + td { margin-top: 4px; }
+}
+@media (min-width: 760px) {
+  .ds-rules { grid-template-columns: repeat(2, 1fr); }
+  .ds-states { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ds-three { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .ds-sec { padding-block: var(--pv-s-11); }
+  .ds-intro { padding-block: var(--pv-s-10) var(--pv-s-9); }
+  .ds-rules { grid-template-columns: repeat(4, 1fr); }
+  .ds-rules--img { grid-template-columns: repeat(2, 1fr); }
+  .ds-specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ds-spec--wide { grid-column: 1 / -1; }
+  .ds-spec-h, .ds-spec-b { padding-inline: var(--pv-s-6); }
+  .ds-spec--wide .ds-states { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ds-spec--wide .ds-states--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ds-type { grid-template-columns: 1.4fr 1fr; column-gap: var(--pv-s-7); padding-inline: var(--pv-s-6); align-items: center; }
+  .ds-type-s { grid-row: span 2; }
+}
+</style>
+</head>
+<body>
+<div class="ds-live">
+  <div data-pv="Head" data-p='{"home":true}'></div>
+  <div data-pv="Room"></div>
+</div>
+<main class="ds" id="main">
+  <section class="ds-intro" aria-labelledby="ds-title">
+    <div class="pv-wrap">
+      <h1 id="ds-title">سامانه طراحی آزمایشگاه پیوند</h1>
+      <p class="pv-lead">برگرفته از جهت «روشنا»: عکس پرنور خود آزمایشگاه اتاقی است که وارد آن می‌شوید، برگه‌ای کاغذی همه محتوا را نگه می‌دارد و «جواب آزمایش» تنها بلوک پررنگ صفحه است. صفحه اول بالای همین برگه، زنده و ساخته از همین اجزاست.</p>
+      <ul class="ds-rules">
+        <li class="is-navy"><span><svg class="pv-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h4"/></svg></span><div><b>جواب آزمایش، مهم‌ترین</b><p>تنها بلوک پر سرمه‌ای و بلندترین کنترل هر صفحه‌ای که در آن هست.</p></div></li>
+        <li><span><svg class="pv-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 15l5-5 4 4 2-2 5 5"/></svg></span><div><b>عکس، اتاق آزمایشگاه</b><p>فقط هفت عکس خود آزمایشگاه، گرم و روشن؛ هیچ متنی مستقیم روی عکس نیست.</p></div></li>
+        <li><span><svg class="pv-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><b>گلبهی، گرمای دوم</b><p>از گل‌های تابلوهای سالن انتظار: نوبت‌دهی، برچسب‌ها و نشانه‌ها.</p></div></li>
+        <li><span><svg class="pv-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h10M5 17h7"/></svg></span><div><b>یک قاعده رقم</b><p>هر عددی که مراجع می‌خواند فارسی است؛ فقط کد رنگ و نام توکن لاتین.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ds-sec ds-sec--white" aria-labelledby="ds-c">
+    <div class="pv-wrap">
+      <header class="ds-h"><h2 class="pv-h2" id="ds-c">رنگ</h2><p>سرمه‌ای و فیروزه‌ای نشان می‌مانند. گرما از خانواده گلبهی و سطح کاغذی می‌آید، خنکی از رنگ دیوار سالن انتظار. نسبت‌ها اندازه‌گیری شده‌اند (WCAG 2.2 AA: ۴٫۵ به ۱ متن، ۳ به ۱ نماد و متن درشت).</p></header>
+      <div class="ds-palette" aria-hidden="true"><span style="flex:30;background:var(--pv-paper)"></span><span style="flex:16;background:var(--pv-white)"></span><span style="flex:12;background:var(--pv-linen)"></span><span style="flex:12;background:var(--pv-wall)"></span><span style="flex:8;background:var(--pv-blush)"></span><span style="flex:9;background:var(--pv-navy)"></span><span style="flex:6;background:var(--pv-rose-ink)"></span><span style="flex:2;background:var(--pv-rose)"></span><span style="flex:2;background:var(--pv-cyan)"></span></div><p class="ds-palette-c">رنگ‌ها به اندازه سهمشان در یک صفحه: بیشتر کاغذ و سفید، گرمای کتانی و صورتی، خنکی دیوار؛ سرمه‌ای و گلبهی تیره فقط برای کارها، فیروزه‌ای فقط یک نشانه.</p>
+      <h3 class="ds-sub">نشان</h3><ul class="ds-swatches"><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-navy)"></span><div class="ds-sw-b"><h4>سرمه‌ای پیوند</h4><p class="ds-code"><code>--pv-navy</code><code>#003C7E</code></p><p class="ds-why">رنگ نشان پیوند. پر شدنش فقط در «جواب آزمایش»؛ جز آن، تیترها و پیوندها.</p><ul class="ds-ratios"><li><span>روی کاغذ</span><span class="ds-ratio">۱۰٫۱۸ به ۱</span></li><li><span>متن سفید روی آن</span><span class="ds-ratio">۱۰٫۷۸ به ۱</span></li><li><span>روی دیوار</span><span class="ds-ratio">۹٫۱۶ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-navy-hi)"></span><div class="ds-sw-b"><h4>سرمه‌ای روشن</h4><p class="ds-code"><code>--pv-navy-hi</code><code>#0A4E98</code></p><p class="ds-why">لبه بالای گرادیان «جواب آزمایش»، تا بلوک مثل یک دکمه واقعی نور بگیرد.</p><ul class="ds-ratios"><li><span>متن سفید روی آن</span><span class="ds-ratio">۸٫۲۲ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-cyan)"></span><div class="ds-sw-b"><h4>فیروزه‌ای نشان</h4><p class="ds-code"><code>--pv-cyan</code><code>#00C0F3</code></p><p class="ds-why">رنگ دوم نشان؛ فقط روی سرمه‌ای (نماد جواب) و خط زیر صفحه فعلی. روی کاغذ متن نمی‌شود.</p><ul class="ds-ratios"><li><span>روی سرمه‌ای</span><span class="ds-ratio">۵٫۰۵ به ۱</span></li><li><span>نماد روی کاشی جواب</span><span class="ds-ratio">۳٫۸۰ به ۱</span></li><li><span>روی کاغذ، فقط تزئین</span><span class="ds-ratio">۲٫۰۲ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-on-navy-2)"></span><div class="ds-sw-b"><h4>روی سرمه‌ای</h4><p class="ds-code"><code>--pv-on-navy-2</code><code>#CFE3F5</code></p><p class="ds-why">خط دوم «جواب آزمایش»؛ آرام‌تر از عنوان، باز هم خوانا.</p><ul class="ds-ratios"><li><span>روی سرمه‌ای</span><span class="ds-ratio">۸٫۱۹ به ۱</span></li></ul></div></li></ul><h3 class="ds-sub">خانواده گرم</h3><ul class="ds-swatches"><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-rose-ink)"></span><div class="ds-sw-b"><h4>گلبهی تیره</h4><p class="ds-code"><code>--pv-rose-ink</code><code>#8A2E44</code></p><p class="ds-why">رنگ گرم دوم، از گل‌های تابلوهای سالن انتظار: برچسب ساعت و نشانی، نشان «امروز»، نوبت‌دهی زیر نشانگر.</p><ul class="ds-ratios"><li><span>روی کاغذ</span><span class="ds-ratio">۷٫۷۶ به ۱</span></li><li><span>روی صورتی</span><span class="ds-ratio">۶٫۶۸ به ۱</span></li><li><span>متن سفید روی آن</span><span class="ds-ratio">۸٫۲۲ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-rose)"></span><div class="ds-sw-b"><h4>گلبهی</h4><p class="ds-code"><code>--pv-rose</code><code>#A8475B</code></p><p class="ds-why">زمینه «نوبت‌دهی آنلاین» با متن سفید، و نمادها و نقطه‌های گرم.</p><ul class="ds-ratios"><li><span>متن سفید روی آن</span><span class="ds-ratio">۵٫۶۵ به ۱</span></li><li><span>روی کاغذ</span><span class="ds-ratio">۵٫۳۳ به ۱</span></li><li><span>روی صورتی</span><span class="ds-ratio">۴٫۵۹ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-blush)"></span><div class="ds-sw-b"><h4>صورتی</h4><p class="ds-code"><code>--pv-blush</code><code>#F6E4DE</code></p><p class="ds-why">کاشی نمادها و نشان‌ها؛ گرما بی‌آنکه بلوک پررنگ دومی ساخته شود.</p><ul class="ds-ratios"><li><span>گلبهی تیره روی آن</span><span class="ds-ratio">۶٫۶۸ به ۱</span></li><li><span>جوهر روی آن</span><span class="ds-ratio">۱۲٫۷۱ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-blush-2)"></span><div class="ds-sw-b"><h4>صورتی پررنگ</h4><p class="ds-code"><code>--pv-blush-2</code><code>#EFD3CB</code></p><p class="ds-why">برگه دوم کج پشت برگه اصلی در دسکتاپ؛ لبه برگه را از عکس شلوغ جدا می‌کند.</p><ul class="ds-ratios"><li><span>گلبهی تیره روی آن</span><span class="ds-ratio">۵٫۸۱ به ۱</span></li></ul></div></li></ul><h3 class="ds-sub">سطح‌ها</h3><ul class="ds-swatches"><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-paper)"></span><div class="ds-sw-b"><h4>کاغذ</h4><p class="ds-code"><code>--pv-paper</code><code>#FBF8F3</code></p><p class="ds-why">برگه‌ای که همه محتوا روی آن است؛ گرم، تا کنار عکس گرم سرد نشود.</p><ul class="ds-ratios"><li><span>جوهر روی آن</span><span class="ds-ratio">۱۴٫۷۶ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-white)"></span><div class="ds-sw-b"><h4>سفید</h4><p class="ds-code"><code>--pv-white</code><code>#FFFFFF</code></p><p class="ds-why">کارت‌ها و پلاک‌های روی عکس؛ روشن‌ترین سطح برای چیزی که باید جدا دیده شود.</p><ul class="ds-ratios"><li><span>جوهر روی آن</span><span class="ds-ratio">۱۵٫۶۳ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-linen)"></span><div class="ds-sw-b"><h4>کتانی</h4><p class="ds-code"><code>--pv-linen</code><code>#F3ECE3</code></p><p class="ds-why">بخش گرم صفحه و پاورقی؛ رنگ چوب روشن ورودی، بسیار کم‌رنگ.</p><ul class="ds-ratios"><li><span>جوهر دوم روی آن</span><span class="ds-ratio">۷٫۷۲ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-wall)"></span><div class="ds-sw-b"><h4>دیوار</h4><p class="ds-code"><code>--pv-wall</code><code>#E4EEF4</code></p><p class="ds-why">بخش خنک صفحه؛ رنگ دیوار سالن انتظار. گرم و خنک کنار هم عمق می‌سازند.</p><ul class="ds-ratios"><li><span>جوهر دوم روی آن</span><span class="ds-ratio">۷٫۶۸ به ۱</span></li><li><span>سرمه‌ای روی آن</span><span class="ds-ratio">۹٫۱۶ به ۱</span></li></ul></div></li></ul><h3 class="ds-sub">جوهر</h3><ul class="ds-swatches"><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-ink)"></span><div class="ds-sw-b"><h4>جوهر</h4><p class="ds-code"><code>--pv-ink</code><code>#14243A</code></p><p class="ds-why">متن اصلی؛ سرمه‌ای بسیار تیره به‌جای سیاه، هم‌خانواده نشان.</p><ul class="ds-ratios"><li><span>روی کاغذ</span><span class="ds-ratio">۱۴٫۷۶ به ۱</span></li><li><span>روی صورتی</span><span class="ds-ratio">۱۲٫۷۱ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-ink-2)"></span><div class="ds-sw-b"><h4>جوهر دوم</h4><p class="ds-code"><code>--pv-ink-2</code><code>#3A4A5E</code></p><p class="ds-why">متن دوم: ساعت، نشانی، توضیح. برای چشم سالمندان هیچ‌جا کمتر از ۷ به ۱.</p><ul class="ds-ratios"><li><span>روی کاغذ</span><span class="ds-ratio">۸٫۵۴ به ۱</span></li><li><span>روی صورتی</span><span class="ds-ratio">۷٫۳۵ به ۱</span></li><li><span>روی دیوار</span><span class="ds-ratio">۷٫۶۸ به ۱</span></li></ul></div></li><li class="ds-sw"><span class="ds-chip" style="background:var(--pv-ink-3)"></span><div class="ds-sw-b"><h4>جوهر سوم</h4><p class="ds-code"><code>--pv-ink-3</code><code>#5B6878</code></p><p class="ds-why">فقط متن نمونه داخل خانه فرم؛ هیچ متن خواندنی دیگری.</p><ul class="ds-ratios"><li><span>روی سفید</span><span class="ds-ratio">۵٫۶۸ به ۱</span></li></ul></div></li></ul>
+    </div>
+  </section>
+
+  <section class="ds-sec ds-sec--linen" aria-labelledby="ds-t">
+    <div class="pv-wrap">
+      <header class="ds-h"><h2 class="pv-h2" id="ds-t">حروف</h2><p>یک خانواده، استعداد (Estedad، مجوز SIL OFL 1.1)، با وزن‌های ۴۵۰ تا ۸۵۰. سلسله‌مراتب با اندازه و وزن ساخته می‌شود، نه با قاب و رنگ.</p></header>
+      <div class="ds-hero-type"><span class="t1">آزمایشگاه تشخیص طبی و تخصصی</span><span class="t2">پیوند</span><span class="t3">پاتولوژی، ژنتیک پزشکی و مولکولی</span><p class="t4"><span>Estedad</span><span>وزن ۸۵۰، ۶۰۰ و ۵۰۰</span><span>رقم فارسی</span></p></div>
+      <ul class="ds-types"><li class="ds-type"><p class="ds-type-s" style="font-size:var(--pv-fs-display);font-weight:850">پیوند</p><p class="ds-type-m"><code>--pv-fs-display</code><span>گوشی ۴۲، دسکتاپ ۶۴ پیکسل، وزن ۸۵۰</span></p><p class="ds-why">نام آزمایشگاه در برگه؛ بزرگ‌ترین حرف صفحه، تا نام لب‌ها را پیش از هر چیز ببیند.</p></li><li class="ds-type"><p class="ds-type-s" style="font-size:var(--pv-fs-entry);font-weight:800">جواب آزمایش</p><p class="ds-type-m"><code>--pv-fs-entry</code><span>گوشی ۲۶، دسکتاپ ۳۴ پیکسل، وزن ۸۰۰</span></p><p class="ds-why">عنوان دکمه جواب؛ بعد از نام، درشت‌ترین متن، چون مهم‌ترین کار است.</p></li><li class="ds-type"><p class="ds-type-s" style="font-size:var(--pv-fs-h1);font-weight:800">راهنمای جوابدهی اینترنتی</p><p class="ds-type-m"><code>--pv-fs-h1</code><span>گوشی ۳۰، دسکتاپ ۴۴ پیکسل، وزن ۸۰۰</span></p><p class="ds-why">عنوان صفحه‌های داخلی.</p></li><li class="ds-type"><p class="ds-type-s" style="font-size:var(--pv-fs-h2);font-weight:800">پذیرش حضوری و غیرحضوری</p><p class="ds-type-m"><code>--pv-fs-h2</code><span>گوشی ۲۵، دسکتاپ ۳۲ پیکسل، وزن ۸۰۰</span></p><p class="ds-why">عنوان بخش.</p></li><li class="ds-type"><p class="ds-type-s" style="font-size:var(--pv-fs-h3);font-weight:700">ساعات کاری</p><p class="ds-type-m"><code>--pv-fs-h3</code><span>گوشی ۱۹، دسکتاپ ۲۱ پیکسل، وزن ۷۰۰</span></p><p class="ds-why">عنوان کارت و پرسش.</p></li><li class="ds-type"><p class="ds-type-s" style="font-size:var(--pv-fs-lead);font-weight:500">نام کاربری و رمز عبور هر دو روی قبض آزمایشگاه و در پیامک پذیرش آمده است.</p><p class="ds-type-m"><code>--pv-fs-lead</code><span>گوشی ۱۸، دسکتاپ ۱۹ پیکسل، وزن ۵۰۰</span></p><p class="ds-why">خط اول زیر عنوان صفحه.</p></li><li class="ds-type"><p class="ds-type-s" style="font-size:var(--pv-fs-body);font-weight:450">پذیرش هم در خود آزمایشگاه انجام می‌شود و هم غیرحضوری، برای نمونه‌گیری در آزمایشگاه یا در منزل.</p><p class="ds-type-m"><code>--pv-fs-body</code><span>گوشی ۱۷، دسکتاپ ۱۸ پیکسل، وزن ۴۵۰</span></p><p class="ds-why">متن؛ ۱۷ پیکسل و فاصله خط ۱٫۸۵ تا همه سن‌ها راحت بخوانند.</p></li><li class="ds-type"><p class="ds-type-s" style="font-size:var(--pv-fs-small);font-weight:600">شنبه تا چهارشنبه ۰۶:۳۰ تا ۱۹:۰۰</p><p class="ds-type-m"><code>--pv-fs-small</code><span>گوشی ۱۶، دسکتاپ ۱۶ پیکسل، وزن ۶۰۰</span></p><p class="ds-why">ساعت، نشانی و برچسب کنترل‌ها؛ کمتر از ۱۶ نمی‌شود.</p></li><li class="ds-type"><p class="ds-type-s" style="font-size:var(--pv-fs-caption);font-weight:650">سالن انتظار</p><p class="ds-type-m"><code>--pv-fs-caption</code><span>گوشی ۱۵، دسکتاپ ۱۵ پیکسل، وزن ۶۵۰</span></p><p class="ds-why">کوچک‌ترین متن سایت: عنوان عکس و نشان «امروز».</p></li></ul>
+      <p class="ds-digits"><b>قاعده رقم:</b> ساعت، تلفن، پلاک، شماره گام و اسلاید همه فارسی‌اند: <span class="pv-ltr pv-num">۰۲۱-۷۱۴۰۰۰۰۴</span>، <span class="pv-nw">پلاک ۱۷۴</span>، <span class="pv-nw">عکس ۱ از ۶</span>. لاتین فقط برای کد رنگ، نام توکن و نام فایل.</p>
+    </div>
+  </section>
+
+  <section class="ds-sec ds-sec--paper ds-sec--band" aria-labelledby="ds-i">
+    <div class="ds-band"><img src="media/photos/lab-3.jpg" alt="تابلوهای قاب‌شده گل و ظروف آزمایشگاهی در سالن انتظار آزمایشگاه پیوند" loading="lazy"><p><i></i>عکس ۳ با درجه‌بندی «صبح» و نور پنجره</p></div>
+    <div class="pv-wrap">
+      <header class="ds-h"><h2 class="pv-h2" id="ds-i">عکس</h2><p>شش عکس از هفت عکس خود آزمایشگاه (عکس ۴ چهره دارد و به کار نمی‌رود). همه با یک درجه‌بندی «صبح» گرم شده‌اند: قرمز ×۱٫۰۴، آبی ×۰٫۹۳۵، گامای ۰٫۹۶، سایه‌ها کمی گلبهی، روشنی‌ها کمی کرم؛ تا سالن خالی سرد دیده نشود.</p></header>
+      <ul class="ds-photos"><li class="ds-photo"><div class="ds-photo-i"><img src="media/photos/lab-7.jpg" alt="سالن انتظار، آزمایشگاه پیوند" loading="lazy"></div><h4>عکس ۷: سالن انتظار</h4><p><b>کاربرد:</b> اسلاید اول (عنوان مهدی: «اسلایدر»)</p><p class="ds-why">صفحه اول دسکتاپ: تمام صفحه، کانون ۵۰٪ ۳۱٪. گوشی: نوار ۴۲٪ ارتفاع صفحه، بزرگ‌نمایی ۱٫۳ روی تابلوهای گل تا صندلی خالی کم‌تر دیده شود.</p></li><li class="ds-photo"><div class="ds-photo-i"><img src="media/photos/lab-5.jpg" alt="ورودی آزمایشگاه، آزمایشگاه پیوند" loading="lazy"></div><h4>عکس ۵: ورودی آزمایشگاه</h4><p><b>کاربرد:</b> اسلاید دوم</p><p class="ds-why">دیوار چوبی و نوشته آزمایشگاه؛ کانون ۶۲٪ ۲۸٪، روی نشان.</p></li><li class="ds-photo"><div class="ds-photo-i"><img src="media/photos/lab-1.jpg" alt="میز جوابدهی، آزمایشگاه پیوند" loading="lazy"></div><h4>عکس ۱: میز جوابدهی</h4><p><b>کاربرد:</b> اسلاید سوم؛ سرصفحه «جوابدهی»</p><p class="ds-why">برش بدون فرد (عرض ۱۰۴۰ از ۱۲۰۰)؛ تابلوی «جوابدهی» در کانون.</p></li><li class="ds-photo"><div class="ds-photo-i"><img src="media/photos/lab-2.jpg" alt="پذیرش ۲، آزمایشگاه پیوند" loading="lazy"></div><h4>عکس ۲: پذیرش ۲</h4><p><b>کاربرد:</b> اسلاید چهارم؛ عکس کنار متن پذیرش</p><p class="ds-why">برش ۴ به ۳ با گوشه ۲۰؛ میز و گلدان در کانون.</p></li><li class="ds-photo"><div class="ds-photo-i"><img src="media/photos/lab-6.jpg" alt="کیوسک نوبت، آزمایشگاه پیوند" loading="lazy"></div><h4>عکس ۶: کیوسک نوبت</h4><p><b>کاربرد:</b> اسلاید پنجم؛ عکس کنار نوبت‌دهی</p><p class="ds-why">دکمه‌های پذیرش و جوابدهی کیوسک خوانا می‌مانند.</p></li><li class="ds-photo"><div class="ds-photo-i"><img src="media/photos/lab-3.jpg" alt="تابلوهای سالن انتظار، آزمایشگاه پیوند" loading="lazy"></div><h4>عکس ۳: تابلوهای سالن انتظار</h4><p><b>کاربرد:</b> اسلاید ششم؛ نوار بالای پاورقی</p><p class="ds-why">نوار ۱۸۰ (گوشی) و ۲۴۰ پیکسل (دسکتاپ)، محو در کتانی.</p></li></ul>
+      <ul class="ds-rules ds-rules--img">
+        <li><span><svg class="pv-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/></svg></span><div><b>نسبت برش</b><p>اسلایدر دسکتاپ تمام صفحه اول؛ گوشی نواری به بلندی ۴۲٪ صفحه (۲۸۰ تا ۳۸۰ پیکسل). سرصفحه ۱۶ به ۱۰ در گوشی و تمام‌عرض پشت برگه در دسکتاپ. عکس کنار متن ۴ به ۳. نوار پاورقی ۱۸۰ و ۲۴۰ پیکسل.</p></div></li>
+        <li><span><svg class="pv-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg></span><div><b>نور روی عکس</b><p>یک نور گرم پنجره از گوشه بالای شروع، و سایه‌ای نرم پایین عکس تا لبه برگه بنشیند؛ هیچ پرده تیره‌ای روی عکس نیست.</p></div></li>
+        <li><span><svg class="pv-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16v8H4z"/></svg></span><div><b>متن کنار عکس</b><p>متن هرگز مستقیم روی عکس نیست. عنوان عکس و کنترل‌ها روی پلاک سفید یکپارچه‌اند؛ جوهر روی پلاک ۱۵٫۶۳ به ۱ است، روی هر شش عکس یکسان.</p></div></li>
+        <li><span><svg class="pv-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5z"/><path d="M9 5v14"/></svg></span><div><b>قاب</b><p>عکس کنار متن گوشه ۲۰ و سایه بالا دارد؛ عکس اول و سرصفحه بی‌قاب‌اند و برگه کاغذی با برگه صورتی پشتش روی لبه‌شان می‌نشیند.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ds-sec ds-sec--wall" aria-labelledby="ds-s">
+    <div class="pv-wrap">
+      <header class="ds-h"><h2 class="pv-h2" id="ds-s">فاصله، گوشه، سایه</h2><p>فاصله‌ها بر پایه ۴ پیکسل؛ گوشه‌ها با اندازه چیز بزرگ‌تر می‌شوند؛ سایه‌ها گرم‌اند، با رنگ سایه شرابی کم‌رنگ به‌جای خاکستری.</p></header>
+      <div class="ds-three">
+        <div class="ds-card"><h3>فاصله</h3><ul><li><span class="ds-bar" style="width:4px"></span><code>--pv-s-1</code><span>۴</span></li><li><span class="ds-bar" style="width:8px"></span><code>--pv-s-2</code><span>۸</span></li><li><span class="ds-bar" style="width:12px"></span><code>--pv-s-3</code><span>۱۲</span></li><li><span class="ds-bar" style="width:16px"></span><code>--pv-s-4</code><span>۱۶</span></li><li><span class="ds-bar" style="width:20px"></span><code>--pv-s-5</code><span>۲۰</span></li><li><span class="ds-bar" style="width:24px"></span><code>--pv-s-6</code><span>۲۴</span></li><li><span class="ds-bar" style="width:32px"></span><code>--pv-s-7</code><span>۳۲</span></li><li><span class="ds-bar" style="width:40px"></span><code>--pv-s-8</code><span>۴۰</span></li><li><span class="ds-bar" style="width:56px"></span><code>--pv-s-9</code><span>۵۶</span></li><li><span class="ds-bar" style="width:72px"></span><code>--pv-s-10</code><span>۷۲</span></li><li><span class="ds-bar" style="width:96px"></span><code>--pv-s-11</code><span>۹۶</span></li></ul></div>
+        <div class="ds-card"><h3>گوشه</h3><ul><li><span class="ds-rad" style="border-radius:var(--pv-r-chip)"></span><code>--pv-r-chip</code><span>۸</span><small>نشان و برچسب</small></li><li><span class="ds-rad" style="border-radius:var(--pv-r-control)"></span><code>--pv-r-control</code><span>۱۴</span><small>دکمه و خانه فرم</small></li><li><span class="ds-rad" style="border-radius:var(--pv-r-card)"></span><code>--pv-r-card</code><span>۲۰</span><small>کارت، عکس و جواب</small></li><li><span class="ds-rad" style="border-radius:var(--pv-r-sheet)"></span><code>--pv-r-sheet</code><span>۲۸</span><small>برگه روی عکس</small></li><li><span class="ds-rad" style="border-radius:var(--pv-r-pill)"></span><code>--pv-r-pill</code><span>کامل</span><small>کپسول نوبت‌دهی و پلاک</small></li></ul></div>
+        <div class="ds-card"><h3>سایه</h3><ul class="ds-elev-l"><li><span class="ds-elev" style="box-shadow:var(--pv-e-card)"></span><code>--pv-e-card</code><small>کارت روی کاغذ: خط مو، بی‌سایه</small></li><li><span class="ds-elev" style="box-shadow:var(--pv-e-raised)"></span><code>--pv-e-raised</code><small>عکس کنار متن</small></li><li><span class="ds-elev" style="box-shadow:var(--pv-e-plaque)"></span><code>--pv-e-plaque</code><small>پلاک روی عکس</small></li><li><span class="ds-elev" style="box-shadow:var(--pv-e-sheet)"></span><code>--pv-e-sheet</code><small>برگه روی عکس: سایه بلند و گرم</small></li><li><span class="ds-elev" style="box-shadow:var(--pv-e-entry)"></span><code>--pv-e-entry</code><small>جواب آزمایش: نور بالا، سایه سرمه‌ای</small></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-sec ds-sec--paper" aria-labelledby="ds-m">
+    <div class="pv-wrap">
+      <header class="ds-h"><h2 class="pv-h2" id="ds-m">حرکت</h2><p>هر حرکت به پرسشی از مراجع جواب می‌دهد؛ هر چیز به شیوه خودش حرکت می‌کند. با «حرکت کمتر» در سیستم، همه فوری‌اند و اسلایدر خودش جلو نمی‌رود. ساخته با Framer Motion.</p></header>
+      <div class="ds-scroll"><table class="ds-table">
+        <thead><tr><th scope="col">جزء</th><th scope="col">توکن</th><th scope="col">مقدار</th><th scope="col">به چه پرسشی جواب می‌دهد</th></tr></thead>
+        <tbody><tr><th scope="row">فشار روی هر کنترل</th><td><code>M.press</code></td><td>فنر ۷۰۰ / ۳۸؛ کوچک شدن تا ۰٫۹۸ (جواب)، ۰٫۹۶ (دکمه)، ۰٫۹۹ (ردیف)</td><td>لمس من ثبت شد؟</td></tr><tr><th scope="row">عکس اسلایدر</th><td><code>M.crossfade</code></td><td>فقط محو در هم، ۰٫۹ ثانیه، هر عکس ۶ ثانیه</td><td>عکس عوض شد؛ تصویر جابه‌جا نمی‌شود.</td></tr><tr><th scope="row">نشانگر جایگاه</th><td><code>M.dot</code></td><td>فنر ۵۲۰ / ۳۸؛ پهنای ۸ به ۲۸ و نوار پیشرفت گلبهی</td><td>کجای عکس‌ها هستم و عکس بعدی کی می‌آید؟</td></tr><tr><th scope="row">عنوان عکس</th><td><code>M.dissolveIn / Out</code></td><td>حل شدن در جای خود، ۰٫۲۲ و ۰٫۱۴ ثانیه</td><td>متن کوتاه، بی‌حرکت مکانی.</td></tr><tr><th scope="row">پرسش و پاسخ</th><td><code>M.disclose / M.chevron</code></td><td>ارتفاع با فنر ۲۶۰ / ۳۲؛ پیکان ۱۸۰ درجه با فنر ۴۰۰ / ۲۸</td><td>پاسخ از زیر همان پرسش باز می‌شود.</td></tr><tr><th scope="row">منوی گوشی</th><td><code>M.drawer</code></td><td>کشو از راست با فنر ۳۲۰ / ۳۶؛ پرده ۰٫۲ ثانیه</td><td>منو از کجا آمد و به کجا برمی‌گردد.</td></tr><tr><th scope="row">پیوندیار</th><td><code>M.sheetUp / M.panel</code></td><td>گوشی: برگه از پایین، فنر ۳۰۰ / ۳۴. دسکتاپ: پنل از ۰٫۹۲، فنر ۳۸۰ / ۳۰</td><td>فقط با زدن دکمه باز می‌شود، هرگز خودش.</td></tr><tr><th scope="row">پیکان جواب آزمایش</th><td><code>M.nudge</code></td><td>۴ پیکسل به سمت رفتن، فنر ۵۰۰ / ۳۰</td><td>این دکمه به جای دیگری می‌برد.</td></tr></tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section class="ds-sec ds-sec--linen" aria-labelledby="ds-k">
+    <div class="pv-wrap">
+      <header class="ds-h"><h2 class="pv-h2" id="ds-k">اجزا و حالت‌ها</h2><p>هر جزء همان جزء صفحه‌هاست، ساخته از همین فایل‌ها. اسلایدر، سربرگ صفحه اصلی و برگه بالای صفحه زنده‌اند؛ پاورقی پایین صفحه است.</p></header>
+      <div class="ds-specs">
+<article class="ds-spec ds-spec--wide"><header class="ds-spec-h"><h3>جواب آزمایش (اصلی)</h3><p class="ds-why">مهم‌ترین کار سایت؛ تنها بلوک پر سرمه‌ای، بلندترین کنترل (۸۸ پیکسل) و درشت‌ترین عنوان بعد از نام.</p></header><div class="ds-spec-b"><div class="ds-states ds-states--2"><figure class="ds-state"><div data-pv="Entry" data-p='{"state": "rest"}'></div><figcaption>عادی</figcaption></figure><figure class="ds-state"><div data-pv="Entry" data-p='{"state": "hover"}'></div><figcaption>نشانگر روی آن</figcaption></figure><figure class="ds-state"><div data-pv="Entry" data-p='{"state": "focus"}'></div><figcaption>فوکوس صفحه‌کلید</figcaption></figure><figure class="ds-state"><div data-pv="Entry" data-p='{"state": "pressed"}'></div><figcaption>فشرده</figcaption></figure></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>جواب آزمایش (دوم)</h3><p class="ds-why">در سربرگ صفحه‌های داخلی و منوی گوشی؛ همان سرمه‌ای، کوچک‌تر، تا راه جواب هیچ‌جا گم نشود.</p></header><div class="ds-spec-b"><div class="ds-states"><figure class="ds-state"><div data-pv="EntryBar" data-p='{"state": "rest"}'></div><figcaption>عادی</figcaption></figure><figure class="ds-state"><div data-pv="EntryBar" data-p='{"state": "hover"}'></div><figcaption>نشانگر روی آن</figcaption></figure><figure class="ds-state"><div data-pv="EntryBar" data-p='{"state": "focus"}'></div><figcaption>فوکوس صفحه‌کلید</figcaption></figure><figure class="ds-state"><div data-pv="EntryBar" data-p='{"state": "pressed"}'></div><figcaption>فشرده</figcaption></figure><figure class="ds-state"><div data-pv="EntryBar" data-p='{"block": true}'></div><figcaption>تمام‌عرض، در منو و سرصفحه</figcaption></figure></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>نوبت‌دهی آنلاین</h3><p class="ds-why">کار واقعی دوم، با خانواده گرم: کپسول پر گلبهی با متن سفید (۵٫۶۵ به ۱) و تقویم در دایره سفید. کوتاه‌تر و کوچک‌تر از جواب و هرگز تمام‌عرض؛ با تلفن که پیوند بی‌قاب است اشتباه نمی‌شود.</p></header><div class="ds-spec-b"><div class="ds-states"><figure class="ds-state"><div data-pv="Book" data-p='{"state": "rest"}'></div><figcaption>عادی</figcaption></figure><figure class="ds-state"><div data-pv="Book" data-p='{"state": "hover"}'></div><figcaption>نشانگر روی آن</figcaption></figure><figure class="ds-state"><div data-pv="Book" data-p='{"state": "focus"}'></div><figcaption>فوکوس صفحه‌کلید</figcaption></figure><figure class="ds-state"><div data-pv="Book" data-p='{"state": "pressed"}'></div><figcaption>فشرده</figcaption></figure></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>تلفن</h3><p class="ds-why">شماره خودش پیوند است: سرمه‌ای با خط زیر و نماد در دایره آبی دیوار، بی‌قاب و بی‌زمینه؛ پس کنار نوبت‌دهی گرم و قاب‌دار اشتباه نمی‌شود.</p></header><div class="ds-spec-b"><div class="ds-states"><figure class="ds-state"><div data-pv="Call" data-p='{"state": "rest"}'></div><figcaption>عادی</figcaption></figure><figure class="ds-state"><div data-pv="Call" data-p='{"state": "hover"}'></div><figcaption>نشانگر روی آن</figcaption></figure><figure class="ds-state"><div data-pv="Call" data-p='{"state": "focus"}'></div><figcaption>فوکوس صفحه‌کلید</figcaption></figure></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>ساعت، نشانی و تلفن</h3><p class="ds-why">برچسب گلبهی تیره و متن ۱۷ پیکسل جوهر دوم (۸٫۵۴ به ۱) با ساعت‌های پررنگ جوهر؛ هر نام خیابان یک تکه نشکستنی. در برگه صفحه اول، تلفن کنار نوبت‌دهی می‌نشیند.</p></header><div class="ds-spec-b"><div data-pv="Facts"></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>منوی گوشی</h3><p class="ds-why">کشو از راست؛ اول «جواب آزمایش»، بعد منو با صفحه فعلی پررنگ، پایینش ورود پزشکان و مراکز، پیوندیار و تلفن.</p></header><div class="ds-spec-b"><div class="ds-phone"><div data-pv="Drawer" data-p='{"inline": true, "cur": "results", "onClose": "noop"}'></div></div></div></article>
+<article class="ds-spec ds-spec--wide"><header class="ds-spec-h"><h3>سربرگ صفحه داخلی</h3><p class="ds-why">در صفحه‌های داخلی «جواب آزمایش» دوم در سربرگ می‌ماند؛ در صفحه اصلی جایش در برگه است.</p></header><div class="ds-spec-b"><div data-pv="Head" data-p='{"cur": "results"}'></div></div></article>
+<article class="ds-spec ds-spec--wide"><header class="ds-spec-h"><h3>سرصفحه با عکس</h3><p class="ds-why">عکس واقعی همان بخش، با نور گرم پنجره؛ برگه کاغذی روی لبه عکس، مسیر صفحه و «جواب آزمایش» دوم.</p></header><div class="ds-spec-b"><div data-pv="PageHead"></div></div></article>
+<article class="ds-spec ds-spec--wide"><header class="ds-spec-h"><h3>بلوک محتوا</h3><p class="ds-why">متن کنار عکس واقعی؛ عکس ۴ به ۳ با گوشه کارت و عنوانی که می‌گوید کجاست.</p></header><div class="ds-spec-b"><div data-pv="Block"></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>گام‌های شماره‌دار</h3><p class="ds-why">ترتیب واقعی ورود به جواب؛ شماره‌ها فارسی، گام آخر نتیجه با تیک.</p></header><div class="ds-spec-b"><div data-pv="Steps"></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>پرسش و پاسخ</h3><p class="ds-why">پرسش‌های واقعی راهنمای جوابدهی؛ هر پرسش یک دکمه کامل، با کلیدهای بالا و پایین.</p></header><div class="ds-spec-b"><div class="ds-states"><figure class="ds-state"><div data-pv="Faq"></div><figcaption>بسته</figcaption></figure><figure class="ds-state"><div data-pv="Faq" data-p='{"open": "err"}'></div><figcaption>یکی باز</figcaption></figure></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>جدول ساعت‌ها</h3><p class="ds-why">سه گروه ساعت از سایت فعلی؛ ردیف امروز با نشان گلبهی تیره.</p></header><div class="ds-spec-b"><div data-pv="Hours" data-p='{"today": 0}'></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>نمونه پیامک</h3><p class="ds-why">پیامک پذیرش همان‌طور که می‌رسد؛ برچسب کنار هر خط می‌گوید کدام نام کاربری است و کدام رمز.</p></header><div class="ds-spec-b"><div data-pv="Sms"></div></div></article>
+<article class="ds-spec"><header class="ds-spec-h"><h3>ردیف فهرست</h3><p class="ds-why">یک کار در هر ردیف: نماد، عنوان، یک خط توضیح و پیکان رفتن؛ ردیفی که جایی نمی‌برد پیکان ندارد.</p></header><div class="ds-spec-b"><div class="ds-states"><figure class="ds-state"><div data-pv="List"></div><figcaption>عادی</figcaption></figure><figure class="ds-state"><div data-pv="List" data-p='{"states": ["hover", "focus", "pressed"]}'></div><figcaption>نشانگر، فوکوس، فشرده</figcaption></figure></div></div></article>
+<article class="ds-spec ds-spec--wide"><header class="ds-spec-h"><h3>پیوندیار</h3><p class="ds-why">دکمه با برچسب در سربرگ، نه حباب شناور؛ پس روی هیچ کاری نمی‌نشیند و هرگز خودش باز نمی‌شود.</p></header><div class="ds-spec-b"><div class="ds-states"><figure class="ds-state"><div data-pv="Yar" data-p='{"onClick": "noop"}'></div><figcaption>عادی</figcaption></figure><figure class="ds-state"><div data-pv="Yar" data-p='{"state": "hover", "onClick": "noop"}'></div><figcaption>نشانگر روی آن</figcaption></figure><figure class="ds-state"><div data-pv="Yar" data-p='{"state": "focus", "onClick": "noop"}'></div><figcaption>فوکوس</figcaption></figure><figure class="ds-state"><div data-pv="Yar" data-p='{"open": true, "onClick": "noop"}'></div><figcaption>باز</figcaption></figure></div><div class="ds-chat-demo"><div data-pv="Chat" data-p='{"inline": true, "onClose": "noop"}'></div></div></div></article>
+      </div>
+    </div>
+  </section>
+</main>
+<div data-pv="Foot"></div>
+<section class="ds-review" aria-labelledby="ds-r">
+  <div class="pv-wrap">
+    <h2 id="ds-r">حالت‌ها برای بررسی</h2>
+    <p>این پیوندها همین برگه را در حالت‌های دیگر باز می‌کنند.</p>
+    <ul>
+      <li><a href="?">عادی</a></li>
+      <li><a href="?paused=1">اسلایدر متوقف</a></li>
+      <li><a href="?slide=2&amp;paused=1">عکس ۲</a></li>
+      <li><a href="?slide=3&amp;paused=1">عکس ۳</a></li>
+      <li><a href="?slide=6&amp;paused=1">عکس ۶</a></li>
+      <li><a href="?rm=1">حرکت کمتر</a></li>
+      <li><a href="?menu=1">منوی باز</a></li>
+      <li><a href="?chat=1">پیوندیار باز</a></li>
+    </ul>
+  </div>
+</section>
+<script src="media/vendor/react-framer-motion.js"></script>
+<script src="payvandlab-components.js"></script>
+</body>
+</html>
