@@ -187,6 +187,7 @@
   window.PayvandSlider = {
     mount(el, opts) {
       FOCUS = opts.focus || [];
+      if (opts.photoDir) SLIDES.forEach(s => { s.src = s.src.replace("media/photos/", opts.photoDir); });
       createRoot(el).render(html`<${Slider} variant=${opts.variant || "fade"} digits=${opts.digits || "fa"} interval=${opts.interval || 6000} />`);
       window.MotionIsMounted = true;
     }

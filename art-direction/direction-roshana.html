@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>جهت «روشنا» — آزمایشگاه تشخیص طبی و تخصصی پیوند</title>
-<meta name="description" content="جهت بصری روشنا برای صفحه اصلی آزمایشگاه تشخیص طبی و تخصصی پیوند: عکس پهن و پرنور خود آزمایشگاه بالای صفحه و دکمه جواب آزمایش که از لبه عکس بالا می‌آید.">
+<meta name="description" content="جهت بصری روشنا برای صفحه اصلی آزمایشگاه تشخیص طبی و تخصصی پیوند: عکس پرنور خود آزمایشگاه سراسر صفحه اول و برگه‌ای روشن روی آن با دکمه جواب آزمایش.">
 <link rel="stylesheet" href="media/ad-base.css">
 <style>
 :root {
-  --navy: #003C7E; --navy-2: #002F63; --cyan: #00C0F3; --paper: #FBF8F3; --white: #FFFFFF; --wall: #E4EEF4; --leaf: #2E6A4F; --ink: #14243A; --muted: #4A5A6C; --on-navy-2: #CFE3F5; --sand: #F6E7D6; --clay: #7A3E12;
+  --navy: #003C7E; --navy-2: #002F63; --cyan: #00C0F3; --paper: #FBF8F3; --white: #FFFFFF; --wall: #E4EEF4; --ink: #14243A; --muted: #4A5A6C; --on-navy-2: #CFE3F5; --blush: #F7E4E0; --rose-ink: #8A2E44; --rose: #A8475B;
   --ground: var(--paper); --font-body: "Estedad", "Vazirmatn", sans-serif;
   --focus: #003C7E; --focus-halo: rgba(0, 192, 243, .5);
   --chip: rgba(0, 60, 126, .08); --card: #fff; --line: rgba(20, 36, 58, .1);
@@ -21,52 +21,51 @@
 .menu-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 1.5px solid rgba(0, 60, 126, .22); border-radius: 12px; background: var(--white); color: var(--navy); font-weight: 600; font-size: 15px; cursor: pointer; }
 .menu-btn svg { width: 22px; height: 22px; }
 
-.body { display: grid; grid-template-rows: auto 1fr; }
-.band { position: relative; height: clamp(200px, 34svh, 320px); background: var(--wall); overflow: hidden; }
-.band .sl { position: absolute; inset: 0; }
-.sl--fade .sl-img { filter: saturate(1.14) sepia(.13) brightness(1.03) contrast(1.02); }
-.sl--fade .sl-shade { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 70% 70% at 85% 0%, rgba(255, 226, 184, .34), rgba(255, 226, 184, 0) 70%), linear-gradient(180deg, rgba(255, 214, 170, .08), rgba(255, 214, 170, 0) 50%, rgba(10, 30, 60, .3)); }
-.sl--fade .sl-bar { position: absolute; inset: auto 12px 22px auto; display: flex; align-items: center; padding-inline: 4px 2px; border-radius: 999px; background: var(--white); box-shadow: 0 10px 24px -12px rgba(10, 30, 60, .55); }
-
-.sl--fade .sl-caption { min-height: 44px; padding: 0 10px 0 12px; color: var(--ink); font-size: 13px; font-weight: 650; white-space: nowrap; border-inline-end: 1px solid rgba(20, 36, 58, .12); }
-.sl--fade .sl-dots { position: absolute; inset: auto 0 -14px 0; display: flex; gap: 4px; --dot: rgba(255, 255, 255, .55); --dot-track: rgba(255, 255, 255, .55); --dot-on: var(--white); }
-.sl--fade .sl-dots i { flex: 1; width: auto !important; height: 3px; border-radius: 3px; }
+.body { display: flex; flex-direction: column; }
+.band { position: relative; height: clamp(280px, 42svh, 380px); background: var(--wall); }
+.band .sl { display: flex; flex-direction: column; height: 100%; }
+.sl--fade .sl-stage { position: relative; inset: auto; flex: 1; }
+.sl--fade .sl-img { transform: scale(1.16); transform-origin: 72% 42%; }
+.sl--fade .sl-shade { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 80% 70% at 90% 0%, rgba(255, 230, 196, .3), rgba(255, 230, 196, 0) 70%), linear-gradient(180deg, rgba(255, 220, 180, 0) 70%, rgba(20, 36, 58, .14)); }
+.sl--fade .sl-bar { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding-inline: 14px 2px; background: var(--white); border-bottom: 1px solid var(--line); }
+.sl--fade .sl-caption { color: var(--ink); font-size: 14px; font-weight: 650; white-space: nowrap; gap: 10px; --dot: rgba(0, 60, 126, .2); --dot-track: rgba(0, 60, 126, .2); --dot-on: var(--navy); }
 .sl--fade .sl-caption .sl-dots::after { display: none; }
+.sl--fade .sl-caption .sl-dots { display: none; }
 .sl--fade .sl-controls { display: flex; color: var(--navy); }
-.sl--fade .sl-btn { font-size: 13px; font-weight: 600; padding: 0 7px; border-radius: 999px; }
+.sl--fade .sl-btn { font-size: 14px; font-weight: 600; padding: 0 6px; border-radius: 999px; }
+.sl--fade .sl-caption { min-width: 0; }
 .sl--fade .sl-btn:hover { background: var(--wall); }
 
-.sheet { position: relative; z-index: 2; display: grid; grid-template-areas: "intro" "actions" "facts"; align-content: start; padding: 18px 20px 22px; background: linear-gradient(180deg, var(--paper), #F4EFE6); }
-.intro { grid-area: intro; }
+.sheet { position: relative; z-index: 2; padding: 18px 16px 22px; background: var(--paper); }
 .title { display: grid; color: var(--navy); }
 .title .t1 { font-size: 15px; font-weight: 600; line-height: 1.6; color: var(--ink); }
-.title .t2 { font-size: 38px; font-weight: 850; line-height: 1.15; letter-spacing: -.2px; }
+.title .t2 { font-size: 36px; font-weight: 850; line-height: 1.15; letter-spacing: -.2px; }
 .sub { display: none; }
-.actions { grid-area: actions; display: grid; gap: 10px; margin-top: 16px; }
-.results { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; min-height: 84px; padding: 12px; border-radius: 18px; background: linear-gradient(180deg, #004791, var(--navy) 60%); color: #fff; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 22px 40px -22px rgba(0, 40, 90, .75); }
+.actions { display: grid; gap: 10px; margin-top: 14px; }
+.results { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; min-height: 84px; padding: 12px; border-radius: 18px; background: linear-gradient(180deg, #004791, var(--navy) 60%); color: #fff; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 20px 36px -22px rgba(0, 40, 90, .8); }
 .results:hover { background: linear-gradient(180deg, #00509F, #00448C 60%); }
-.results .ic { width: 44px; height: 44px; padding: 10px; border-radius: 13px; background: rgba(0, 192, 243, .16); color: var(--cyan); box-shadow: inset 0 0 0 1px rgba(0, 192, 243, .35); }
+.results .ic { width: 44px; height: 44px; padding: 10px; border-radius: 14px; background: rgba(0, 192, 243, .16); color: var(--cyan); box-shadow: inset 0 0 0 1px rgba(0, 192, 243, .35); }
 .results .lbl { display: grid; }
 .results .lbl b { font-size: 25px; font-weight: 800; line-height: 1.35; }
-.results .lbl span { font-size: 13px; font-weight: 500; color: var(--on-navy-2); line-height: 1.5; }
-.results .go { width: 22px; height: 22px; padding: 3px; border-radius: 50%; background: rgba(255, 255, 255, .12); }
+.results .lbl span { font-size: 13px; font-weight: 500; color: var(--on-navy-2); line-height: 1.5; white-space: nowrap; }
+.results .go { width: 24px; height: 24px; padding: 4px; border-radius: 50%; background: rgba(255, 255, 255, .14); }
 .second { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .book, .tel { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 12px; border-radius: 14px; font-size: 15px; font-weight: 650; text-decoration: none; cursor: pointer; white-space: nowrap; }
-.book { border: 0; background: var(--sand); color: var(--clay); }
-.tel { border: 1.5px solid rgba(0, 60, 126, .3); background: var(--white); color: var(--navy); font-size: 16px; font-weight: 750; }
-.book:hover { background: #F0DCC5; }
+.book { border: 1.5px solid rgba(0, 60, 126, .45); background: var(--white); color: var(--navy); }
+.book:hover { border-color: var(--navy); background: #F5F8FB; }
+.book svg { color: var(--rose); }
+.tel { border: 1.5px solid rgba(0, 60, 126, .26); background: var(--white); color: var(--navy); font-size: 16px; font-weight: 750; }
 .tel:hover { border-color: var(--navy); }
 .book svg, .tel svg { width: 20px; height: 20px; flex: none; }
-.tel svg { color: var(--leaf); }
-.results .lbl span { white-space: nowrap; }
-.facts { grid-area: facts; display: grid; gap: 8px; margin-top: 14px; padding: 12px 14px; border-radius: 16px; background: var(--white); box-shadow: 0 1px 0 rgba(20, 36, 58, .06), 0 10px 24px -18px rgba(20, 36, 58, .4); font-size: 14px; line-height: 1.7; color: var(--muted); }
-.facts div { display: grid; grid-template-columns: 20px 1fr; gap: 8px; align-items: start; }
-.facts svg { width: 18px; height: 18px; margin-top: 4px; color: var(--leaf); }
-.facts dt { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-.facts b { font-weight: 600; color: var(--ink); }
-.facts { grid-template-columns: 1fr 64px; column-gap: 12px; }
-.facts > div { grid-column: 1; }
-.facts .entr { grid-column: 2; grid-row: 1 / span 2; align-self: center; width: 64px; height: 64px; border-radius: 12px; object-fit: cover; object-position: 60% 38%; filter: saturate(1.08) sepia(.06); box-shadow: 0 0 0 1px rgba(20, 36, 58, .08); }
+.tel svg { color: var(--rose); }
+.facts { display: grid; gap: 6px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.75; color: var(--muted); }
+.facts > div { display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start; }
+.facts svg { width: 18px; height: 18px; margin-top: 4px; color: var(--rose); }
+.facts > div { grid-template-columns: 20px auto 1fr; column-gap: 10px; align-items: baseline; }
+.facts svg { grid-row: span 2; align-self: start; }
+.facts dt { grid-column: 2; min-width: 70px; font-weight: 650; color: var(--rose-ink); }
+.facts dd { grid-column: 3; }
+.facts b { font-weight: 650; color: var(--ink); }
 
 @media (min-width: 1024px) {
   .top { height: 76px; padding-inline: 40px; gap: 24px; }
@@ -77,40 +76,45 @@
   .nav a[aria-current] { font-weight: 700; color: var(--navy); }
   .nav a[aria-current]::after { content: ""; position: absolute; inset-inline: 11px; bottom: 5px; height: 3px; border-radius: 3px; background: var(--cyan); }
   .top-tel { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 16px; border-radius: 12px; border: 1.5px solid rgba(0, 60, 126, .22); color: var(--navy); text-decoration: none; font-weight: 700; font-size: 16px; white-space: nowrap; }
-  .top-tel svg { width: 19px; height: 19px; color: var(--leaf); }
+  .top-tel svg { width: 19px; height: 19px; color: var(--rose); }
   .menu-btn { display: none; }
-  .band { height: max(380px, calc(100svh - 76px - 274px)); }
-  .sl--fade .sl-bar { inset: auto auto 26px max(40px, calc((100vw - 1200px) / 2)); padding-inline: 6px 4px; }
-  .sl--fade .sl-caption { min-height: 48px; padding: 0 14px 0 16px; font-size: 15px; gap: 12px; }
-  .sl--fade .sl-dots { position: static; display: inline-flex; gap: 5px; order: -1; --dot: rgba(0, 60, 126, .2); --dot-track: rgba(0, 60, 126, .2); --dot-on: var(--navy); }
-  .sl--fade .sl-dots i { flex: none; height: 6px; }
-  .sl--fade .sl-dots i:not(.on) { width: 6px !important; }
-  .sl--fade .sl-dots i.on { width: 24px !important; }
-  .sl--fade .sl-btn { font-size: 14px; padding: 0 10px; }
-  .sl--fade .sl-img { transform: scale(1.08); transform-origin: 50% 40%; }
-  .sheet { grid-template-areas: "actions intro" "actions facts"; grid-template-columns: 560px 1fr; grid-template-rows: auto 1fr; column-gap: 72px; align-content: start; padding: 22px max(40px, calc((100vw - 1200px) / 2)) 26px; }
-  .title .t1 { font-size: 18px; }
-  .title .t2 { font-size: 46px; line-height: 1.15; }
-  .sub { display: none; }
-  .actions { margin-top: -86px; align-self: start; gap: 14px; }
-  .results { min-height: 120px; padding: 18px 26px 18px 22px; gap: 20px; border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 34px 60px -28px rgba(0, 40, 90, .8), 0 0 0 6px var(--paper); }
-  .results .ic { width: 62px; height: 62px; padding: 15px; border-radius: 16px; }
-  .results .lbl b { font-size: 34px; }
-  .results .lbl span { font-size: 16px; }
-  .results .go { width: 32px; height: 32px; padding: 6px; }
-  .second { grid-template-columns: auto; justify-content: start; }
-  .book { min-height: 52px; padding: 0 24px; font-size: 16px; }
+  .body { position: relative; display: grid; align-items: center; justify-items: end; padding: 40px max(40px, calc((100vw - 1200px) / 2)); }
+  .band { position: absolute; inset: 0; height: auto; }
+  .band .sl { display: block; }
+  .sl--fade .sl-stage { position: absolute; inset: 0; }
+  .sl--fade .sl-img { transform: none; }
+  .sl--fade .sl-shade { background: radial-gradient(ellipse 60% 70% at 85% 0%, rgba(255, 230, 196, .3), rgba(255, 230, 196, 0) 70%), linear-gradient(90deg, rgba(20, 36, 58, .16), rgba(20, 36, 58, 0) 45%), linear-gradient(180deg, rgba(20, 36, 58, 0) 72%, rgba(20, 36, 58, .2)); }
+  .sl--fade .sl-bar { position: absolute; inset: auto max(40px, calc((100vw - 1200px) / 2)) 28px auto; min-height: 0; padding-inline: 18px 6px; border: 0; border-radius: 999px; box-shadow: 0 12px 28px -14px rgba(10, 30, 60, .6); }
+  .sl--fade .sl-caption .sl-dots { display: inline-flex; }
+  .sl--fade .sl-caption { min-height: 46px; padding-inline-end: 12px; margin-inline-end: 4px; border-inline-end: 1px solid var(--line); }
+  .sl--fade .sl-controls { padding-inline: 2px; }
+  .sl--fade .sl-btn { padding: 0 9px; }
+  .sheet { width: 500px; padding: 34px 40px 30px; border-radius: 28px; background: var(--paper); box-shadow: 0 0 0 1px rgba(20, 36, 58, .05), 0 44px 80px -36px rgba(10, 30, 60, .6); }
+  .title .t1 { font-size: 17px; }
+  .title .t2 { font-size: 58px; line-height: 1.12; }
+  .sub { display: block; margin-top: 4px; font-size: 16px; font-weight: 500; color: var(--muted); }
+  .actions { margin-top: 24px; gap: 12px; }
+  .results { min-height: 112px; padding: 18px 22px 18px 20px; gap: 18px; border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 26px 44px -24px rgba(0, 40, 90, .85); }
+  .results .ic { width: 60px; height: 60px; padding: 15px; border-radius: 17px; }
+  .results .lbl b { font-size: 33px; }
+  .results .lbl span { font-size: 15px; }
+  .results .go { width: 34px; height: 34px; padding: 7px; }
+  .second { grid-template-columns: 1fr; }
+  .book { min-height: 54px; font-size: 16px; }
   .second .tel { display: none; }
-  .facts { grid-template-columns: 172px auto; grid-template-rows: auto auto; align-content: center; justify-content: start; column-gap: 20px; row-gap: 10px; margin-top: 14px; padding: 10px; border-radius: 18px; font-size: 15px; }
-  .facts > div { grid-column: 2; }
-  .facts .entr { grid-column: 1; grid-row: 1 / span 2; align-self: stretch; width: 172px; height: 108px; border-radius: 12px; object-position: 60% 36%; }
+  .facts { gap: 10px; margin-top: 24px; padding-top: 20px; font-size: 15px; }
+}
+@media (min-width: 1400px) {
+  .sheet { width: 540px; padding: 40px 44px 34px; }
+  .title .t2 { font-size: 64px; }
+  .actions { margin-top: 28px; }
 }
 
 .spec { --spec-ground: var(--wall); }
 .spec h2 { font-size: 36px; font-weight: 850; color: var(--navy); }
 .spec .lead { font-size: 18px; line-height: 1.9; }
 .thumb { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; }
-.thumb img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.1) sepia(.07) brightness(1.03); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
 </style>
 </head>
 <body>
@@ -133,10 +137,8 @@
   <main class="body">
     <div class="band"><div id="slider" style="display:contents"></div></div>
     <div class="sheet">
-      <div class="intro">
-        <h1 class="title"><span class="t1">آزمایشگاه تشخیص طبی و تخصصی</span><span class="t2">پیوند</span></h1>
-        <p class="sub">پاتولوژی، ژنتیک پزشکی و مولکولی</p>
-      </div>
+      <h1 class="title"><span class="t1">آزمایشگاه تشخیص طبی و تخصصی</span><span class="t2">پیوند</span></h1>
+      <p class="sub">پاتولوژی، ژنتیک پزشکی و مولکولی</p>
       <div class="actions">
         <a class="results" href="http://178.252.146.82:8082/Login">
           <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
@@ -149,9 +151,8 @@
         </div>
       </div>
       <dl class="facts">
-        <img class="entr" src="media/photos/lab-5.jpg" width="1200" height="1600" alt="ورودی آزمایشگاه پیوند با دیوار چوبی و نشان آزمایشگاه">
         <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><dt>ساعات کاری</dt><dd>شنبه تا چهارشنبه <b class="nw"><span class="ltr">۰۶:۳۰</span> الی <span class="ltr">۱۹:۰۰</span></b><br>پنجشنبه <b class="nw"><span class="ltr">۰۶:۳۰</span> الی <span class="ltr">۱۸:۰۰</span></b></dd></div>
-        <div class="addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><dt>نشانی</dt><dd><span class="nw">تهران،</span> <span class="nw">خیابان شریعتی،</span> <span class="nw">خیابان ظفر،</span> <b class="nw">پلاک ۱۷۴</b></dd></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><dt>نشانی</dt><dd><span class="nw">تهران،</span> <span class="nw">خیابان شریعتی،</span> <span class="nw">خیابان ظفر،</span> <b class="nw">پلاک ۱۷۴</b></dd></div>
       </dl>
     </div>
   </main>
@@ -162,17 +163,17 @@
     <div>
       <h2 id="spec-title">جهت ۱ — روشنا</h2>
       <ul class="feel" aria-label="حس"><li>روشن</li><li>باز</li><li>خوش‌آمد</li><li>واقعی</li></ul>
-      <p class="lead" style="margin-top:18px">عکس، خود اتاق است: نوار پهن و پرنوری از آزمایشگاه که از لبه تا لبه صفحه باز می‌شود، مثل پنجره‌ای رو به سالن. زیر آن کاغذ گرم روز است و دکمه «جواب آزمایش» از لبه عکس بالا می‌آید؛ تنها بلوک پررنگ صفحه. نوبت‌دهی و تلفن دکمه‌های سفید و آرام کنار آن هستند.</p>
+      <p class="lead" style="margin-top:18px">آدم وارد خود آزمایشگاه می‌شود: عکس پرنور سالن، سراسر صفحه اول را پر می‌کند و برگه‌ای روشن به رنگ کاغذ، با سایه‌ای نرم، روی بخش ساده عکس می‌نشیند. همه چیزهای لازم یک‌جا در همین برگه است: نام، دکمه سرمه‌ای «جواب آزمایش» که تنها بلوک پررنگ صفحه است، نوبت‌دهی به شکل دکمه سفید با لبه سرمه‌ای، و ساعت کاری و نشانی با عنوان‌هایی به رنگ گل‌های تابلوها. در گوشی عکس بالای صفحه است و کنترل‌های اسلایدر زیر آن، نه روی آن.</p>
     </div>
     <div>
       <h3>رنگ‌ها و جای پررنگ هر کدام</h3>
       <div class="swatches">
         <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#fff">سرمه‌ای لوگو</div><div class="swatch-body"><code>#003C7E</code><span>فقط دکمه جواب آزمایش و نام آزمایشگاه. سفید روی آن ۱۰٫۷۸ به ۱، روی کاغذ ۱۰٫۱۸ به ۱.</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:#00C0F3;color:#003C7E">فیروزه‌ای لوگو</div><div class="swatch-body"><code>#00C0F3</code><span>آیکون جواب آزمایش روی سرمه‌ای (۵٫۰۵ به ۱)، زیرخط منو و هاله فوکوس. روی کاغذ متن نمی‌شود.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#FBF8F3;color:#14243A">کاغذ روز</div><div class="swatch-body"><code>#FBF8F3</code><span>زمینه زیر عکس، کمی گرم‌تر از سفید تا کنار آبی سرد عکس‌ها حس نور صبح بدهد. جوهر ۱۴٫۷۶، متن دوم ۶٫۶۷ به ۱.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#E4EEF4;color:#003C7E">آبی دیوار</div><div class="swatch-body"><code>#E4EEF4</code><span>از دیوارهای آبی سالن؛ دکمه‌های دوم (نوبت‌دهی و تلفن)، زمینه بخش‌های پایین و حالت نشانگر منو. سرمه‌ای روی آن ۹٫۱۶ به ۱.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#2E6A4F;color:#fff">سبز گلدان</div><div class="swatch-body"><code>#2E6A4F</code><span>خانواده دوم رنگ، از گیاهان ورودی و پذیرش: فقط آیکون‌های تقویم، تلفن، ساعت و نشانی. روی کاغذ ۶٫۰۲ به ۱.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;color:#003C7E;border-bottom:1px solid #E3EAF0">سفید</div><div class="swatch-body"><code>#FFFFFF</code><span>سربرگ، کارت ساعات و نشانی در گوشی و قرص زیرنویس روی عکس؛ جوهر روی آن ۱۵٫۶ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FBF8F3;color:#14243A">کاغذ روز</div><div class="swatch-body"><code>#FBF8F3</code><span>برگه روی عکس و زمینه گوشی، کمی گرم‌تر از سفید تا کنار آبی دیوارها حس نور صبح بدهد. جوهر ۱۴٫۷۶، متن دوم ۶٫۶۷ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F7E4E0;color:#8A2E44">گلی تیره تابلوها</div><div class="swatch-body"><code>#8A2E44</code><span>خانواده دوم رنگ، از گل‌های تابلوهای سالن انتظار: عنوان ساعات کاری و نشانی. روی کاغذ ۷٫۷۶ به ۱. نوبت‌دهی دکمه سفید با لبه سرمه‌ای است، روشن و آشکارا دوم.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#A8475B;color:#fff">گلی</div><div class="swatch-body"><code>#A8475B</code><span>فقط آیکون‌های تلفن، ساعت و نشانی؛ روی کاغذ ۵٫۳۳ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#E4EEF4;color:#003C7E">آبی دیوار</div><div class="swatch-body"><code>#E4EEF4</code><span>از دیوارهای آبی سالن؛ حالت نشانگر منو و کنترل‌ها و زمینه بخش‌های پایین. سرمه‌ای روی آن ۹٫۱۶ به ۱.</span></div></div>
       </div>
     </div>
     <div>
@@ -185,16 +186,16 @@
     <div>
       <h3>عکس‌ها</h3>
       <dl class="treat">
-        <dt>برش</dt><dd>عکس‌های عمودی به نوار افقی تمام‌عرض بریده می‌شوند و نقطه کانونی هر عکس جداست: سالن انتظار روی ردیف تابلوهای گل، ورودی روی نشان پیوند و گلدان‌ها. در دسکتاپ نوار بیش از نیمی از صفحه اول است.</dd>
-        <dt>رنگ</dt><dd>کمی گرم‌تر و پرنورتر از اصل (اشباع ۱٫۱، گرمای ۷٪، روشنایی ۱٫۰۳) و نوری گرم و نرم از گوشه بالا، مثل آفتاب صبح از پنجره سالن.</dd>
-        <dt>پوشش</dt><dd>هیچ متنی مستقیم روی عکس نیست. زیرنویس و کنترل‌ها روی قرص‌های سفید و یکدست می‌نشینند (جوهر روی آن ۱۵٫۶ به ۱، روی هر عکسی).</dd>
-        <dt>قاب</dt><dd>بی‌قاب، از لبه تا لبه؛ دکمه جواب آزمایش با حاشیه‌ای به رنگ کاغذ از لبه عکس بیرون می‌زند.</dd>
-        <dt>حرکت</dt><dd>هر ۶ ثانیه عکس بعدی در عکس قبلی محو می‌شود (۰٫۹ ثانیه). در گوشی نوار زمان شش تکه زیر عکس پر می‌شود؛ با «توقف»، نشانگر یا فوکوس روی اسلایدر و کاهش حرکت می‌ایستد.</dd>
+        <dt>برش</dt><dd>در دسکتاپ عکس تمام صفحه اول است و برگه روی بخش ساده‌تر عکس می‌نشیند (پنجره و دیوار سالن)، تا تابلوهای گل و صندلی‌ها دیده شوند. در گوشی نوار افقی بالای صفحه، کمی بزرگ‌شده روی تابلوها. نقطه کانونی هر عکس جداست: سالن روی ردیف تابلوها، ورودی روی نشان پیوند و گلدان‌ها.</dd>
+        <dt>رنگ</dt><dd>همه عکس‌ها یک بار گرم شده‌اند (سرخی ۴٪ بیشتر، آبی ۶٫۵٪ کمتر، سایه‌ها کمی روشن‌تر، اشباع ۱٫۰۸) و نوری نرم و گرم از گوشه بالا، مثل آفتاب صبح. سفیدها سفید می‌مانند.</dd>
+        <dt>پوشش</dt><dd>هیچ متنی مستقیم روی عکس نیست. برگه، زیرنویس و کنترل‌ها زمینه یکدست دارند (جوهر روی کاغذ ۱۴٫۷۶ و روی سفید ۱۵٫۶ به ۱، روی هر عکسی).</dd>
+        <dt>قاب</dt><dd>بی‌قاب، از لبه تا لبه؛ برگه با گوشه‌های گرد ۲۸ پیکسلی و سایه‌ای بلند و نرم روی عکس می‌نشیند.</dd>
+        <dt>حرکت</dt><dd>هر ۶ ثانیه عکس بعدی در عکس قبلی محو می‌شود (۰٫۹ ثانیه) و نقطه فعال پر می‌شود؛ با «توقف»، نشانگر یا فوکوس روی اسلایدر و کاهش حرکت می‌ایستد.</dd>
       </dl>
       <div class="img-grid" style="margin-top:20px">
-        <figure><div class="thumb"><img src="media/photos/lab-5.jpg" alt="" style="object-position:62% 34%"></div><figcaption>ورودی آزمایشگاه، روی نشان و گلدان‌ها</figcaption></figure>
-        <figure><div class="thumb"><img src="media/photos/lab-2.jpg" alt="" style="object-position:45% 50%"></div><figcaption>پذیرش ۲</figcaption></figure>
-        <figure><div class="thumb"><img src="media/photos/lab-3.jpg" alt="" style="object-position:50% 38%"></div><figcaption>تابلوهای سالن انتظار</figcaption></figure>
+        <figure><div class="thumb"><img src="media/photos-warm/lab-5.jpg" alt="" style="object-position:62% 34%"></div><figcaption>ورودی آزمایشگاه، روی نشان و گلدان‌ها</figcaption></figure>
+        <figure><div class="thumb"><img src="media/photos-warm/lab-2.jpg" alt="" style="object-position:45% 50%"></div><figcaption>پذیرش ۲</figcaption></figure>
+        <figure><div class="thumb"><img src="media/photos-warm/lab-3.jpg" alt="" style="object-position:50% 38%"></div><figcaption>تابلوهای سالن انتظار</figcaption></figure>
       </div>
     </div>
     <nav class="links" aria-label="جهت‌ها">
@@ -217,6 +218,6 @@
 
 <script src="media/vendor/react-framer-motion.js"></script>
 <script src="media/hero-slider.js"></script>
-<script>PayvandSlider.mount(document.getElementById("slider"), { variant: "fade", digits: "fa", focus: ["50% 37%", "64% 36%", "50% 52%", "42% 52%", "50% 46%", "50% 36%"] });</script>
+<script>PayvandSlider.mount(document.getElementById("slider"), { variant: "fade", digits: "fa", photoDir: "media/photos-warm/", focus: ["50% 41%", "62% 40%", "50% 52%", "42% 52%", "50% 46%", "50% 38%"] });</script>
 </body>
 </html>

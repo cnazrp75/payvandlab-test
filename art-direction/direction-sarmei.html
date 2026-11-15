@@ -8,26 +8,26 @@
 <link rel="stylesheet" href="media/ad-base.css">
 <style>
 :root {
-  --navy: #003C7E; --deep: #002A5C; --cyan: #00C0F3; --on-cyan: #00224A; --wood: #9C7A57; --wood-light: #E2C29C; --cream: #F1E1C6; --soft: #C9D8EA; --cta: #FBF3E6; --plaque: #F6EBDA; --paper: #FFFFFF; --ink: #10233F; --muted: #3D5170;
+  --navy: #003C7E; --deep: #002A5C; --cyan: #00C0F3; --wood: #9C7A57; --wood-light: #E2C29C; --cream: #F1E1C6; --soft: #C9D8EA; --cta: #FBF3E6; --plaque: #F6EBDA; --book: #1B5594; --paper: #FFFFFF; --ink: #10233F; --muted: #3D5170;
   --ground: var(--paper); --font-body: "IBM Plex Sans Arabic", "Vazirmatn", sans-serif;
   --focus: #FFFFFF; --focus-halo: rgba(0, 192, 243, .7);
   --chip: rgba(0, 60, 126, .08); --card: #fff; --line: rgba(0, 60, 126, .12);
-  --slats: repeating-linear-gradient(90deg, #B38D66 0 21px, #7D6042 21px 23px, #BB966E 23px 45px, #7D6042 45px 47px, #AD8862 47px 69px, #7D6042 69px 71px);
-  --slat-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .06' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .13 0 0 0 0 .06 0 0 0 .32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --slats: repeating-linear-gradient(90deg, #C7A47F 0 27px, #A88663 27px 28.5px, #CAA883 28.5px 56px, #A88663 56px 57.5px, #C5A27C 57.5px 85px, #A88663 85px 86.5px);
+  --slat-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .05' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .22 0 0 0 0 .14 0 0 0 0 .06 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --navy-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --slat-light: radial-gradient(ellipse 55% 42% at 50% 34%, rgba(255, 228, 186, .34), rgba(255, 228, 186, 0) 72%), linear-gradient(90deg, rgba(0, 26, 58, .2), rgba(0, 26, 58, 0) 18%, rgba(0, 26, 58, 0) 82%, rgba(0, 26, 58, .2)), linear-gradient(180deg, rgba(255, 236, 205, .16), rgba(255, 236, 205, 0) 40%, rgba(0, 26, 58, .16));
+  --slat-light: radial-gradient(ellipse 60% 50% at 30% 30%, rgba(255, 236, 206, .38), rgba(255, 236, 206, 0) 70%), linear-gradient(90deg, rgba(60, 36, 14, .18), rgba(60, 36, 14, 0) 22%, rgba(60, 36, 14, 0) 78%, rgba(60, 36, 14, .18)), linear-gradient(180deg, rgba(255, 240, 215, .14), rgba(255, 240, 215, 0) 35%, rgba(60, 36, 14, .2));
 }
-.hero { min-height: 100svh; display: grid; grid-template-rows: auto 1fr; background: var(--navy); color: #fff; }
-.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; padding-inline: 16px 10px; background: var(--paper); color: var(--ink); }
+.hero { min-height: 100svh; display: grid; grid-template-rows: auto 1fr; background: var(--slat-light), var(--slat-grain), var(--slats); color: #fff; }
+.top { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; padding-inline: 16px 10px; background: var(--paper); color: var(--ink); box-shadow: 0 6px 18px -10px rgba(60, 36, 14, .5); }
 .brand { display: flex; }
 .brand img { height: 40px; width: auto; }
 .nav, .top-tel { display: none; }
-.menu-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 0; border-radius: 8px; background: var(--navy); color: #fff; font-weight: 600; font-size: 15px; cursor: pointer; }
+.menu-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 0; border-radius: 10px; background: var(--navy); color: #fff; font-weight: 600; font-size: 15px; cursor: pointer; }
 .menu-btn svg { width: 22px; height: 22px; }
 .menu-btn:focus-visible, .top a:focus-visible { outline-color: var(--navy); }
 
-.body { display: grid; grid-template-rows: auto 1fr; }
-.panel { position: relative; padding: 20px 20px 22px; background: var(--navy-grain), radial-gradient(ellipse 85% 75% at 0% 100%, rgba(226, 194, 156, .22), rgba(226, 194, 156, 0) 70%), radial-gradient(ellipse 90% 80% at 100% 0%, rgba(0, 192, 243, .14), rgba(0, 192, 243, 0) 60%), linear-gradient(180deg, var(--navy), #003470); }
+.body { display: flex; flex-direction: column; gap: 12px; padding: 16px 16px 20px; }
+.panel { position: relative; padding: 18px 18px 20px; border-radius: 22px; background: var(--navy-grain), radial-gradient(ellipse 90% 70% at 100% 0%, rgba(0, 192, 243, .13), rgba(0, 192, 243, 0) 60%), radial-gradient(ellipse 80% 70% at 0% 100%, rgba(226, 194, 156, .16), rgba(226, 194, 156, 0) 70%), linear-gradient(180deg, var(--navy), #00346F); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 28px 44px -26px rgba(40, 20, 0, .85); }
 .title { display: grid; }
 .title .t1 { font-size: 14px; font-weight: 600; color: var(--soft); line-height: 1.6; }
 .title .t2 { font-size: 32px; font-weight: 700; line-height: 1.2; }
@@ -36,34 +36,41 @@
 .results { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; min-height: 82px; padding: 12px; border-radius: 14px; background: var(--cta); color: var(--navy); text-decoration: none; box-shadow: inset 0 -2px 0 rgba(156, 122, 87, .25), 0 18px 30px -16px rgba(0, 10, 30, .8); }
 .results:hover { background: #FFF9F0; }
 .results:focus-visible { outline-color: #fff; }
-.results .ic { width: 42px; height: 42px; padding: 9px; border-radius: 50%; background: var(--navy); color: var(--cyan); }
+.results .ic { width: 44px; height: 44px; padding: 10px; border-radius: 50%; background: var(--navy); color: var(--cyan); }
 .results .lbl { display: grid; }
 .results .lbl b { font-size: 25px; font-weight: 700; line-height: 1.3; }
-.results .lbl span { font-size: 13px; font-weight: 600; color: var(--muted); line-height: 1.5; }
+.results .lbl span { font-size: 13px; font-weight: 600; color: var(--muted); line-height: 1.5; white-space: nowrap; }
 .results .go { width: 20px; height: 20px; }
 .second { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.book, .tel { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 10px; border-radius: 12px; border: 1.5px solid rgba(226, 194, 156, .75); background: rgba(226, 194, 156, .1); color: var(--wood-light); font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap; }
-.book:hover, .tel:hover { border-color: var(--wood-light); background: rgba(226, 194, 156, .08); }
-.book svg, .tel svg { width: 19px; height: 19px; flex: none; }
-.tel b { color: #fff; font-weight: 600; }
-.facts { display: none; }
-.results .lbl span { white-space: nowrap; }
+.book, .tel { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 10px; border-radius: 12px; border: 1.5px solid rgba(255, 255, 255, .72); background: rgba(255, 255, 255, .06); color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.book:hover, .tel:hover { background: rgba(255, 255, 255, .14); border-color: #fff; }
+.book svg, .tel svg { width: 19px; height: 19px; flex: none; color: var(--wood-light); }
+.tel b { font-weight: 600; }
+.facts { display: grid; gap: 12px; margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(201, 216, 234, .2); font-size: 15px; line-height: 1.75; color: #E6EDF6; }
+.facts > div { display: grid; grid-template-columns: 22px auto; column-gap: 10px; }
+.facts svg { grid-row: span 3; width: 20px; height: 20px; margin-top: 2px; color: var(--wood-light); }
+.facts dt { color: var(--wood-light); font-weight: 600; font-size: 14px; line-height: 1.6; }
+.facts dd b { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
 
-.photo { position: relative; display: flex; flex-direction: column; align-items: center; min-height: 380px; padding-top: 22px; overflow: hidden; background: var(--slat-light), var(--slat-grain), var(--slats); }
-.photo::after { content: ""; position: absolute; inset: auto 0 0 0; height: 10px; background: linear-gradient(180deg, rgba(0, 20, 45, 0), rgba(0, 20, 45, .35)); pointer-events: none; }
-.sl--fade { width: min(calc(100% - 64px), 300px); flex: 1; height: auto; display: flex; flex-direction: column; align-items: center; }
-.sl--fade .sl-stage { position: relative; inset: auto; flex: 1; width: 100%; border-radius: 999px 999px 0 0; overflow: hidden; background: #DDE6EC; box-shadow: 0 0 0 4px var(--cream), 0 0 0 5px rgba(60, 40, 20, .35), 0 30px 50px -14px rgba(0, 10, 30, .6); }
-.sl--fade .sl-img { filter: saturate(1.06) sepia(.06) contrast(1.03) brightness(1.02); }
-.sl--fade .sl-shade { display: none; }
-.sl--fade .sl-bar { position: relative; z-index: 1; width: calc(100% + 40px); display: flex; justify-content: center; align-items: center; gap: 6px; padding: 14px 0; background: radial-gradient(ellipse 46% 12px at 50% 4px, rgba(20, 10, 0, .45), rgba(20, 10, 0, 0)); }
-.sl--fade .sl-caption { min-height: 36px; padding: 0 14px; border-radius: 999px; background: var(--plaque); color: var(--ink); font-size: 14px; font-weight: 600; white-space: nowrap; gap: 8px; --dot: rgba(0, 60, 126, .25); --dot-track: rgba(0, 60, 126, .2); --dot-on: var(--navy); box-shadow: 0 8px 16px -10px rgba(30, 15, 0, .7); }
+.photo { order: -1; position: relative; display: flex; flex-direction: column; align-items: center; }
+.sl--fade { width: 100%; height: auto; display: flex; flex-direction: column; align-items: center; }
+.sl--fade .sl-stage { position: relative; inset: auto; width: 100%; height: clamp(200px, 31svh, 280px); border-radius: 50% 50% 0 0 / 34% 34% 0 0; overflow: hidden; background: #DDE6EC; box-shadow: 0 0 0 2px rgba(241, 225, 198, .9), 0 0 0 3px rgba(80, 52, 24, .3), 0 30px 46px -18px rgba(40, 20, 0, .75); }
+.sl--fade .sl-img { transform: scale(1.22); transform-origin: 70% 36%; }
+.sl--fade .sl-shade { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 80% 60% at 70% 10%, rgba(255, 228, 190, .22), rgba(255, 228, 190, 0) 70%), linear-gradient(180deg, rgba(60, 36, 14, 0) 75%, rgba(60, 36, 14, .18)); }
+.sl--fade .sl-bar { position: relative; z-index: 1; display: flex; align-items: center; margin-top: 12px; padding-inline: 16px 4px; border-radius: 999px; background: var(--plaque); box-shadow: 0 10px 18px -10px rgba(30, 15, 0, .75); }
+.sl--fade .sl-caption { min-height: 44px; padding-inline-end: 10px; margin-inline-end: 2px; border-inline-end: 1px solid rgba(0, 60, 126, .14); color: var(--ink); font-size: 14px; font-weight: 600; white-space: nowrap; gap: 8px; --dot: rgba(0, 60, 126, .25); --dot-track: rgba(0, 60, 126, .2); --dot-on: var(--navy); }
 .sl--fade .sl-caption .sl-dots { display: none; }
-.sl--fade .sl-controls { display: flex; padding: 0 4px; border-radius: 999px; background: var(--plaque); color: var(--navy); box-shadow: 0 8px 16px -10px rgba(30, 15, 0, .7); }
-.sl--fade .sl-btn { font-size: 13px; font-weight: 600; padding: 0 8px; border-radius: 999px; }
+.sl--fade .sl-controls { display: flex; color: var(--navy); }
+.sl--fade .sl-btn { font-size: 13px; font-weight: 600; padding: 0 7px; border-radius: 999px; }
 .sl--fade .sl-btn:hover { background: rgba(0, 60, 126, .08); }
 .sl--fade .sl-btn:focus-visible { outline-color: var(--navy); }
 .sl--fade .sl-live { color: var(--ink); }
 
+@media (max-width: 380px) {
+  .body { padding-inline: 12px; }
+  .panel { padding-inline: 16px; }
+  .results { gap: 8px; }
+}
 @media (min-width: 1024px) {
   .top { height: 80px; padding-inline: 40px; gap: 24px; }
   .brand img { height: 50px; }
@@ -72,41 +79,45 @@
   .nav a:hover { background: #EEF3F9; }
   .nav a[aria-current] { font-weight: 700; color: var(--navy); }
   .nav a[aria-current]::after { content: ""; position: absolute; inset-inline: 10px; bottom: 4px; height: 3px; border-radius: 3px; background: var(--wood); }
-  .top-tel { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 8px; background: var(--navy); color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; white-space: nowrap; }
+  .top-tel { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 10px; background: var(--navy); color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; white-space: nowrap; }
   .top-tel svg { width: 19px; height: 19px; color: var(--cyan); }
   .menu-btn { display: none; }
-  .body { grid-template-rows: none; grid-template-columns: minmax(520px, 44%) 1fr; }
-  .panel { display: flex; flex-direction: column; justify-content: center; padding: 40px 56px 48px max(40px, calc((100vw - 1280px) / 2 + 40px)); padding-inline-start: max(56px, calc((100vw - 1280px) / 2 + 56px)); padding-inline-end: 56px; }
-  .title .t1 { font-size: 20px; }
+  .body { display: grid; grid-template-columns: 520px 1fr; align-items: stretch; gap: 48px; padding: 36px max(40px, calc((100vw - 1200px) / 2)) 30px; }
+  .panel { display: flex; flex-direction: column; justify-content: center; padding: 40px 44px 36px; border-radius: 28px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 44px 70px -34px rgba(40, 20, 0, .9); }
+  .title .t1 { font-size: 19px; }
   .title .t2 { font-size: 60px; line-height: 1.15; }
-  .sub { display: block; margin-top: 6px; font-size: 17px; font-weight: 500; color: var(--soft); }
-  .actions { margin-top: 30px; gap: 14px; max-width: 520px; }
+  .sub { display: block; margin-top: 4px; font-size: 17px; font-weight: 500; color: var(--soft); }
+  .actions { margin-top: 26px; gap: 12px; }
   .results { min-height: 104px; padding: 16px 24px 16px 20px; gap: 18px; border-radius: 18px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 24px 44px -20px rgba(0, 10, 30, .8); }
   .results .lbl b { font-size: 32px; }
   .results .lbl span { font-size: 15px; }
-  .results .ic { width: 58px; height: 58px; padding: 14px; border-radius: 14px; }
+  .results .ic { width: 58px; height: 58px; padding: 14px; }
   .second { grid-template-columns: 1fr; }
   .book { min-height: 52px; padding: 0 22px; font-size: 16px; }
   .second .tel { display: none; }
-  .facts { display: grid; gap: 14px; margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(201, 216, 234, .2); font-size: 17px; line-height: 1.75; color: #E6EDF6; }
-  .facts > div { display: grid; grid-template-columns: 24px auto; column-gap: 12px; }
-  .facts svg { grid-row: span 3; width: 22px; height: 22px; margin-top: 2px; color: var(--wood-light); }
-  .facts dt { color: var(--wood-light); font-weight: 600; font-size: 15px; line-height: 1.6; }
-  .facts dd b { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
-  .photo { min-height: 0; padding-top: 30px; }
-  .sl--fade { width: min(82%, calc((100svh - 80px - 30px - 80px) * .8)); }
-  .sl--fade .sl-bar { gap: 8px; padding: 16px 0; }
+  .facts { gap: 14px; margin-top: 24px; padding-top: 20px; font-size: 16px; }
+  .facts > div { grid-template-columns: 22px auto 1fr; column-gap: 12px; align-items: baseline; }
+  .facts svg { grid-row: span 2; align-self: start; margin-top: 4px; }
+  .facts dt { grid-column: 2; grid-row: span 2; min-width: 76px; }
+  .facts dd { grid-column: 3; }
+  .photo { order: 0; }
+  .sl--fade { width: 100%; height: 100%; }
+  .sl--fade .sl-stage { flex: 1; width: 100%; height: auto; min-height: 420px; border-radius: 999px 999px 0 0; }
+  .sl--fade .sl-img { transform: none; }
+  .sl--fade .sl-bar { margin-top: 14px; padding-inline: 18px 6px; }
   .sl--fade .sl-caption .sl-dots { display: inline-flex; }
-  .sl--fade .sl-caption { min-height: 48px; padding: 0 18px; font-size: 15px; }
-  .sl--fade .sl-controls { padding: 2px 6px; }
+  .sl--fade .sl-caption { min-height: 48px; font-size: 15px; }
   .sl--fade .sl-btn { font-size: 14px; padding: 0 10px; }
+}
+@media (min-width: 1400px) {
+  .body { grid-template-columns: 540px 1fr; }
 }
 
 .spec { --spec-ground: #F2F5F9; }
 .spec h2 { font-size: 36px; font-weight: 700; color: var(--navy); }
 .spec .lead { font-size: 18px; line-height: 1.9; }
 .archbox { display: flex; justify-content: center; padding: 18px 18px 0; border-radius: 14px; overflow: hidden; background: var(--slat-light), var(--slat-grain), var(--slats); }
-.arch { width: 78%; aspect-ratio: 3 / 4; border-radius: 999px 999px 0 0; overflow: hidden; box-shadow: 0 0 0 3px var(--cream); }
+.arch { width: 78%; aspect-ratio: 3 / 4; border-radius: 999px 999px 0 0; overflow: hidden; box-shadow: 0 0 0 2px var(--cream), 0 18px 30px -16px rgba(40, 20, 0, .7); }
 .arch img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.06) sepia(.06) contrast(1.03); }
 .img-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 260px)); }
 </style>
@@ -125,7 +136,7 @@
       <a href="#hero">ارتباط با ما</a>
       <a href="#hero">اخبار</a>
     </nav>
-    <a class="top-tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="visually-hidden">تلفن</span><span class="ltr">021-71400004</span></a>
+    <a class="top-tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="visually-hidden">تلفن</span><span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></a>
     <button class="menu-btn" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>منو</button>
   </header>
   <main class="body">
@@ -140,12 +151,12 @@
         </a>
         <div class="second">
           <button class="book" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 14h2M13 14h2M9 17h2"/></svg>نوبت‌دهی آنلاین</button>
-          <a class="tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="visually-hidden">تلفن</span><b class="ltr">021-71400004</b></a>
+          <a class="tel" href="tel:+982171400004"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="visually-hidden">تلفن</span><b class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</b></a>
         </div>
       </div>
       <dl class="facts">
-        <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><dt>ساعات کاری</dt><dd>شنبه تا چهارشنبه <span class="nw"><b class="ltr">06:30</b> الی <b class="ltr">19:00</b></span></dd><dd>پنجشنبه <span class="nw"><b class="ltr">06:30</b> الی <b class="ltr">18:00</b></span></dd></div>
-        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><dt>نشانی</dt><dd><span class="nw">تهران،</span> <span class="nw">خیابان شریعتی،</span> <span class="nw">خیابان ظفر،</span> <span class="nw">پلاک <b class="ltr">174</b></span></dd></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><dt>ساعات کاری</dt><dd>شنبه تا چهارشنبه <span class="nw"><b class="ltr">۰۶:۳۰</b> الی <b class="ltr">۱۹:۰۰</b></span></dd><dd>پنجشنبه <span class="nw"><b class="ltr">۰۶:۳۰</b> الی <b class="ltr">۱۸:۰۰</b></span></dd></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><dt>نشانی</dt><dd><span class="nw">تهران،</span> <span class="nw">خیابان شریعتی،</span> <span class="nw">خیابان ظفر،</span> <span class="nw">پلاک <b class="ltr">۱۷۴</b></span></dd></div>
       </dl>
     </div>
     <div class="photo"><div id="slider" style="display:contents"></div></div>
@@ -157,16 +168,16 @@
     <div>
       <h2 id="spec-title">جهت ۳ — سرمه‌ای و چوب</h2>
       <ul class="feel" aria-label="حس"><li>محکم</li><li>روشن و صریح</li><li>مطمئن</li><li>گرم</li></ul>
-      <p class="lead" style="margin-top:18px">رنگ‌های ورودی خود آزمایشگاه: دیوار چوبی، نشان فلزی و پرچم سرمه‌ای و فیروزه‌ای. عکس‌ها در یک درگاهی بلند دیده می‌شوند که روی دیوار چوبی تا کف پایین آمده، مثل دری که به داخل آزمایشگاه باز می‌شود. سرمه‌ای لوگو زمینه متن است و دکمه کرم «جواب آزمایش»، با نشان فیروزه‌ای در دایره سرمه‌ای، روشن‌ترین چیز صفحه.</p>
+      <p class="lead" style="margin-top:18px">رنگ‌های ورودی خود آزمایشگاه: دیوار چوبی، نشان فلزی و پرچم سرمه‌ای و فیروزه‌ای. دیوار چوبی ورودی، زمینه کل صفحه اول است. عکس‌ها در یک درگاهی بلند روی این دیوار دیده می‌شوند، مثل دری که به داخل آزمایشگاه باز می‌شود. متن روی تابلوی سرمه‌ای است که مثل نشان فلزی ورودی روی همان دیوار نصب شده. دکمه کرم «جواب آزمایش»، با نشان فیروزه‌ای در دایره سرمه‌ای، روشن‌ترین چیز روی تابلوست. در گوشی درگاهی بالای صفحه است و تابلو زیر آن.</p>
     </div>
     <div>
       <h3>رنگ‌ها و جای پررنگ هر کدام</h3>
       <div class="swatches">
-        <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#fff">سرمه‌ای لوگو</div><div class="swatch-body"><code>#003C7E · #002A5C</code><span>زمینه ستون متن و پلاک‌های اسلایدر. سفید روی آن ۱۰٫۷۸ و روی سرمه‌ای تیره ۱۴٫۱۳ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#fff">سرمه‌ای لوگو</div><div class="swatch-body"><code>#003C7E · #002A5C</code><span>تابلوی متن روی دیوار چوبی و دکمه منو و تلفن سربرگ. سفید روی آن ۱۰٫۷۸ به ۱.</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:#00C0F3;color:#003C7E">فیروزه‌ای لوگو</div><div class="swatch-body"><code>#00C0F3</code><span>آیکون جواب آزمایش در دایره سرمه‌ای (۵٫۰۵ به ۱)، آیکون تلفن سربرگ و هاله فوکوس.</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:#FBF3E6;color:#003C7E">کرم روشن</div><div class="swatch-body"><code>#FBF3E6 · #F6EBDA</code><span>دکمه جواب آزمایش، روشن‌ترین سطح صفحه روی سرمه‌ای؛ و پلاک‌های زیرنویس زیر درگاهی. سرمه‌ای روی آن ۹٫۷۹ و جوهر ۱۳٫۳۵ به ۱.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:var(--slats);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)">چوب ورودی</div><div class="swatch-body"><code>#9C7A57 · #6E5439</code><span>دیوار پشت درگاهی، از دیوار ورودی (عکس ۵)، با دانه ریز و نوری گرم پشت عکس. فقط سطح؛ متن رویش نمی‌نشیند.</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:#002A5C;color:#E2C29C">چوب روشن</div><div class="swatch-body"><code>#E2C29C · #F1E1C6</code><span>لبه و متن دکمه نوبت‌دهی و تلفن، آیکون‌ها و عنوان‌های ساعات کاری و نشانی، و لبه کرم درگاهی. روی سرمه‌ای ۶٫۳۸ به ۱.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--slats);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)">چوب ورودی</div><div class="swatch-body"><code>#C7A47F · #A88663</code><span>زمینه کل صفحه اول، از دیوار ورودی (عکس ۵): تیغه‌های پهن روشن با درز باریک، دانه ریز و نوری گرم از بالا. فقط سطح؛ متن رویش نمی‌نشیند.</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#002A5C;color:#E2C29C">چوب روشن</div><div class="swatch-body"><code>#E2C29C · #F1E1C6</code><span>آیکون‌ها و عنوان‌های ساعات کاری و نشانی، آیکون نوبت‌دهی و لبه نازک درگاهی. روی سرمه‌ای ۶٫۳۸ به ۱. نوبت‌دهی دکمه‌ای با لبه سفید و متن سفید روی تابلوست (۱۰٫۷۸ به ۱)، آشکارا دوم بعد از دکمه کرم.</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:#003C7E;color:#C9D8EA">آبی مه</div><div class="swatch-body"><code>#C9D8EA</code><span>متن دوم روی سرمه‌ای. ۷٫۴۴ به ۱.</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;color:#003C7E;border-bottom:1px solid #E3EAF0">سفید</div><div class="swatch-body"><code>#FFFFFF</code><span>سربرگ؛ لوگوی سرمه‌ای همیشه روی سفید می‌نشیند. سرمه‌ای روی آن ۱۰٫۷۸ به ۱.</span></div></div>
       </div>
@@ -175,22 +186,22 @@
       <h3>حروف</h3>
       <div class="type-grid">
         <div class="type-card"><div class="sample" style="font-weight:700;font-size:44px;color:#003C7E">جواب آزمایش</div><dl><dt>قلم</dt><dd>آی‌بی‌ام پلکس سنس عربی (IBM Plex Sans Arabic)، یک خانواده؛ ۷۰۰ عنوان، ۶۰۰ دکمه، ۴۰۰ متن</dd><dt>مجوز</dt><dd>SIL Open Font License 1.1، استفاده روی وب آزاد؛ «Plex» نام محفوظ قلم است</dd></dl></div>
-        <div class="type-card"><div class="sample" style="font-size:18px;line-height:1.9">شنبه تا چهارشنبه <span class="ltr">06:30</span> الی <span class="ltr">19:00</span>، تلفن <span class="ltr">021-71400004</span></div><dl><dt>چرا</dt><dd>دقیق و نهادی با فرم‌های باز؛ حس یک مرکز تخصصی و مطمئن، و در اندازه ریز روی سرمه‌ای خوانا.</dd><dt>ارقام</dt><dd>همه‌جا لاتین، مثل شماره‌های کیوسک نوبت خود آزمایشگاه</dd></dl></div>
+        <div class="type-card"><div class="sample" style="font-size:18px;line-height:1.9">شنبه تا چهارشنبه <span class="ltr">۰۶:۳۰</span> الی <span class="ltr">۱۹:۰۰</span>، تلفن <span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></div><dl><dt>چرا</dt><dd>دقیق و نهادی با فرم‌های باز؛ حس یک مرکز تخصصی و مطمئن، و در اندازه ریز روی سرمه‌ای خوانا.</dd><dt>ارقام</dt><dd>همه‌جا فارسی؛ پلکس عربی ارقام فارسی را خودش دارد</dd></dl></div>
       </div>
     </div>
     <div>
       <h3>عکس‌ها</h3>
       <dl class="treat">
-        <dt>برش</dt><dd>عکس عمودی تقریباً کامل در درگاهی بلند با پایه کرم روی دیوار چوبی؛ در دسکتاپ بلندی درگاهی حدود ۷۵٪ صفحه اول است.</dd>
-        <dt>رنگ</dt><dd>کمی گرم‌تر و پرکنتراست‌تر (گرمای ۶٪، کنتراست ۱٫۰۳) تا کنار چوب سرد نماند.</dd>
-        <dt>پوشش</dt><dd>هیچ؛ عکس آزاد است و هیچ متنی رویش نیست. زیرنویس و کنترل‌ها زیر درگاهی روی پلاک‌های یکدست کرم روی چوب می‌نشینند.</dd>
-        <dt>قاب</dt><dd>درگاهی با بالای کاملاً گرد و لبه کرم ۴ پیکسلی، با سایه‌ای بلند روی دیوار چوبی؛ نور گرم پشت درگاهی و لبه‌های تیره‌تر چوب.</dd>
+        <dt>برش</dt><dd>عکس عمودی در درگاهی روی دیوار چوبی، با نقطه کانونی روی تابلوهای گل و صندلی‌ها (در گوشی کمی بزرگ‌شده، ۱٫۲۲)؛ در دسکتاپ درگاهی پهن است، هم‌قد تابلوی سرمه‌ای و با همان لبه بالا و پایین. در گوشی درگاهی پهن با بالای بیضی.</dd>
+        <dt>رنگ</dt><dd>همه عکس‌ها یک بار گرم شده‌اند (سرخی ۴٪ بیشتر، آبی ۶٫۵٪ کمتر، اشباع ۱٫۰۸) و نوری گرم از بالای درگاهی، تا کنار چوب سرد نمانند.</dd>
+        <dt>پوشش</dt><dd>هیچ؛ عکس آزاد است و هیچ متنی رویش نیست. زیرنویس و کنترل‌ها زیر درگاهی روی یک پلاک یکدست کرم روی چوب می‌نشینند.</dd>
+        <dt>قاب</dt><dd>درگاهی با بالای کاملاً گرد و لبه کرم نازک ۲ پیکسلی، با سایه‌ای بلند روی دیوار چوبی.</dd>
         <dt>حرکت</dt><dd>هر ۶ ثانیه عکس بعدی در عکس قبلی محو می‌شود (۰٫۹ ثانیه)؛ نقطه عکس فعلی پهن می‌شود و با زمان پر می‌شود. با توقف، نشانگر یا فوکوس و کاهش حرکت می‌ایستد.</dd>
       </dl>
       <div class="img-grid" style="margin-top:22px">
-        <figure><div class="archbox"><div class="arch"><img src="media/photos/lab-5.jpg" alt="" style="object-position:62% 38%"></div></div><figcaption>ورودی آزمایشگاه</figcaption></figure>
-        <figure><div class="archbox"><div class="arch"><img src="media/photos/lab-6.jpg" alt="" style="object-position:50% 50%"></div></div><figcaption>کیوسک نوبت</figcaption></figure>
-        <figure><div class="archbox"><div class="arch"><img src="media/photos/lab-2.jpg" alt="" style="object-position:45% 52%"></div></div><figcaption>پذیرش ۲</figcaption></figure>
+        <figure><div class="archbox"><div class="arch"><img src="media/photos-warm/lab-5.jpg" alt="" style="object-position:62% 38%"></div></div><figcaption>ورودی آزمایشگاه</figcaption></figure>
+        <figure><div class="archbox"><div class="arch"><img src="media/photos-warm/lab-6.jpg" alt="" style="object-position:50% 50%"></div></div><figcaption>کیوسک نوبت</figcaption></figure>
+        <figure><div class="archbox"><div class="arch"><img src="media/photos-warm/lab-2.jpg" alt="" style="object-position:45% 52%"></div></div><figcaption>پذیرش ۲</figcaption></figure>
       </div>
     </div>
     <nav class="links" aria-label="جهت‌ها">
@@ -213,6 +224,6 @@
 
 <script src="media/vendor/react-framer-motion.js"></script>
 <script src="media/hero-slider.js"></script>
-<script>PayvandSlider.mount(document.getElementById("slider"), { variant: "fade", digits: "latin", focus: ["50% 62%", "62% 40%", "50% 55%", "45% 52%", "50% 50%", "50% 40%"] });</script>
+<script>PayvandSlider.mount(document.getElementById("slider"), { variant: "fade", digits: "fa", photoDir: "media/photos-warm/", focus: ["50% 45%", "62% 40%", "50% 55%", "45% 52%", "50% 50%", "50% 40%"] });</script>
 </body>
 </html>
