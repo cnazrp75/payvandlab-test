@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>آزمایشگاه تشخیص طبی و تخصصی پیوند | جواب آزمایش، نوبت‌دهی و نمونه‌گیری در منزل</title>
+<meta name="description" content="آزمایشگاه تشخیص طبی و تخصصی پیوند در تهران، خیابان شریعتی: پاتولوژی، ژنتیک پزشکی و مولکولی. دریافت اینترنتی جواب آزمایش، نوبت‌دهی آنلاین و نمونه‌گیری در منزل.">
+<meta name="theme-color" content="#061A33">
+<link rel="preload" href="media/Estedad.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="media/photos/lab-7.jpg" as="image">
+<style>
+@font-face{font-family:"Estedad";src:url("media/Estedad.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{
+--navy:#003C7E;--navy-2:#0B4F9C;--cyan:#00C0F3;--night:#071C36;--night-2:#0C2747;
+--cream:#F5F3EE;--sand:#ECE8E0;--paper:#fff;
+--ink:#0F1B2D;--ink-2:#465163;--ink-3:#6B7484;--line:#E4E0D8;
+--ok:#4ADE80;
+--ease:cubic-bezier(.22,.8,.24,1);
+--wrap:1280px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:"Estedad",system-ui,sans-serif;background:var(--cream);color:var(--ink);font-size:17px;line-height:1.85;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:12px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:28px}
+.nw{white-space:nowrap}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.ico{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.glass{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4)}
+
+.shell{position:relative;margin:12px;border-radius:32px;overflow:hidden;background:var(--night);height:min(calc(100svh - 24px),880px);min-height:660px;isolation:isolate;color:#fff}
+.slides{position:absolute;inset:0;z-index:-2}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s var(--ease)}
+.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 8s linear}
+.slide.on img{transform:scale(1)}
+.shell::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to left,rgba(5,20,40,.86) 0%,rgba(5,20,40,.62) 34%,rgba(5,20,40,.12) 64%,rgba(5,20,40,0) 80%),linear-gradient(to top,rgba(5,20,40,.55),rgba(5,20,40,0) 38%),linear-gradient(to bottom,rgba(5,20,40,.45),rgba(5,20,40,0) 22%)}
+
+.bar{position:absolute;inset:0 0 auto;display:flex;align-items:center;gap:20px;padding:22px 28px}
+.logo{display:flex;align-items:center}
+.logo{background:#fff;border-radius:16px;padding:7px 14px}
+.logo img{height:38px;width:auto}
+.nav{display:flex;gap:2px;padding:5px;border-radius:999px;margin-inline-start:8px}
+.nav a{padding:7px 16px;border-radius:999px;font-size:15px;font-weight:500;color:rgba(255,255,255,.88);transition:background .25s,color .25s}
+.nav a:hover{background:rgba(255,255,255,.16);color:#fff}
+.bar-end{margin-inline-start:auto;display:flex;align-items:center;gap:10px}
+.tel{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-weight:600;font-size:15px}
+.tel .ico{width:18px;height:18px}
+.menu{display:none;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-weight:600;font-size:15px;color:#fff}
+.menu .ico{width:20px;height:20px}
+
+.copy{position:absolute;inset-inline-start:0;bottom:0;padding:0 56px 56px;max-width:720px}
+.open{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border-radius:999px;font-size:14.5px;font-weight:600}
+.open i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2.4s infinite}
+.open.closed i{background:#FBBF24;animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.eyebrow{margin:22px 0 6px;font-size:17px;font-weight:500;color:rgba(255,255,255,.8)}
+h1{margin:0;font-size:clamp(40px,5vw,76px);line-height:1.22;font-weight:250;letter-spacing:-1px}
+h1 b{font-weight:800;display:block}
+.where{margin:18px 0 0;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.78);font-size:16px}
+.where .ico{width:18px;height:18px;color:var(--cyan)}
+.ctrl{display:flex;align-items:center;gap:12px;margin-top:30px}
+.pp{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.pp .ico{width:16px;height:16px;stroke-width:2.4}
+.bars{display:flex;gap:6px}
+.bars button{width:34px;height:4px;border-radius:4px;background:rgba(255,255,255,.3);position:relative;overflow:hidden;padding:0}
+.bars button::after{content:"";position:absolute;inset:-10px 0}
+.bars button i{position:absolute;inset:0;background:#fff;transform-origin:right;transform:scaleX(0)}
+.bars button.done i{transform:scaleX(1)}
+.bars button.on i{animation:fill 6s linear forwards}
+.paused .bars button.on i{animation-play-state:paused}
+@keyframes fill{to{transform:scaleX(1)}}
+.cap{font-size:14.5px;font-weight:600;color:rgba(255,255,255,.85)}
+
+.res{position:absolute;inset-inline-end:28px;bottom:28px;width:420px;background:#fff;color:var(--ink);border-radius:28px;padding:26px;box-shadow:0 30px 80px -20px rgba(0,0,0,.55)}
+.res-top{display:flex;align-items:center;justify-content:space-between}
+.res-k{font-size:14px;font-weight:600;color:var(--ink-3)}
+.res-ic{width:44px;height:44px;border-radius:14px;background:#EAF3FB;color:var(--navy);display:grid;place-items:center}
+.res h2{margin:2px 0 16px;font-size:30px;font-weight:850;line-height:1.35}
+.hint{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.hint div{background:var(--cream);border-radius:14px;padding:10px 14px}
+.hint b{display:block;font-size:13px;color:var(--ink-3);font-weight:600}
+.hint span{font-size:14.5px;font-weight:700;line-height:1.6}
+.go{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--navy);color:#fff;border-radius:18px;padding:16px 18px 16px 10px;font-weight:800;font-size:18px;position:relative;overflow:hidden;isolation:isolate;transition:transform .3s var(--ease),box-shadow .3s var(--ease);box-shadow:0 14px 30px -12px rgba(0,60,126,.7)}
+.go::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);transform:translateX(120%);transition:transform .9s var(--ease);z-index:-1}
+.go:hover{transform:translateY(-2px)}
+.go:hover::before{transform:translateX(-120%)}
+.go span.a{width:42px;height:42px;border-radius:13px;background:rgba(255,255,255,.16);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.go:hover span.a{transform:translateX(-4px)}
+.res-foot{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:14px;font-size:14px;color:var(--ink-3)}
+.res-foot a{color:var(--navy);font-weight:700}
+.res-foot a:hover{text-decoration:underline}
+
+section{padding:120px 0}
+.k{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;font-weight:700;color:var(--navy)}
+.k::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+h2.t{margin:10px 0 0;font-size:clamp(32px,3.6vw,54px);line-height:1.3;font-weight:250;letter-spacing:-.6px}
+h2.t b{font-weight:800}
+.lead{margin:14px 0 0;color:var(--ink-2);font-size:17.5px;max-width:30em}
+.b1{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:16px}
+.b1 .ico{width:19px;height:19px}
+
+.journey{padding:96px 0 110px}
+.jhead{text-align:center;max-width:720px;margin:0 auto 64px}
+.jhead .lead{margin-inline:auto}
+.rail{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.rail::before,.rail::after{content:"";position:absolute;top:35px;inset-inline:16.6%;height:2px;border-radius:2px}
+.rail::before{background:repeating-linear-gradient(to left,#C9D3DF 0 8px,transparent 8px 16px)}
+.rail::after{background:linear-gradient(to left,var(--navy),var(--cyan));transform-origin:right;transform:scaleX(0);transition:transform 1.6s var(--ease) .3s}
+.rail.in::after{transform:scaleX(1)}
+.step{position:relative;text-align:center;padding:0 12px}
+.node{position:relative;z-index:1;width:72px;height:72px;margin:0 auto 28px;border-radius:50%;background:var(--cream);display:grid;place-items:center}
+.node span{width:56px;height:56px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;box-shadow:0 0 0 1px var(--line),0 10px 24px -12px rgba(0,60,126,.45);transition:background .35s,color .35s,transform .35s var(--ease)}
+.step:hover .node span{background:var(--navy);color:#fff;transform:scale(1.08)}
+.step .num{font-size:15px;font-weight:700;color:var(--cyan);letter-spacing:1px}
+.step h3{margin:4px 0 10px;font-size:28px;font-weight:800}
+.step p{margin:0 auto 22px;color:var(--ink-2);max-width:20em;font-size:16.5px}
+.step .lnk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--navy);border-bottom:2px solid rgba(0,192,243,.5);padding-bottom:2px;transition:gap .3s var(--ease)}
+.step .lnk:hover{gap:14px}
+.step .lnk .ico{width:18px;height:18px}
+.ways{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.ways span{font-size:13.5px;font-weight:600;padding:4px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+
+.bento{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto;gap:14px}
+.tile{border-radius:30px;padding:30px;position:relative;overflow:hidden;isolation:isolate}
+.t-main{grid-row:span 2;background:var(--navy);color:#fff;display:flex;flex-direction:column;min-height:520px}
+.t-main::after{content:"";position:absolute;width:520px;height:520px;inset:auto -160px -220px auto;border-radius:50%;background:radial-gradient(closest-side,rgba(0,192,243,.35),transparent);z-index:-1}
+.t-main .k{color:var(--cyan)}
+.big{font-size:clamp(88px,10vw,150px);font-weight:200;line-height:1;letter-spacing:-4px;margin:auto 0 6px}
+.big sup{font-size:.35em;color:var(--cyan);font-weight:400;vertical-align:top;margin-inline-start:6px}
+.t-main h3{margin:0 0 22px;font-size:24px;font-weight:500;color:#CFE0F3}
+.t-main h3 b{color:#fff;font-weight:800}
+.search{display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink-3);border-radius:20px;padding:10px 10px 10px 18px;transition:transform .3s var(--ease)}
+.search:hover{transform:translateY(-2px)}
+.search .ico{color:var(--navy)}
+.search span{flex:1}
+.search b{background:var(--navy);color:#fff;border-radius:14px;padding:10px 18px;font-size:15px;white-space:nowrap}
+.t-ins{background:#DDF4FC;display:flex;flex-direction:column;justify-content:space-between;min-height:250px}
+.t-ins .n{font-size:84px;font-weight:200;line-height:1;color:var(--navy);letter-spacing:-2px}
+.t-ins p{margin:0;font-weight:700;font-size:18px}
+.t-ins a{font-size:15px;color:var(--navy);font-weight:700;display:inline-flex;gap:6px;align-items:center}
+.t-ins a .ico{width:16px;height:16px}
+.t-photo{padding:0;min-height:250px;grid-row:span 2}
+.t-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;transition:transform 1s var(--ease)}
+.t-photo:hover img{transform:scale(1.05)}
+.t-photo .cap2{position:absolute;inset:auto 16px 16px 16px;border-radius:20px;padding:14px 18px;color:#fff}
+.t-photo .cap2 b{display:block;font-size:17px}
+.t-photo .cap2 span{font-size:14px;color:rgba(255,255,255,.85)}
+.t-iso{background:#fff;display:flex;flex-direction:column;justify-content:space-between;min-height:250px}
+.seal{width:84px;height:84px;border-radius:50%;border:1.5px dashed var(--navy);display:grid;place-items:center;color:var(--navy);animation:spin 30s linear infinite}
+.seal svg{width:34px;height:34px;animation:spin 30s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.t-iso b{font-size:22px;font-weight:800;display:block}
+.t-iso span{color:var(--ink-2);font-size:15px}
+
+.dark{background:var(--night);color:#fff;border-radius:32px;margin:0 12px;position:relative;overflow:hidden;isolation:isolate}
+.dark::before{content:"";position:absolute;width:900px;height:900px;inset:-420px auto auto -260px;background:radial-gradient(closest-side,rgba(0,192,243,.16),transparent);z-index:-1}
+.dark .k{color:var(--cyan)}
+.ledger-h{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:36px}
+.ledger-h .lead{color:#AFC0D4;max-width:24em}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.14)}
+.ledger a{display:grid;grid-template-columns:70px 1fr auto 60px;align-items:center;gap:20px;padding:26px 8px;border-bottom:1px solid rgba(255,255,255,.14);position:relative;isolation:isolate}
+.ledger a::before{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(0,192,243,.14),rgba(0,192,243,0) 70%);opacity:0;transition:opacity .4s;z-index:-1}
+.ledger a:hover::before{opacity:1}
+.ledger .n{color:#5F7896;font-size:16px;font-weight:600;transition:color .3s}
+.ledger b{font-size:clamp(26px,3.4vw,50px);font-weight:250;line-height:1.3;transition:font-weight .4s,transform .5s var(--ease);display:inline-block}
+.ledger small{color:#8FA4BD;font-size:15px;text-align:end;max-width:22em}
+.ledger .go2{width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;transition:background .35s,border-color .35s,transform .35s var(--ease)}
+.ledger a:hover .n{color:var(--cyan)}
+.ledger a:hover b{font-weight:700;transform:translateX(-10px)}
+.ledger a:hover .go2{background:var(--cyan);border-color:var(--cyan);color:var(--night);transform:rotate(-45deg)}
+
+.ticket{display:grid;grid-template-columns:1.35fr auto .9fr}
+.tk-a{background:#fff;border-radius:30px 0 0 30px;padding:52px;border-radius:0 30px 30px 0}
+.tk-a h2.t{margin-top:12px}
+.tk-a .lead{margin-bottom:30px}
+.tk-cut{width:2px;position:relative;background:#fff}
+.tk-cut::before{content:"";position:absolute;inset:28px 0;border-inline-start:2px dashed #D5DCE5}
+.tk-cut i{position:absolute;inset-inline-start:-21px;width:44px;height:44px;border-radius:50%;background:var(--cream)}
+.tk-cut i:first-child{top:-22px}
+.tk-cut i:last-child{bottom:-22px}
+.tk-b{background:var(--navy);color:#fff;border-radius:30px 0 0 30px;padding:40px;display:flex;flex-direction:column;gap:14px;justify-content:center;background-image:radial-gradient(circle at 0 0,rgba(0,192,243,.35),transparent 55%)}
+.stamp{display:flex;align-items:center;gap:18px;padding:14px 0;border-bottom:1px dashed rgba(255,255,255,.22)}
+.stamp:last-child{border-bottom:0}
+.stamp b{min-width:92px;font-size:38px;font-weight:250;line-height:1.1;color:var(--cyan)}
+.stamp span{font-size:15.5px;color:#DCE8F5;line-height:1.6}
+.chan{display:flex;gap:10px;flex-wrap:wrap}
+.chan a{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:16px;transition:transform .3s var(--ease),background .3s}
+.chan a:hover{transform:translateY(-2px)}
+.chan .p{background:var(--navy);color:#fff}
+.chan .s{background:var(--cream)}
+.chan .ico{width:19px;height:19px}
+
+.gal-h{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:32px}
+.acc{display:flex;gap:10px;height:520px}
+.pan{position:relative;flex:1;min-width:0;border-radius:26px;overflow:hidden;transition:flex 0.7s var(--ease);cursor:pointer;isolation:isolate;outline-offset:3px}
+.pan img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.pan::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,20,40,.75),rgba(5,20,40,.05) 50%);z-index:-1;transition:opacity .5s}
+.pan.on{flex:4.2}
+.pan .vl{position:absolute;bottom:22px;left:0;right:0;margin:auto;width:max-content;transform:rotate(180deg);writing-mode:vertical-rl;text-shadow:0 1px 8px rgba(0,0,0,.5);color:#fff;font-weight:700;font-size:16px;white-space:nowrap;transition:opacity .3s}
+.pan .hl{position:absolute;inset-inline-start:26px;bottom:24px;color:#fff;opacity:0;transform:translateY(12px);transition:opacity .4s .2s,transform .5s var(--ease) .2s}
+.pan .hl b{display:block;font-size:26px;font-weight:800}
+.pan .hl span{font-size:15px;color:rgba(255,255,255,.85)}
+.pan.on .vl{opacity:0}
+.pan.on .hl{opacity:1;transform:none}
+
+.when{display:grid;grid-template-columns:1.6fr 1fr;gap:14px}
+.day{background:#fff;border-radius:30px;padding:36px 40px}
+.day-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+.day-top h3{margin:0;font-size:24px;font-weight:800}
+.tabs{display:flex;background:var(--cream);border-radius:999px;padding:4px}
+.tabs button{padding:8px 16px;border-radius:999px;font-size:14.5px;font-weight:700;color:var(--ink-2)}
+.tabs button.on{background:#fff;color:var(--navy);box-shadow:0 2px 8px -2px rgba(15,27,45,.2)}
+.track{position:relative;padding-top:8px}
+.lane{display:grid;grid-template-columns:160px 1fr;align-items:center;gap:16px;margin-bottom:18px}
+.lane>span{font-weight:700;font-size:15.5px}
+.bar2{position:relative;height:44px;border-radius:14px;background:repeating-linear-gradient(to left,var(--cream) 0 calc(100% / 14 - 2px),#fff calc(100% / 14 - 2px) calc(100% / 14))}
+.fill{position:absolute;top:0;bottom:0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;transition:inset .6s var(--ease)}
+.f1{background:var(--navy);color:#fff}
+.f2{background:#BEEBFA;color:var(--navy)}
+.f3{background:#E8E1D3;color:var(--ink)}
+.ticks{display:grid;grid-template-columns:160px 1fr;gap:16px}
+.ticks div{position:relative;height:22px;font-size:13px;color:var(--ink-3)}
+.ticks i{position:absolute;font-style:normal;transform:translateX(50%)}
+.now{position:absolute;top:0;bottom:30px;width:2px;background:#E5484D;z-index:2;pointer-events:none}
+.now b{position:absolute;top:-30px;transform:translateX(50%);background:#E5484D;color:#fff;font-size:12.5px;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.day-note{margin:20px 0 0;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-2);font-size:15.5px;display:flex;align-items:center;gap:10px}
+.day-note i{width:10px;height:10px;border-radius:50%;background:var(--ok);flex:none}
+.day-note.closed i{background:#FBBF24}
+.place{border-radius:30px;overflow:hidden;position:relative;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:30px;min-height:420px;isolation:isolate}
+.place img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.place::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,40,90,.95) 10%,rgba(0,40,90,.2) 70%);z-index:-1}
+.place .pin{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;margin-bottom:16px}
+.place p{margin:0;font-size:19px;font-weight:700;line-height:1.7}
+.place small{color:#CFE0F3;font-size:14.5px}
+.place .row2{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.place .row2 a{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font-weight:700;font-size:15px}
+.place .row2 .w{background:#fff;color:var(--navy)}
+.place .row2 .ico{width:18px;height:18px}
+
+.marq{padding:44px 0 90px;overflow:hidden}
+.marq .k{display:flex;justify-content:center;margin-bottom:22px}
+.mq{display:flex;overflow:hidden;-webkit-mask:linear-gradient(to left,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(to left,transparent,#000 12%,#000 88%,transparent)}
+.mq-in{display:flex;gap:14px;flex:none;padding-inline-end:14px;animation:mq 38s linear infinite}
+.mq:hover .mq-in{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(100%)}}
+.cert{display:flex;align-items:center;gap:12px;background:#fff;border-radius:20px;padding:16px 22px;font-weight:700;font-size:16px;white-space:nowrap}
+.cert .ico{width:26px;height:26px;color:var(--navy)}
+.cert small{display:block;font-weight:500;color:var(--ink-3);font-size:13px}
+
+footer{background:var(--night);color:#AFC0D4;margin:0 12px 12px;border-radius:32px;padding:64px 0 28px;font-size:15px}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+footer img{height:44px;width:auto}
+footer h4{color:#fff;margin:0 0 12px;font-size:15.5px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a:hover{color:#fff}
+.fb{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13.5px;color:#7F93AB}
+
+.sheet{position:fixed;inset:0;z-index:60;visibility:hidden}
+.sheet.on{visibility:visible}
+.scrim{position:absolute;inset:0;background:rgba(5,20,40,.5);opacity:0;transition:opacity .35s}
+.sheet.on .scrim{opacity:1}
+.panel{position:absolute;inset:8px 8px 8px auto;width:min(calc(100vw - 16px),400px);background:var(--cream);border-radius:28px;padding:18px;display:flex;flex-direction:column;gap:10px;transform:translateX(110%);transition:transform .45s var(--ease);overflow:auto}
+.sheet.on .panel{transform:none}
+.ph{display:flex;align-items:center;justify-content:space-between}
+.ph img{height:38px}
+.x{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.panel nav{background:#fff;border-radius:22px;padding:6px 18px}
+.panel nav a{display:flex;justify-content:space-between;align-items:center;padding:14px 0;font-weight:600;font-size:16.5px}
+.panel nav a+a{border-top:1px solid var(--line)}
+.panel nav .ico{width:18px;height:18px;color:var(--ink-3)}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}
+
+@media (max-width:1180px){
+.nav,.tel span{display:none}
+.menu{display:inline-flex}
+.res{width:380px}
+.copy{padding:0 36px 40px;max-width:520px}
+h1{font-size:44px}
+.fg{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+body{font-size:16px}
+.wrap{padding-inline:18px}
+.shell{margin:8px;border-radius:26px;height:auto;min-height:0;padding-bottom:0}
+.slides{position:absolute;inset:0 0 auto;height:400px}
+.shell::before{inset:0 0 auto;height:400px;background:linear-gradient(to top,rgba(5,20,40,.92) 0%,rgba(5,20,40,.35) 55%,rgba(5,20,40,.45) 100%)}
+.bar{padding:14px 14px}
+.logo{padding:6px 10px;border-radius:14px}
+.logo img{height:32px}
+.tel{padding:10px;width:44px;height:44px;justify-content:center}
+.menu{padding:10px 14px}
+.copy{position:relative;padding:150px 20px 18px;max-width:none;height:400px;display:flex;flex-direction:column;justify-content:flex-end}
+.open{font-size:13px;padding:5px 12px;align-self:flex-start}
+.eyebrow{margin:10px 0 0;font-size:14px}
+h1{font-size:30px;line-height:1.35;letter-spacing:-.3px}
+.where{display:none}
+.ctrl{display:none}
+.res{position:relative;inset:auto;width:auto;margin:0;border-radius:0 0 26px 26px;padding:18px 18px 20px;box-shadow:none}
+.res-top{display:none}
+.res h2{display:none}
+.hint{margin-bottom:12px}
+.hint div{padding:8px 12px}
+.hint span{font-size:13.5px}
+.go{font-size:17px;padding:13px 16px 13px 8px}
+.fg{grid-template-columns:1fr}
+footer{margin:0 8px 8px;border-radius:26px}
+}
+@media (max-width:1180px){
+.bento{grid-template-columns:1fr 1fr}
+.t-main{grid-column:span 2;grid-row:auto;min-height:420px}
+.t-photo{grid-row:auto;min-height:300px}
+.ticket{grid-template-columns:1fr;filter:none}
+.tk-a{border-radius:30px 30px 0 0}
+.tk-cut{width:auto;height:2px}
+.tk-cut::before{inset:0 28px;border-inline-start:0;border-top:2px dashed #D5DCE5}
+.tk-cut i{inset-inline-start:auto;top:-21px!important;bottom:auto!important}
+.tk-cut i:first-child{right:-22px}
+.tk-cut i:last-child{left:-22px}
+.tk-b{border-radius:0 0 30px 30px}
+.when{grid-template-columns:1fr}
+.ledger a{grid-template-columns:50px 1fr 52px}
+.ledger small{display:none}
+}
+@media (max-width:760px){
+section{padding:72px 0}
+.journey{padding:64px 0 72px}
+.jhead{margin-bottom:36px;text-align:start}
+.rail{grid-template-columns:1fr;gap:0}
+.rail::before,.rail::after{top:36px;bottom:36px;inset-inline:35px auto;width:2px;height:auto}
+.rail::before{background:repeating-linear-gradient(to bottom,#C9D3DF 0 8px,transparent 8px 16px)}
+.rail::after{background:linear-gradient(to bottom,var(--navy),var(--cyan));transform-origin:top;transform:scaleY(0)}
+.rail.in::after{transform:scaleY(1)}
+.step{display:grid;grid-template-columns:72px 1fr;gap:0 16px;text-align:start;padding:0 0 30px}
+.node{grid-row:span 5;margin:0}
+.step p{margin:0 0 14px}
+.ways{justify-content:flex-start}
+.step h3{font-size:23px}
+.bento{grid-template-columns:1fr}
+.t-main{grid-column:auto;min-height:0;padding:26px}
+.big{margin-top:30px;font-size:96px}
+.search span{font-size:14.5px}
+.tile{padding:24px;border-radius:26px}
+.dark{margin:0 8px;border-radius:26px}
+.ledger-h,.gal-h{flex-direction:column;align-items:flex-start;gap:8px}
+.ledger a{grid-template-columns:34px 1fr 44px;gap:10px;padding:18px 2px}
+.ledger b{font-size:22px}
+.ledger .go2{width:44px;height:44px}
+.tk-a{padding:28px}
+.tk-b{padding:26px}
+.stamp b{min-width:74px;font-size:30px}
+.acc{flex-direction:column;height:620px;gap:8px}
+.pan{border-radius:20px}
+.pan.on{flex:5}
+.pan .vl{writing-mode:horizontal-tb;transform:none;left:auto;right:20px;margin:0;bottom:50%;translate:0 50%}
+.pan .hl{inset-inline-start:20px;bottom:18px}
+.pan .hl b{font-size:21px}
+.day{padding:24px 18px}
+.lane{grid-template-columns:1fr;gap:6px;margin-bottom:14px}
+.ticks{grid-template-columns:1fr}
+.ticks>span{display:none}
+.bar2{height:38px}
+.fill{font-size:12.5px}
+.place{min-height:360px}
+footer{margin:0 8px 8px;border-radius:26px}
+}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+<symbol id="arr" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+<symbol id="tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+<symbol id="cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+<symbol id="house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></symbol>
+<symbol id="up" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+<symbol id="menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h10"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+<symbol id="play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+<symbol id="srch" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+<symbol id="shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="chev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+<symbol id="wa" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.3 2 2.5 4.2 4.5 4.5l1-1.2 2 .9c-.2 1.2-1.2 1.8-2.3 1.6-3-.5-5.6-3-6-6-.2-1.1.4-2.1 1.6-2.3l.9 2z"/></symbol>
+</svg>
+
+<header class="shell" id="hero">
+<div class="slides" id="slides">
+<div class="slide on" data-cap="سالن انتظار"><img src="media/photos/lab-7.jpg" alt="سالن انتظار آزمایشگاه پیوند" style="object-position:50% 62%"></div>
+<div class="slide" data-cap="ورودی آزمایشگاه"><img src="media/photos/lab-5.jpg" alt="ورودی آزمایشگاه با تابلوی پیوند" style="object-position:50% 38%" loading="lazy"></div>
+<div class="slide" data-cap="پذیرش"><img src="media/photos/lab-2.jpg" alt="میز پذیرش" style="object-position:50% 52%" loading="lazy"></div>
+<div class="slide" data-cap="تابلوهای سالن انتظار"><img src="media/photos/lab-3.jpg" alt="تابلوهای سالن انتظار" style="object-position:50% 36%" loading="lazy"></div>
+</div>
+
+<div class="bar">
+<a class="logo" href="#" aria-label="آزمایشگاه پیوند، صفحه اصلی"><img src="media/payvand-logo.png" alt="آزمایشگاه تشخیص طبی و تخصصی پیوند" width="131" height="38"></a>
+<nav class="nav glass" aria-label="منوی اصلی">
+<a href="https://test.payvandlab.com/">آزمایش‌ها</a>
+<a href="#depts">بخش‌ها</a>
+<a href="#journey">خدمات</a>
+<a href="#visit">ساعات و نشانی</a>
+<a href="#">درباره ما</a>
+<a href="#">اخبار</a>
+</nav>
+<div class="bar-end">
+<a class="tel glass" href="tel:+982171400004" aria-label="تماس: ۰۲۱-۷۱۴۰۰۰۰۴"><svg class="ico"><use href="#tel"/></svg><span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></a>
+<button class="menu glass" id="menuBtn" aria-expanded="false" aria-controls="sheet"><svg class="ico"><use href="#menu"/></svg>منو</button>
+</div>
+</div>
+
+<div class="copy" id="copy">
+<span class="open glass" id="open"><i></i><span id="openTxt">آزمایشگاه باز است</span></span>
+<p class="eyebrow">آزمایشگاه تشخیص طبی و تخصصی پیوند</p>
+<h1>پاتولوژی، ژنتیک پزشکی<b>و مولکولی</b></h1>
+<p class="where"><svg class="ico"><use href="#pin"/></svg><span>تهران، <span class="nw">خیابان شریعتی</span>، <span class="nw">خیابان ظفر</span>، <span class="nw">پلاک ۱۷۴</span></span></p>
+<div class="ctrl" id="ctrl">
+<button class="pp glass" id="pp" aria-label="توقف تصاویر"><svg class="ico"><use href="#pause"/></svg></button>
+<div class="bars" id="bars"></div>
+<span class="cap" id="cap" aria-live="polite">سالن انتظار</span>
+</div>
+</div>
+
+<div class="res" id="res">
+<div class="res-top"><span class="res-k">ویژه مراجعین</span><span class="res-ic"><svg class="ico"><use href="#doc"/></svg></span></div>
+<h2>جواب آزمایش</h2>
+<div class="hint">
+<div><b>نام کاربری</b><span>شماره پذیرش یا کد ملی</span></div>
+<div><b>رمز عبور</b><span>شماره اشتراک یا موبایل</span></div>
+</div>
+<a class="go" href="http://178.252.146.82:8082/Login">دریافت جواب آزمایش<span class="a"><svg class="ico"><use href="#arr"/></svg></span></a>
+<div class="res-foot"><a href="#">راهنمای ورود</a><a href="http://178.252.146.82:8082/Login">ورود پزشکان</a><a href="http://178.252.146.82:8082/Login#contractor">مراکز همکار</a></div>
+</div>
+</header>
+
+<main>
+<section class="journey" id="journey">
+<div class="wrap">
+<div class="jhead rv"><span class="k">مسیر مراجعه</span><h2 class="t">از نوبت تا جواب،<br><b>در سه قدم</b></h2><p class="lead">هر قدم را می‌توانید پیش از آمدن، از همین‌جا شروع کنید.</p></div>
+<div class="rail" id="rail">
+<div class="step rv"><div class="node"><span><svg class="ico"><use href="#cal"/></svg></span></div><span class="num">قدم ۰۱</span><h3>نوبت بگیرید</h3><p>روز مراجعه را در سامانه نوبت‌دهی خود آزمایشگاه انتخاب کنید.</p><a class="lnk" href="http://178.252.146.82:8082/general/online-ticketing">نوبت‌دهی آنلاین<svg class="ico"><use href="#arr"/></svg></a></div>
+<div class="step rv d1"><div class="node"><span><svg class="ico"><use href="#up"/></svg></span></div><span class="num">قدم ۰۲</span><h3>پذیرش شوید</h3><p>حضوری از ساعت ۰۶:۳۰، یا غیرحضوری با فرستادن عکس نسخه با فرمت jpg.</p><div class="ways"><span>حضوری</span><span>غیرحضوری</span></div><a class="lnk" href="#">راهنمای پذیرش<svg class="ico"><use href="#arr"/></svg></a></div>
+<div class="step rv d2"><div class="node"><span><svg class="ico"><use href="#doc"/></svg></span></div><span class="num">قدم ۰۳</span><h3>جواب را بگیرید</h3><p>اینترنتی با شماره پذیرش، یا حضوری از ساعت ۱۵:۰۰ در روزهای کاری.</p><div class="ways"><span>اینترنتی</span><span>حضوری</span></div><a class="lnk" href="http://178.252.146.82:8082/Login">دریافت جواب آزمایش<svg class="ico"><use href="#arr"/></svg></a></div>
+</div>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="bento">
+<div class="tile t-main rv"><span class="k">آزمایش‌ها</span><div class="big">۱۰۰۰<sup>+</sup></div><h3>آزمایش در <b>فهرست آزمایش‌های فعال</b></h3><a class="search" href="https://test.payvandlab.com/"><svg class="ico"><use href="#srch"/></svg><span>جستجوی نام آزمایش</span><b>جستجو</b></a></div>
+<div class="tile t-ins rv d1"><div class="n">۳۰</div><div><p>بیمه و سازمان طرف قرارداد</p><a href="#">فهرست بیمه‌ها<svg class="ico"><use href="#arr"/></svg></a></div></div>
+<div class="tile t-photo rv d2"><img src="media/photos/lab-6.jpg" alt="کیوسک نوبت با دکمه‌های پذیرش و جوابدهی" loading="lazy" style="object-position:60% 50%"><div class="cap2 glass"><b>کیوسک نوبت</b><span>پذیرش و جوابدهی با یک لمس</span></div></div>
+<div class="tile t-iso rv d1"><div class="seal"><svg class="ico"><use href="#shield"/></svg></div><div><b><span class="ltr">ISO 15189</span></b><span>گواهینامه صلاحیت آزمایشگاه پزشکی از NACI</span></div></div>
+</div>
+</div>
+</section>
+
+<div class="dark" id="depts">
+<section>
+<div class="wrap">
+<div class="ledger-h rv"><div><span class="k">بخش‌های آزمایشگاه</span><h2 class="t">تخصص‌هایی که<br><b>زیر یک سقف‌اند</b></h2></div><p class="lead">از پاتولوژی و ژنتیک تا آزمایش‌های روزمره بالینی.</p></div>
+<ul class="ledger rv d1">
+<li><a href="#"><span class="n">۰۱</span><b>پاتولوژی</b><small>بافت‌شناسی و سیتولوژی</small><span class="go2"><svg class="ico"><use href="#arr"/></svg></span></a></li>
+<li><a href="#"><span class="n">۰۲</span><b>ژنتیک پزشکی</b><small>سیتوژنتیک و FISH</small><span class="go2"><svg class="ico"><use href="#arr"/></svg></span></a></li>
+<li><a href="#"><span class="n">۰۳</span><b>مولکولی</b><small>عضو شبکه مراکز تشخیص مولکولی</small><span class="go2"><svg class="ico"><use href="#arr"/></svg></span></a></li>
+<li><a href="#"><span class="n">۰۴</span><b>فلوسایتومتری</b><small></small><span class="go2"><svg class="ico"><use href="#arr"/></svg></span></a></li>
+<li><a href="#"><span class="n">۰۵</span><b>بیوشیمی و هماتولوژی</b><small>انعقاد و الکتروفورز</small><span class="go2"><svg class="ico"><use href="#arr"/></svg></span></a></li>
+<li><a href="#"><span class="n">۰۶</span><b>ایمونولوژی و میکروب‌شناسی</b><small>ایمونواسی، سرولوژی، انگل‌شناسی و قارچ‌شناسی</small><span class="go2"><svg class="ico"><use href="#arr"/></svg></span></a></li>
+</ul>
+</div>
+</section>
+</div>
+
+<section id="home-s">
+<div class="wrap">
+<div class="ticket rv">
+<div class="tk-a"><span class="k">نمونه‌گیری در منزل</span><h2 class="t">ما به خانه<br><b>شما می‌آییم</b></h2><p class="lead">درخواست را آنلاین، با تلفن یا واتس‌اپ ثبت کنید. فقط هزینه آزمایش‌ها پرداخت می‌شود.</p>
+<div class="chan"><a class="p" href="#"><svg class="ico"><use href="#house"/></svg>ثبت درخواست</a><a class="s" href="tel:+982171400004"><svg class="ico"><use href="#tel"/></svg><span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></a><a class="s" href="#"><svg class="ico"><use href="#wa"/></svg>واتس‌اپ</a></div></div>
+<div class="tk-cut"><i></i><i></i></div>
+<div class="tk-b">
+<div class="stamp"><b>۲۴<small style="font-size:.45em"> ساعت</small></b><span>درخواست را دست‌کم یک روز قبل ثبت کنید</span></div>
+<div class="stamp"><b>۱۵<sup style="font-size:.5em">+</sup></b><span>برای مراجعین بالای ۱۵ سال</span></div>
+<div class="stamp"><b>۰</b><span>هزینه جدا برای آمدن به منزل</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="gal-h rv"><div><span class="k">داخل آزمایشگاه</span><h2 class="t">پیش از آمدن،<br><b>یک دور بزنید</b></h2></div><p class="lead" style="margin:0">روی هر تصویر بروید تا باز شود.</p></div>
+<div class="acc rv d1" id="acc">
+<div class="pan on" tabindex="0"><img src="media/photos/lab-7.jpg" alt="سالن انتظار" loading="lazy"><span class="vl">سالن انتظار</span><div class="hl"><b>سالن انتظار</b><span>جای نشستن تا نوبت شما</span></div></div>
+<div class="pan" tabindex="0"><img src="media/photos/lab-5.jpg" alt="ورودی آزمایشگاه" loading="lazy"><span class="vl">ورودی</span><div class="hl"><b>ورودی آزمایشگاه</b><span>کیوسک‌های نوبت کنار در ورودی</span></div></div>
+<div class="pan" tabindex="0"><img src="media/photos/lab-2.jpg" alt="پذیرش" loading="lazy"><span class="vl">پذیرش</span><div class="hl"><b>میزهای پذیرش</b><span>نمایشگر نوبت بالای هر میز</span></div></div>
+<div class="pan" tabindex="0"><img src="media/photos/lab-6.jpg" alt="کیوسک نوبت" loading="lazy"><span class="vl">کیوسک نوبت</span><div class="hl"><b>کیوسک نوبت</b><span>پذیرش یا جوابدهی را انتخاب کنید</span></div></div>
+<div class="pan" tabindex="0"><img src="media/photos/lab-1-crop.jpg" alt="جوابدهی" loading="lazy"><span class="vl">جوابدهی</span><div class="hl"><b>تحویل جواب</b><span>از ساعت ۱۵:۰۰ در روزهای کاری</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="visit" style="padding-top:0">
+<div class="wrap">
+<div class="gal-h rv"><div><span class="k">ساعات و نشانی</span><h2 class="t">کی بیاییم؟</h2></div></div>
+<div class="when">
+<div class="day rv">
+<div class="day-top"><h3 id="dayTitle">ساعات کاری</h3><div class="tabs" role="tablist"><button data-t="w" role="tab">شنبه تا چهارشنبه</button><button data-t="th" role="tab">پنجشنبه</button></div></div>
+<div class="track" id="track">
+<div class="lane"><span>آزمایشگاه</span><div class="bar2"><div class="fill f1" data-k="lab"></div></div></div>
+<div class="lane"><span>پذیرش</span><div class="bar2"><div class="fill f2" data-k="adm"></div></div></div>
+<div class="lane"><span>تحویل حضوری جواب</span><div class="bar2"><div class="fill f3" data-k="res"></div></div></div>
+<div class="ticks"><span></span><div id="ticks"></div></div>
+<div class="nowwrap" id="nowwrap" style="position:absolute;top:8px;bottom:0;inset-inline-end:0"></div>
+</div>
+<p class="day-note" id="dayNote"><i></i><span id="dayNoteTxt"></span></p>
+</div>
+<div class="place rv d1"><img src="media/photos/lab-3.jpg" alt="سالن انتظار آزمایشگاه" loading="lazy" style="object-position:50% 40%"><span class="pin glass"><svg class="ico"><use href="#pin"/></svg></span><p>تهران، خیابان شریعتی، <span class="nw">خیابان ظفر (دستگردی)</span>، <span class="nw">پلاک ۱۷۴</span></p><small>کد پستی <span class="ltr">۱۹۱۹۷۵۳۵۵۷</span></small><div class="row2"><a class="w" href="https://www.google.com/maps/search/?api=1&query=%D8%A2%D8%B2%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87+%D9%BE%DB%8C%D9%88%D9%86%D8%AF"><svg class="ico"><use href="#pin"/></svg>مسیریابی</a><a class="glass" href="tel:+982171400004"><svg class="ico"><use href="#tel"/></svg><span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></a></div></div>
+</div>
+</div>
+</section>
+
+<div class="marq">
+<span class="k">تاییدیه‌های آزمایشگاه</span>
+<div class="mq" id="mq"><div class="mq-in">
+<span class="cert"><svg class="ico"><use href="#shield"/></svg><span><span class="ltr">ISO 15189</span><small>از NACI</small></span></span>
+<span class="cert"><svg class="ico"><use href="#shield"/></svg><span>لوح کیفیت<small>آزمایشگاه مرجع سلامت</small></span></span>
+<span class="cert"><svg class="ico"><use href="#shield"/></svg><span><span class="ltr">ISO 10002:2014</span><small>رسیدگی به شکایات</small></span></span>
+<span class="cert"><svg class="ico"><use href="#shield"/></svg><span><span class="ltr">ISO 9001:2015</span><small>مدیریت کیفیت</small></span></span>
+<span class="cert"><svg class="ico"><use href="#shield"/></svg><span>شبکه مراکز تشخیص مولکولی<small>عضو</small></span></span>
+</div></div>
+</div>
+</main>
+
+
+<footer>
+<div class="wrap">
+<div class="fg">
+<div><span class="logo" style="display:inline-flex"><img src="media/payvand-logo.png" alt="آزمایشگاه پیوند"></span><p style="margin:16px 0 0;max-width:22em">آزمایشگاه تشخیص طبی و تخصصی پیوند؛ پاتولوژی، ژنتیک پزشکی و مولکولی.</p></div>
+<div><h4>مراجعین</h4><ul><li><a href="http://178.252.146.82:8082/Login">جواب آزمایش</a></li><li><a href="http://178.252.146.82:8082/general/online-ticketing">نوبت‌دهی آنلاین</a></li><li><a href="#home-s">نمونه‌گیری در منزل</a></li><li><a href="#">پرسش‌های پرتکرار</a></li></ul></div>
+<div><h4>آزمایشگاه</h4><ul><li><a href="https://test.payvandlab.com/">آزمایش‌های فعال</a></li><li><a href="#depts">بخش‌ها</a></li><li><a href="#">درباره آزمایشگاه</a></li><li><a href="#">اخبار</a></li></ul></div>
+<div><h4>ارتباط</h4><ul><li class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</li><li class="ltr">info@payvandlab.com</li><li><a href="#">انتقادات و پیشنهادات</a></li><li><a href="#">همکاری با ما</a></li></ul></div>
+</div>
+<div class="fb"><span>© آزمایشگاه تشخیص طبی و تخصصی پیوند</span><span>پیش‌نمایش طراحی</span></div>
+</div>
+</footer>
+
+<div class="sheet" id="sheet" aria-hidden="true">
+<div class="scrim" data-x></div>
+<div class="panel" role="dialog" aria-modal="true" aria-label="منو">
+<div class="ph"><img src="media/payvand-logo.png" alt=""><button class="x" data-x id="xBtn" aria-label="بستن منو"><svg class="ico"><use href="#x"/></svg></button></div>
+<a class="go" href="http://178.252.146.82:8082/Login">دریافت جواب آزمایش<span class="a"><svg class="ico"><use href="#arr"/></svg></span></a>
+<nav aria-label="منوی موبایل">
+<a href="http://178.252.146.82:8082/general/online-ticketing">نوبت‌دهی آنلاین<svg class="ico"><use href="#chev"/></svg></a>
+<a href="#home-s" data-x>نمونه‌گیری در منزل<svg class="ico"><use href="#chev"/></svg></a>
+<a href="https://test.payvandlab.com/">آزمایش‌ها<svg class="ico"><use href="#chev"/></svg></a>
+<a href="#depts" data-x>بخش‌ها<svg class="ico"><use href="#chev"/></svg></a>
+<a href="#visit" data-x>ساعات و نشانی<svg class="ico"><use href="#chev"/></svg></a>
+<a href="#">درباره ما<svg class="ico"><use href="#chev"/></svg></a>
+<a href="#">اخبار<svg class="ico"><use href="#chev"/></svg></a>
+</nav>
+<a class="b1" href="tel:+982171400004" style="justify-content:center;background:#fff"><svg class="ico"><use href="#tel"/></svg><span class="ltr">۰۲۱-۷۱۴۰۰۰۰۴</span></a>
+</div>
+</div>
+
+<script>
+(()=>{
+const fa=s=>String(s).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+const hm=v=>fa(String(Math.floor(v/60)).padStart(2,"0")+":"+String(v%60).padStart(2,"0"));
+const now=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Tehran"}));
+const wd=(now.getDay()+1)%7,m=now.getHours()*60+now.getMinutes();
+const lab=wd<=4?[390,1140]:wd===5?[390,1080]:null,adm=wd<=4?1080:wd===5?1020:null;
+const op=document.getElementById("open"),ot=document.getElementById("openTxt");
+if(!lab){op.classList.add("closed");ot.textContent="امروز تعطیل است · شنبه از ۰۶:۳۰"}
+else if(m<lab[0]){op.classList.add("closed");ot.textContent="امروز از "+hm(lab[0])+" باز می‌شود"}
+else if(m>=lab[1]){op.classList.add("closed");ot.textContent="امروز بسته شد · فردا از ۰۶:۳۰"}
+else if(m<adm){ot.textContent="الان باز است · پذیرش تا "+hm(adm)}
+else{ot.textContent="باز است تا "+hm(lab[1])+" · پذیرش امروز تمام شد"}
+
+const q=new URLSearchParams(location.search);
+const hero=document.getElementById("hero"),slides=[...document.querySelectorAll(".slide")],bars=document.getElementById("bars"),cap=document.getElementById("cap"),pp=document.getElementById("pp");
+let i=0,t=null,paused=q.has("paused")||matchMedia("(prefers-reduced-motion: reduce)").matches||matchMedia("(max-width:760px)").matches;
+slides.forEach((s,k)=>{const b=document.createElement("button");b.setAttribute("aria-label","تصویر "+fa(k+1)+": "+s.dataset.cap);b.innerHTML="<i></i>";b.onclick=()=>go(k);bars.appendChild(b)});
+const bs=[...bars.children];
+function go(k){i=(k+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle("on",n===i));bs.forEach((b,n)=>{b.classList.remove("on");b.classList.toggle("done",n<i);void b.offsetWidth;if(n===i)b.classList.add("on")});cap.textContent=slides[i].dataset.cap;tick()}
+function tick(){clearTimeout(t);if(!paused)t=setTimeout(()=>go(i+1),6000)}
+function setP(p){paused=p;hero.classList.toggle("paused",p);pp.setAttribute("aria-label",p?"پخش تصاویر":"توقف تصاویر");pp.innerHTML='<svg class="ico"><use href="#'+(p?"play":"pause")+'"/></svg>';tick()}
+pp.onclick=()=>setP(!paused);
+document.addEventListener("visibilitychange",()=>{if(document.hidden)clearTimeout(t);else tick()});
+go(q.has("slide")?+q.get("slide")-1:0);setP(paused);
+
+const sh=document.getElementById("sheet"),mb=document.getElementById("menuBtn");
+const open=o=>{sh.classList.toggle("on",o);sh.setAttribute("aria-hidden",!o);mb.setAttribute("aria-expanded",o);(o?document.getElementById("xBtn"):mb).focus()};
+mb.onclick=()=>open(true);
+sh.querySelectorAll("[data-x]").forEach(e=>e.addEventListener("click",()=>open(false)));
+addEventListener("keydown",e=>{if(e.key==="Escape"&&sh.classList.contains("on"))open(false)});
+if(q.get("state")==="menu")open(true);
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll(".rv").forEach(e=>q.has("static")?e.classList.add("in"):io.observe(e));
+const days=["شنبه","یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه"];
+const mqIn=document.querySelector(".mq-in");if(mqIn){const c=mqIn.cloneNode(true);c.setAttribute("aria-hidden","true");mqIn.parentNode.appendChild(c)}
+const rail=document.getElementById("rail");
+new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){rail.classList.add("in");o.disconnect()}}),{threshold:.3}).observe(rail);
+if(q.has("static"))rail.classList.add("in");
+const pans=[...document.querySelectorAll(".pan")];
+pans.forEach(p=>{const a=()=>pans.forEach(x=>x.classList.toggle("on",x===p));p.addEventListener("mouseenter",a);p.addEventListener("focus",a);p.addEventListener("click",a)});
+const H={w:{lab:[390,1140],adm:[390,1080],res:[900,1110]},th:{lab:[390,1080],adm:[390,1020],res:[960,1080]}};
+const S=360,E=1200,pc=v=>(v-S)/(E-S)*100;
+const tk=document.getElementById("ticks");
+for(let h=7;h<=19;h+=2){const i=document.createElement("i");i.textContent=fa(h)+":۰۰";i.style.right=pc(h*60)+"%";tk.appendChild(i)}
+const nw=document.getElementById("nowwrap"),lane=document.querySelector(".lane .bar2");
+const todayKey=wd<=4?"w":wd===5?"th":null;
+function show(k){
+document.querySelectorAll(".tabs button").forEach(b=>{b.classList.toggle("on",b.dataset.t===k);b.setAttribute("aria-selected",b.dataset.t===k)});
+document.querySelectorAll(".fill").forEach(f=>{const r=H[k][f.dataset.k];f.style.right=pc(r[0])+"%";f.style.left=(100-pc(r[1]))+"%";f.textContent=hm(r[0])+" تا "+hm(r[1])});
+nw.innerHTML="";
+if(k===todayKey&&m>=S&&m<=E){const tr=document.getElementById("track").getBoundingClientRect(),br=lane.getBoundingClientRect();nw.style.width=br.width+"px";nw.style.top=(br.top-tr.top)+"px";const d=document.createElement("div");d.className="now";d.style.right=pc(m)+"%";d.innerHTML="<b>اکنون "+hm(m)+"</b>";nw.appendChild(d)}
+}
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>show(b.dataset.t));
+const dn=document.getElementById("dayNote"),dt=document.getElementById("dayNoteTxt");
+dn.classList.toggle("closed",op.classList.contains("closed"));dt.textContent="امروز "+days[wd]+" · "+ot.textContent+" · جمعه‌ها و تعطیلات رسمی تعطیل است";
+show(todayKey||"w");addEventListener("resize",()=>show(document.querySelector(".tabs button.on").dataset.t));
+
+})();
+</script>
+</body>
+</html>
